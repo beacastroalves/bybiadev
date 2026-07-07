@@ -29,19 +29,19 @@ export default function Navbar() {
         <a href="#" className="flex items-center gap-2 group">
           <div
             className={`w-8 h-8 flex items-center justify-center rounded-full overflow-hidden transition-colors ${
-              scrolled ? "bg-neutral-900 text-white" : "bg-white text-neutral-900"
+              scrolled ? "bg-[#534AB7] text-white" : "bg-white text-neutral-900"
             }`}
           >
-            <i className="ri-sparkling-2-fill text-sm"></i>
+            <i className="ri-code-box-line text-sm"></i>
           </div>
           <span
             className={`text-[15px] font-semibold tracking-tight transition-colors ${
               scrolled ? "text-neutral-900" : "text-white"
             }`}
           >
-            NOVA
+            ByBia
             <span className={scrolled ? "text-neutral-400 font-light" : "text-white/60 font-light"}>
-              /studio
+              /digital
             </span>
           </span>
         </a>
@@ -59,8 +59,8 @@ export default function Navbar() {
               href={link.href}
               className={`px-4 py-1.5 text-[13px] font-medium rounded-full transition-colors whitespace-nowrap ${
                 scrolled
-                  ? "text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100"
-                  : "text-white/90 hover:text-white hover:bg-white/15"
+                  ? "text-neutral-700 hover:text-[#534AB7] hover:bg-neutral-100"
+                  : "text-white/90 hover:text-[#02C39A] hover:bg-white/15"
               }`}
             >
               {link.label}
@@ -71,21 +71,13 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-3">
           <a
             href="#contact"
-            className={`text-[13px] font-medium px-3 py-2 transition-colors whitespace-nowrap ${
-              scrolled ? "text-neutral-700 hover:text-neutral-900" : "text-white/85 hover:text-white"
-            }`}
-          >
-            Sign in
-          </a>
-          <a
-            href="#start"
-            className={`group inline-flex items-center gap-2 text-[13px] font-medium px-4 py-2 rounded-full transition-all whitespace-nowrap ${
+            className={`group inline-flex items-center gap-2 text-[13px] font-medium px-5 py-2.5 rounded-full transition-all whitespace-nowrap ${
               scrolled
-                ? "bg-neutral-900 hover:bg-neutral-800 text-white"
-                : "bg-white hover:bg-white/90 text-neutral-900"
+                ? "bg-[#534AB7] hover:bg-[#433aa1] text-white"
+                : "bg-white hover:bg-[#02C39A] hover:text-white text-neutral-900"
             }`}
           >
-            Start a project
+            Iniciar um projeto
             <i className="ri-arrow-right-up-line transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
           </a>
         </div>
@@ -116,10 +108,10 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href="#start"
-            className="block mt-3 text-center bg-neutral-900 text-white text-sm font-medium px-4 py-3 rounded-full"
+            href="#contact"
+            className="block mt-3 text-center bg-[#534AB7] text-white text-sm font-medium px-4 py-3 rounded-full"
           >
-            Start a project
+            Iniciar um projeto
           </a>
         </div>
       )}
