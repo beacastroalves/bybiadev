@@ -1,148 +1,215 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next"; // Integrando o hook trilingue
 
-type Project = {
-  id: string;
-  title: string;
-  client: string;
-  year: string;
-  tag: string;
-  discipline: string;
-  image: string;
-};
+export default function Process() {
+  const [active, setActive] = useState(0);
+  const { t } = useTranslation();
 
-const projects: Project[] = [
-  {
-    id: "001",
-    title: "[Cliente 01] — Sistema de Marca",
-    client: "Identidade",
-    year: "2026",
-    tag: "Branding · Web",
-    discipline: "Design de Identidade & Web",
-    image: "https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=1400",
-  },
-  {
-    id: "002",
-    title: "[Cliente 02] — Site Institucional",
-    client: "Website",
-    year: "2025",
-    tag: "Web · SEO",
-    discipline: "Desenvolvimento & Otimização",
-    image: "https://images.pexels.com/photos/965989/pexels-photo-965989.jpeg?auto=compress&cs=tinysrgb&w=1400",
-  },
-  {
-    id: "003",
-    title: "[Cliente 03] — E-commerce",
-    client: "Loja Online",
-    year: "2025",
-    tag: "Web · UX",
-    discipline: "Loja Virtual Completa",
-    image: "https://images.pexels.com/photos/1366630/pexels-photo-1366630.jpeg?auto=compress&cs=tinysrgb&w=1400",
-  },
-  {
-    id: "004",
-    title: "[Cliente 04] — Identidade Visual",
-    client: "Identidade",
-    year: "2024",
-    tag: "Branding",
-    discipline: "Design Visual e Marca",
-    image: "https://images.pexels.com/photos/1130980/pexels-photo-1130980.jpeg?auto=compress&cs=tinysrgb&w=1400",
-  },
-];
-
-export default function Work() {
-  const [hovered, setHovered] = useState<string | null>(null);
+  // As chaves puxam exatamente as traduções estruturadas mantendo os tipos originais da Versão 0
+  // Array atualizada com a escala cromática da tua identidade visual
+  const steps = [
+    {
+      no: "01",
+      title: t("process.step1.title"),
+      week: t("process.step1.week"),
+      summary: t("process.step1.summary"),
+      deliverables: t("process.step1.deliv", { returnObjects: true }) as string[],
+      icon: "ri-mic-line",
+      accent: "#534AB7", // 1. Roxo Profundo/Escuro (Início, Imersão)
+      image: "https://images.pexels.com/photos/4144923/pexels-photo-4144923.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    },
+    {
+      no: "02",
+      title: t("process.step2.title"),
+      week: t("process.step2.week"),
+      summary: t("process.step2.summary"),
+      deliverables: t("process.step2.deliv", { returnObjects: true }) as string[],
+      icon: "ri-compasses-2-line",
+      accent: "#7F77DD", // 2. O teu Roxo Primário (Planeamento, Estrutura)
+      image: "https://images.pexels.com/photos/3201763/pexels-photo-3201763.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    },
+    {
+      no: "03",
+      title: t("process.step3.title"),
+      week: t("process.step3.week"),
+      summary: t("process.step3.summary"),
+      deliverables: t("process.step3.deliv", { returnObjects: true }) as string[],
+      icon: "ri-shape-line",
+      accent: "#9D8EFF", // 3. Roxo Médio/Aberto (Desenvolvimento, Código Ativo)
+      image: "https://images.pexels.com/photos/196645/pexels-photo-196645.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    },
+    {
+      no: "04",
+      title: t("process.step4.title"),
+      week: t("process.step4.week"),
+      summary: t("process.step4.summary"),
+      deliverables: t("process.step4.deliv", { returnObjects: true }) as string[],
+      icon: "ri-rocket-2-line",
+      accent: "#02C39A", // 4. Verde Menta Vibrante (Lançamento, Sucesso, Projeto no Ar!)
+      image: "https://images.pexels.com/photos/1029141/pexels-photo-1029141.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    },
+  ];
 
   return (
-    <section id="trabalho" className="relative bg-[#0F0E1A] text-white py-24 md:py-32">
+    <section
+      id="process"
+      className="relative bg-[#fafafa] text-neutral-900 py-24 md:py-32 overflow-hidden"
+    >
       <div className="px-6 md:px-10 lg:px-14">
+        {/* Eyebrow + headline - Versão 0 Pura */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14 md:mb-20">
           <div>
             <div className="flex items-center gap-2 mb-5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#02C39A]"></span>
-              <span className="text-[11px] font-mono tracking-[0.18em] text-white/60 uppercase">
-                • TRABALHO SELECIONADO · 2024 — 2026
+              <span className="w-1.5 h-1.5 rounded-full bg-neutral-900"></span>
+              <span className="text-[11px] font-mono-tech tracking-[0.18em] text-neutral-500 uppercase">
+                {t("process.label")}
               </span>
             </div>
-            <h2 className="font-serif text-[44px] md:text-[64px] lg:text-[76px] leading-[0.98] tracking-[-0.03em] text-balance">
-              Sites que recusam<br />
-              <span className="italic text-[#7F77DD]">parecer todos iguais.</span>
+            <h2 className="font-serif-display text-[44px] md:text-[64px] lg:text-[76px] leading-[0.98] tracking-[-0.03em] text-balance">
+              {t("process.headline.p1")}
+              <br />
+              <span className="italic text-neutral-400">{t("process.headline.p2")}</span>
             </h2>
           </div>
           <div className="max-w-sm">
-            <p className="text-[14px] md:text-[15px] leading-[1.65] text-white/65">
-              Uma seleção de projetos recentes — sites institucionais, lojas online e identidades visuais — cada um feito com atenção ao detalhe e pensado para converter.
+            <p className="text-[14px] md:text-[15px] leading-[1.65] text-neutral-600">
+              {t("process.description")}
             </p>
-            <a
-              href="#archive"
-              className="mt-5 inline-flex items-center gap-2 text-[13px] font-medium text-white/90 hover:text-[#02C39A] border-b border-white/30 hover:border-[#02C39A] pb-0.5 transition-colors whitespace-nowrap"
-            >
-              Ver o arquivo completo ↗
-            </a>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-7">
-          {projects.map((p, idx) => (
-            <a
-              key={p.id}
-              href={`#work-${p.id}`}
-              onMouseEnter={() => setHovered(p.id)}
-              onMouseLeave={() => setHovered(null)}
-              className={`group relative block rounded-2xl overflow-hidden border border-white/10 bg-white/[0.02] backdrop-blur-sm transition-all duration-500 ${
-                idx === 1 || idx === 3 ? "lg:mt-10" : ""
-              }`}
-            >
-              <div className="relative aspect-[16/10] w-full overflow-hidden">
-                <img
-                  src={p.image}
-                  alt={p.title}
-                  className="w-full h-full object-cover object-center transition-transform duration-[1200ms] group-hover:scale-[1.04]"
-                  draggable={false}
-                />
-                <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 bg-black/50 backdrop-blur-md border border-white/10 rounded-full px-3 py-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#02C39A]"></span>
-                  <span className="text-[10.5px] font-mono tracking-wider text-white/95 uppercase">
-                    {p.tag}
-                  </span>
-                </div>
-                <div
-                  className={`absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-[#02C39A] text-neutral-900 transition-all duration-500 ${
-                    hovered === p.id ? "opacity-100 scale-100" : "opacity-0 scale-75"
+        {/* Process layout - Versão 0 Pura */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 md:gap-7">
+          {/* Step list */}
+          <div className="lg:col-span-7 flex flex-col gap-3">
+            {steps.map((s, i) => {
+              const isActive = i === active;
+              return (
+                <button
+                  key={s.no}
+                  onClick={() => setActive(i)}
+                  className={`group text-left rounded-2xl border transition-all duration-500 overflow-hidden ${
+                    isActive
+                      ? "bg-neutral-900 text-white border-neutral-900"
+                      : "bg-white text-neutral-900 border-neutral-200 hover:border-neutral-400"
                   }`}
                 >
-                  <i className="ri-arrow-right-up-line text-base text-white"></i>
-                </div>
-                <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#0F0E1A] to-transparent pointer-events-none"></div>
-                <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between gap-4">
-                  <div>
-                    <div className="text-[10.5px] font-mono text-white/50 uppercase">
-                      {p.client} · {p.id}
+                  <div className="flex items-center gap-5 px-5 md:px-7 py-5">
+                    <div
+                      className={`font-serif-display text-[36px] md:text-[44px] leading-none transition-colors ${
+                        isActive ? "text-white" : "text-neutral-300"
+                      }`}
+                    >
+                      {s.no}
                     </div>
-                    <h3 className="mt-1 font-serif text-[22px] md:text-[26px] leading-tight text-white">
-                      {p.title}
-                    </h3>
+                    <div
+                      className={`w-11 h-11 flex items-center justify-center rounded-full transition-colors ${
+                        isActive ? "bg-white/10" : "bg-neutral-100"
+                      }`}
+                      style={isActive ? { backgroundColor: s.accent } : {}}
+                    >
+                      <i className={`${s.icon} text-lg ${isActive ? "text-white" : "text-neutral-700"}`}></i>
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-baseline gap-3">
+                        <h3 className="font-serif-display text-[24px] md:text-[28px] leading-none">
+                          {s.title}
+                        </h3>
+                        <span
+                          className={`text-[11px] font-mono-tech tracking-wider uppercase whitespace-nowrap ${
+                            isActive ? "text-white/60" : "text-neutral-400"
+                          }`}
+                        >
+                          {s.week}
+                        </span>
+                      </div>
+                    </div>
+                    <i
+                      className={`ri-arrow-down-s-line text-xl transition-transform ${
+                        isActive ? "rotate-180 text-white" : "text-neutral-400 group-hover:text-neutral-700"
+                      }`}
+                    ></i>
                   </div>
-                  <div className="hidden sm:block text-right">
-                    <span className="text-[11px] text-white/60 font-mono">{p.year}</span>
+
+                  {/* Expandable detail */}
+                  <div
+                    className={`grid transition-[grid-template-rows] duration-500 ease-out ${
+                      isActive ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                    }`}
+                  >
+                    <div className="overflow-hidden">
+                      <div className="px-5 md:px-7 pb-6 -mt-1">
+                        <p className="text-[14px] md:text-[15px] leading-[1.65] text-white/75 max-w-xl">
+                          {s.summary}
+                        </p>
+                        <div className="mt-4 flex flex-wrap gap-2">
+                          {s.deliverables.map((d) => (
+                            <span
+                              key={d}
+                              className="inline-flex items-center gap-1.5 text-[11px] font-mono-tech tracking-wider uppercase bg-white/10 border border-white/15 text-white/85 px-3 py-1 rounded-full"
+                            >
+                              <span
+                                className="w-1.5 h-1.5 rounded-full"
+                                style={{ backgroundColor: s.accent }}
+                              ></span>
+                              {d}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Image preview synced with active step - Versão 0 Pura */}
+          <div className="lg:col-span-5">
+            <div className="sticky top-28 rounded-2xl overflow-hidden bg-neutral-900 aspect-[4/5] lg:aspect-auto lg:h-[560px] relative">
+              {steps.map((s, i) => (
+                <img
+                  key={s.no}
+                  src={s.image}
+                  alt={s.title}
+                  className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-700 ${
+                    i === active ? "opacity-100 scale-100" : "opacity-0 scale-105"
+                  }`}
+                  draggable={false}
+                />
+              ))}
+              {/* Overlay info */}
+              <div className="absolute inset-x-0 bottom-0 p-5 md:p-6 bg-gradient-to-t from-black/75 via-black/30 to-transparent">
+                <div className="flex items-end justify-between gap-4">
+                  <div>
+                    <div className="text-[11px] font-mono-tech tracking-wider text-white/65 uppercase">
+                      Step · {steps[active].no} / 04
+                    </div>
+                    <div className="mt-1 font-serif-display text-[26px] md:text-[30px] text-white leading-tight">
+                      {steps[active].title}
+                    </div>
+                  </div>
+                  <div
+                    className="w-12 h-12 flex items-center justify-center rounded-full border border-white/20 backdrop-blur-md"
+                    style={{ backgroundColor: `${steps[active].accent}33` }}
+                  >
+                    <i className={`${steps[active].icon} text-lg text-white`}></i>
                   </div>
                 </div>
               </div>
-            </a>
-          ))}
-        </div>
 
-        {/* SECÇÃO 3 — TICKER AJUSTADO SEM MAREKTING */}
-        <div className="mt-24 md:mt-32 overflow-hidden border-y border-white/15 py-6">
-          <div className="flex gap-12 animate-marquee whitespace-nowrap text-white/40 font-serif text-[24px] md:text-[32px] italic">
-            {[
-              "Websites institucionais", "Landing pages de alta conversão", "Web Development", "Portfólios Digitais", "Arquitetura Web", "Código Limpo", "Otimização SEO",
-              "Websites institucionais", "Landing pages de alta conversão", "Web Development", "Portfólios Digitais", "Arquitetura Web", "Código Limpo", "Otimização SEO"
-            ].map((label, i) => (
-              <span key={i} className="flex items-center gap-12">
-                <span>{label}</span>
-                <span className="w-2 h-2 rounded-full bg-[#534AB7]"></span>
-              </span>
-            ))}
+              {/* Progress dots */}
+              <div className="absolute top-5 left-5 right-5 flex gap-1.5">
+                {steps.map((s, i) => (
+                  <span
+                    key={s.no}
+                    className={`flex-1 h-1 rounded-full transition-colors ${
+                      i <= active ? "bg-white" : "bg-white/25"
+                    }`}
+                  ></span>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>

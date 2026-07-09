@@ -24,7 +24,7 @@ const entries: Entry[] = [
     id: "b-02",
     category: "SEO Técnico",
     title: "SEO básico para pequenas empresas: o que realmente importa.",
-    excerpt: "Esquece as táticas complexas das agências. Aqui está como estruturar o código HTML e a velocidade de carregamento para seres encontrado em Portugal.",
+    excerpt: "Esquece as táticas complexas das agências. Aqui está como estruturar o código HTML e a velocidade de carregamento para ser encontrado de qualquer lugar do mundo.",
     date: "Jun 2026",
     read: "8 min",
     image: "https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=1200",
@@ -32,7 +32,7 @@ const entries: Entry[] = [
   {
     id: "b-03",
     category: "Opinião",
-    title: "Porque é que a maioria dos sites portugueses falham logo no primeiro scroll.",
+    title: "Porque é que a maioria dos sites falham logo no primeiro scroll.",
     excerpt: "Uma análise honesta sobre a sobrecarga de informação, templates idênticos e a falta de foco nas necessidades reais do utilizador autónomo.",
     date: "Mai 2026",
     read: "3 min",
@@ -131,33 +131,6 @@ export default function Journal() {
         ) : (
           <div className="text-center text-white/40 py-12 border border-dashed border-white/10 rounded-2xl">Sem notas publicadas nesta categoria.</div>
         )}
-
-        {/* SECÇÃO 7 — CONTACTO E NEWSLETTER */}
-        <div className="mt-24 relative rounded-2xl overflow-hidden border border-white/10 bg-[#0A0E1A]">
-          <div className="absolute inset-0 opacity-15 bg-grain pointer-events-none"></div>
-          <div className="relative p-8 md:p-12 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
-            <div className="max-w-md">
-              <div className="text-[11px] font-mono tracking-[0.18em] text-[#02C39A] uppercase mb-2">• CONTACTO · MENSAL</div>
-              <h3 className="font-serif text-[28px] md:text-[36px] leading-tight">Um email por mês. <span className="italic text-white/50">Sem spam.</span></h3>
-              <p className="mt-2 text-[13px] text-white/70">O melhor do que andei a construir, mais um recurso útil para o teu negócio digital.</p>
-            </div>
-
-            <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row items-stretch gap-2 w-full md:w-auto md:min-w-[420px]">
-              <div className="flex-1 flex items-center bg-white/5 border border-white/10 rounded-full pl-4 pr-1.5 py-1.5">
-                <input
-                  type="email" required value={email} onChange={(e) => setEmail(e.target.value)}
-                  placeholder="o-teu@email.pt" className="flex-1 bg-transparent text-[14px] text-white outline-none"
-                />
-                <button type="submit" className="bg-[#534AB7] hover:bg-[#433aa1] text-white text-[13px] font-medium px-4 py-2 rounded-full transition-colors">
-                  Subscrever →
-                </button>
-              </div>
-              <div className="text-[11px] text-white/40 sm:ml-2 flex items-center">
-                {subscribed ? <span className="text-[#02C39A]">Subscrito com sucesso!</span> : <>Sem ruído. Cancelar quando quiseres.</>}
-              </div>
-            </form>
-          </div>
-        </div>
       </div>
     </section>
   );

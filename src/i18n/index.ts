@@ -4,13 +4,18 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import messages from './local/index';
 
 i18n
-  .use(LanguageDetector)
+  .use(LanguageDetector) // Ativa o detetor automático do navegador
   .use(initReactI18next)
   .init({
-    lng: 'en',
-    fallbackLng: 'en',
+    fallbackLng: 'pt-BR',
     debug: false,
     resources: messages,
+
+    detection: {
+      order: ['navigator', 'querystring', 'cookie', 'localStorage'],
+      caches: ['localStorage', 'cookie'],
+    },
+
     interpolation: {
       escapeValue: false,
     },
