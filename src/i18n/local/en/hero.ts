@@ -4,6 +4,21 @@ const hero = {
   "nav.process": "Process",
   "nav.blog": "Blog",
   "nav.cta": "Start a project",
+  
+  "whatsapp.link": "https://wa.me/351915514394?text=I%20have%20a%20project%20and%20want%20to%20go%20digital%2C%20my%20name%20is%20",
+  
+  "prelaunch.nav.cta": "Chat on WhatsApp",
+  "prelaunch.hero.title.part1": "Coming ",
+  "prelaunch.hero.title.part2": " soon",
+  "prelaunch.hero.title.part3": "digital",
+  "prelaunch.hero.title.part4": "experiences.",
+  "prelaunch.hero.description": "Our website is currently under development. Soon, ByBia.dev will be live with high-performance web development, institutional websites, and landing pages. In the meantime, we are available for new projects and inquiries via email.",
+  "prelaunch.hero.btn.contact": "Chat on WhatsApp",
+  "prelaunch.hero.btn.github": "Visit GitHub",
+  "prelaunch.hero.stat.launch": "Launch Year",
+  "prelaunch.hero.stat.focus": "Studio Focus",
+  "prelaunch.hero.stat.code": "Methodology",
+  "prelaunch.hero.status": "⚠️ Under development",
 
   "hero.title.part1": "Code",
   "hero.title.part2": " that",

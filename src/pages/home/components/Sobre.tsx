@@ -41,7 +41,9 @@ export default function Studio() {
             </p>
             <div className="mt-6 flex items-center gap-3">
               <a
-                href="#contact"
+                href={t("whatsapp.link")}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-[#534AB7] hover:bg-[#433aa1] text-white text-[13px] font-medium px-5 py-3 rounded-full transition-all shadow-md"
               >
                 {t("about.btn.talk")}

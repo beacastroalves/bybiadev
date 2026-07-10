@@ -69,3 +69,176 @@
 button, a, [role="button"] {
   cursor: pointer;
 }
+
+@keyframes font-cycle {
+  /* Font 1 (0% to 20%) - Instrument Serif */
+  0.00% {
+    font-family: 'Instrument Serif', serif;
+    transform: translateY(-30px) rotateX(-90deg) scale(0.95);
+    opacity: 0;
+    transform-origin: top center;
+  }
+  2.50% {
+    font-family: 'Instrument Serif', serif;
+    transform: translateY(8px) rotateX(25deg) scale(1.05);
+    opacity: 1;
+    transform-origin: top center;
+  }
+  4.20% {
+    font-family: 'Instrument Serif', serif;
+    transform: translateY(-3px) rotateX(-8deg) scale(0.98);
+    opacity: 1;
+    transform-origin: top center;
+  }
+  5.50%, 16.50% {
+    font-family: 'Instrument Serif', serif;
+    transform: translateY(0) rotateX(0) scale(1);
+    opacity: 1;
+    transform-origin: top center;
+  }
+  20.00% {
+    font-family: 'Instrument Serif', serif;
+    transform: translateY(30px) rotateX(90deg) scale(0.95);
+    opacity: 0;
+    transform-origin: bottom center;
+  }
+
+  /* Font 2 (20% to 40%) - Bebas Neue */
+  20.01% {
+    font-family: 'Bebas Neue', sans-serif;
+    transform: translateY(-30px) rotateX(-90deg) scale(0.95);
+    opacity: 0;
+    transform-origin: top center;
+  }
+  22.50% {
+    font-family: 'Bebas Neue', sans-serif;
+    transform: translateY(8px) rotateX(25deg) scale(1.05);
+    opacity: 1;
+    transform-origin: top center;
+  }
+  24.20% {
+    font-family: 'Bebas Neue', sans-serif;
+    transform: translateY(-3px) rotateX(-8deg) scale(0.98);
+    opacity: 1;
+    transform-origin: top center;
+  }
+  25.50%, 36.50% {
+    font-family: 'Bebas Neue', sans-serif;
+    transform: translateY(0) rotateX(0) scale(1);
+    opacity: 1;
+    transform-origin: top center;
+  }
+  40.00% {
+    font-family: 'Bebas Neue', sans-serif;
+    transform: translateY(30px) rotateX(90deg) scale(0.95);
+    opacity: 0;
+    transform-origin: bottom center;
+  }
+
+  /* Font 3 (40% to 60%) - Syne */
+  40.01% {
+    font-family: 'Syne', sans-serif;
+    transform: translateY(-30px) rotateX(-90deg) scale(0.95);
+    opacity: 0;
+    transform-origin: top center;
+  }
+  42.50% {
+    font-family: 'Syne', sans-serif;
+    transform: translateY(8px) rotateX(25deg) scale(1.05);
+    opacity: 1;
+    transform-origin: top center;
+  }
+  44.20% {
+    font-family: 'Syne', sans-serif;
+    transform: translateY(-3px) rotateX(-8deg) scale(0.98);
+    opacity: 1;
+    transform-origin: top center;
+  }
+  45.50%, 56.50% {
+    font-family: 'Syne', sans-serif;
+    transform: translateY(0) rotateX(0) scale(1);
+    opacity: 1;
+    transform-origin: top center;
+  }
+  60.00% {
+    font-family: 'Syne', sans-serif;
+    transform: translateY(30px) rotateX(90deg) scale(0.95);
+    opacity: 0;
+    transform-origin: bottom center;
+  }
+
+  /* Font 4 (60% to 80%) - JetBrains Mono */
+  60.01% {
+    font-family: 'JetBrains Mono', monospace;
+    transform: translateY(-30px) rotateX(-90deg) scale(0.95);
+    opacity: 0;
+    transform-origin: top center;
+  }
+  62.50% {
+    font-family: 'JetBrains Mono', monospace;
+    transform: translateY(8px) rotateX(25deg) scale(1.05);
+    opacity: 1;
+    transform-origin: top center;
+  }
+  64.20% {
+    font-family: 'JetBrains Mono', monospace;
+    transform: translateY(-3px) rotateX(-8deg) scale(0.98);
+    opacity: 1;
+    transform-origin: top center;
+  }
+  65.50%, 76.50% {
+    font-family: 'JetBrains Mono', monospace;
+    transform: translateY(0) rotateX(0) scale(1);
+    opacity: 1;
+    transform-origin: top center;
+  }
+  80.00% {
+    font-family: 'JetBrains Mono', monospace;
+    transform: translateY(30px) rotateX(90deg) scale(0.95);
+    opacity: 0;
+    transform-origin: bottom center;
+  }
+
+  /* Font 5 (80% to 100%) - Cinzel */
+  80.01% {
+    font-family: 'Cinzel', serif;
+    transform: translateY(-30px) rotateX(-90deg) scale(0.95);
+    opacity: 0;
+    transform-origin: top center;
+  }
+  82.50% {
+    font-family: 'Cinzel', serif;
+    transform: translateY(8px) rotateX(25deg) scale(1.05);
+    opacity: 1;
+    transform-origin: top center;
+  }
+  84.20% {
+    font-family: 'Cinzel', serif;
+    transform: translateY(-3px) rotateX(-8deg) scale(0.98);
+    opacity: 1;
+    transform-origin: top center;
+  }
+  85.50%, 96.50% {
+    font-family: 'Cinzel', serif;
+    transform: translateY(0) rotateX(0) scale(1);
+    opacity: 1;
+    transform-origin: top center;
+  }
+  100.00% {
+    font-family: 'Cinzel', serif;
+    transform: translateY(30px) rotateX(90deg) scale(0.95);
+    opacity: 0;
+    transform-origin: bottom center;
+  }
+}
+
+.animate-font-cycle {
+  animation: font-cycle 3.5s linear infinite;
+  display: inline-block;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  vertical-align: bottom;
+  line-height: 0.95;
+  text-transform: uppercase;
+}

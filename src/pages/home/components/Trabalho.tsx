@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useTranslation } from "react-i18next";
 
 type Project = {
@@ -9,29 +9,32 @@ type Project = {
   tag: string;
   discipline: string;
   image: string;
-  accent: string; // Resgatado o suporte a cores customizadas por projeto[cite: 6]
+  accent: string;
+  video?: string; // Vídeo demonstrativo opcional
 };
 
 const projects: Project[] = [
   {
     id: "001",
-    title: "[Cliente 01] — Sistema de Marca",
-    client: "Identidade",
+    title: "Benedi — Clube de Psicologia",
+    client: "Benedi",
     year: "2026",
-    tag: "Branding · Web",
-    discipline: "Design & UI Dev",
-    image: "https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=1400",
-    accent: "#534AB7", // Teu Roxo Primário
+    tag: "Landing Page · Web",
+    discipline: "UI/UX Design · Dev",
+    image: "https://benediclube.com.br/assets/images/logo/meta-benedi.jpg",
+    accent: "#E55B7B", // Rosa/Coral da Benedi
+    video: "/videos/benedi.webm",
   },
   {
     id: "002",
-    title: "[Cliente 02] — Site Institucional",
-    client: "Website",
+    title: "Natural Talking — Aulas de Inglês",
+    client: "Natural Talking",
     year: "2025",
-    tag: "Web · SEO",
-    discipline: "Next.js · Performance",
-    image: "https://images.pexels.com/photos/965989/pexels-photo-965989.jpeg?auto=compress&cs=tinysrgb&w=1400",
-    accent: "#02C39A", // Teu Verde Menta
+    tag: "Landing Page · SEO",
+    discipline: "Desenv. Web · Performance",
+    image: "https://i.postimg.cc/cHmhWN6j/NYT-20260119-203332-0000.png",
+    accent: "#02C39A", // Verde Menta
+    video: "/videos/natural-talking.webm",
   },
   {
     id: "003",
@@ -55,8 +58,115 @@ const projects: Project[] = [
   },
 ];
 
+interface ProjectCardProps {
+  project: Project;
+  index: number;
+}
+
+function ProjectCard({ project: p, index: idx }: ProjectCardProps) {
+  const [isHovered, setIsHovered] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+    if (videoRef.current) {
+      videoRef.current.play().catch((err) => {
+        // Ignora erros de interrupção (ex: hover rápido)
+        console.log("Video playback interrupted or failed: ", err);
+      });
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+    if (videoRef.current) {
+      videoRef.current.pause();
+      // Reinicia o vídeo para o início ao sair com o mouse
+      videoRef.current.currentTime = 0;
+    }
+  };
+
+  return (
+    <a
+      href={`#work-${p.id}`}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      className={`group relative block rounded-2xl overflow-hidden border border-white/10 bg-white/[0.03] backdrop-blur-sm transition-all duration-500 ${
+        // Se for o Case 1 (idx 0) ou Case 3 (idx 2), eles alinham no topo sem margem adicional
+        idx === 0 || idx === 2 ? "lg:translate-y-0" : ""
+      } ${
+        // Apenas os Cases 2 (idx 1) e 4 (idx 3) recebem o recuo para criar o efeito cascata
+        idx === 1 || idx === 3 ? "lg:mt-10" : ""
+      }`}
+    >
+      {/* Image / Video Frame */}
+      <div className="relative aspect-[16/10] w-full overflow-hidden bg-neutral-950">
+        {p.video ? (
+          <video
+            ref={videoRef}
+            src={p.video}
+            poster={p.image}
+            muted
+            playsInline
+            loop
+            preload="metadata"
+            className="w-full h-full object-cover object-center transition-transform duration-[1200ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] group-hover:scale-[1.04]"
+          />
+        ) : (
+          <div
+            style={{ backgroundImage: `url(${p.image})` }}
+            className="w-full h-full bg-top bg-no-repeat bg-cover transition-[background-position] duration-[5000ms] ease-in-out group-hover:bg-bottom"
+            role="img"
+            aria-label={p.title}
+          />
+        )}
+        
+        {/* Tag chip dinâmica */}
+        <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 bg-black/40 backdrop-blur-md border border-white/15 rounded-full px-3 py-1">
+          <span
+            className="w-1.5 h-1.5 rounded-full"
+            style={{ backgroundColor: p.accent }}
+          ></span>
+          <span className="text-[10.5px] font-mono-tech tracking-wider text-white/90 uppercase">
+            {p.tag}
+          </span>
+        </div>
+
+        {/* Hover CTA interativo */}
+        <div
+          className={`absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-white text-neutral-900 transition-all duration-500 ${
+            isHovered ? "opacity-100 scale-100" : "opacity-0 scale-75"
+          }`}
+        >
+          <i className="ri-arrow-right-up-line text-base"></i>
+        </div>
+
+        {/* Escurecimento inferior gradiente nativo */}
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/70 to-transparent pointer-events-none"></div>
+        
+        {/* Metadados e Títulos */}
+        <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between gap-4">
+          <div>
+            <div className="text-[10.5px] font-mono-tech tracking-wider text-white/60 uppercase">
+              Case · {p.id} / {p.client}
+            </div>
+            <h3 className="mt-1 font-serif-display text-[22px] md:text-[26px] leading-tight text-white">
+              {p.title}
+            </h3>
+          </div>
+          <div className="hidden sm:block text-right">
+            <div className="text-[10.5px] font-mono-tech text-white/60 tracking-wider uppercase">
+              {p.year}
+            </div>
+            <div className="mt-0.5 text-[11px] text-white/75">{p.discipline}</div>
+          </div>
+        </div>
+      </div>
+    </a>
+  );
+}
+
 export default function Work() {
-  const [hovered, setHovered] = useState<string | null>(null);
   const { t } = useTranslation();
 
   // Carrega a array do ticker traduzida e duplica para criar o loop contínuo perfeito
@@ -67,7 +177,7 @@ export default function Work() {
     <section id="trabalho" className="relative bg-[#0F0E1A] text-white py-24 md:py-32">
       <div className="px-6 md:px-10 lg:px-14">
         
-        {/* Section header — Alinhado com tipografia original da Versão 0[cite: 6] */}
+        {/* Section header — Alinhado com tipografia original da Versão 0 */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14 md:mb-20">
           <div>
             <div className="flex items-center gap-2 mb-5">
@@ -95,77 +205,14 @@ export default function Work() {
           </div>
         </div>
 
-        {/* Projects grid — Restaurada a matemática exata de assimetria da Versão 0[cite: 6] */}
+        {/* Projects grid — Restaurada a matemática exata de assimetria da Versão 0 */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-7">
           {projects.map((p, idx) => (
-            <a
-              key={p.id}
-              href={`#work-${p.id}`}
-              onMouseEnter={() => setHovered(p.id)}
-              onMouseLeave={() => setHovered(null)}
-              className={`group relative block rounded-2xl overflow-hidden border border-white/10 bg-white/[0.03] backdrop-blur-sm transition-all duration-500 ${
-                // Se for o Case 1 (idx 0) ou Case 3 (idx 2), eles alinham no topo sem margem adicional
-                idx === 0 || idx === 2 ? "lg:translate-y-0" : ""
-              } ${
-                // Apenas os Cases 2 (idx 1) e 4 (idx 3) recebem o recuo para criar o efeito cascata
-                idx === 1 || idx === 3 ? "lg:mt-10" : ""
-              }`}
-            >
-              {/* Image Frame */}
-              <div className="relative aspect-[16/10] w-full overflow-hidden">
-                <img
-                  src={p.image}
-                  alt={p.title}
-                  className="w-full h-full object-cover object-center transition-transform duration-[1200ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] group-hover:scale-[1.06]"
-                  draggable={false}
-                />
-                
-                {/* Tag chip dinâmica */}
-                <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 bg-black/40 backdrop-blur-md border border-white/15 rounded-full px-3 py-1">
-                  <span
-                    className="w-1.5 h-1.5 rounded-full"
-                    style={{ backgroundColor: p.accent }}
-                  ></span>
-                  <span className="text-[10.5px] font-mono-tech tracking-wider text-white/90 uppercase">
-                    {p.tag}
-                  </span>
-                </div>
-
-                {/* Hover CTA interativo */}
-                <div
-                  className={`absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-white text-neutral-900 transition-all duration-500 ${
-                    hovered === p.id ? "opacity-100 scale-100" : "opacity-0 scale-75"
-                  }`}
-                >
-                  <i className="ri-arrow-right-up-line text-base"></i>
-                </div>
-
-                {/* Escurecimento inferior gradiente nativo */}
-                <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/70 to-transparent pointer-events-none"></div>
-                
-                {/* Metadados e Títulos */}
-                <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between gap-4">
-                  <div>
-                    <div className="text-[10.5px] font-mono-tech tracking-wider text-white/60 uppercase">
-                      Case · {p.id} / {p.client}
-                    </div>
-                    <h3 className="mt-1 font-serif-display text-[22px] md:text-[26px] leading-tight text-white">
-                      {p.title}
-                    </h3>
-                  </div>
-                  <div className="hidden sm:block text-right">
-                    <div className="text-[10.5px] font-mono-tech text-white/60 tracking-wider uppercase">
-                      {p.year}
-                    </div>
-                    <div className="mt-0.5 text-[11px] text-white/75">{p.discipline}</div>
-                  </div>
-                </div>
-              </div>
-            </a>
+            <ProjectCard key={p.id} project={p} index={idx} />
           ))}
         </div>
 
-        {/* Ticker / Marquee Horizontal — Integrado trilingue com fontes da Versão 0[cite: 6] */}
+        {/* Ticker / Marquee Horizontal — Integrado trilingue com fontes da Versão 0 */}
         <div className="mt-24 md:mt-32 overflow-hidden border-y border-white/10 py-5">
           <div className="flex gap-12 animate-marquee whitespace-nowrap text-white/40 font-serif-display text-[28px] md:text-[36px] italic">
             {doubledTicker.map((label, i) => (
