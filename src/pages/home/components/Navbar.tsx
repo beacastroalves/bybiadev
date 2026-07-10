@@ -184,9 +184,9 @@ export default function Navbar({ isPrelaunch }: { isPrelaunch?: boolean }) {
             className="text-left py-2 text-xs font-mono text-white/50 hover:text-white flex items-center gap-2 border-b border-white/5"
           >
             <i className="ri-global-line"></i>
-            {currentLangCode.startsWith("pt-br") && "Mudar região: 🇵🇹 Portugal"}
-            {(currentLangCode.startsWith("pt-pt") || currentLangCode === "pt") && "Mudar região: 🇬🇧 Global (EN)"}
-            {currentLangCode.startsWith("en") && "Mudar região: 🇧🇷 Brasil"}
+            {currentLangCode.startsWith("pt-br") && t("nav.lang.to_pt")}
+            {(currentLangCode.startsWith("pt-pt") || currentLangCode === "pt") && t("nav.lang.to_en")}
+            {currentLangCode.startsWith("en") && t("nav.lang.to_br")}
           </button>
 
           {/* CTA Mobile */}

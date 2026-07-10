@@ -11,6 +11,7 @@ const footer = {
   "footer.services.item3": "Web Applications",
   "footer.services.item4": "Design Systems",
   "footer.contact.title": "Contact",
+  "footer.nav.title": "Navigation",
   "footer.contact.country": "Portugal",
   "footer.copyright": "All rights reserved.",
   "footer.made_with": "Made with clean code"

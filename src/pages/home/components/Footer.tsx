@@ -72,12 +72,12 @@ export default function Footer({ isPrelaunch }: { isPrelaunch?: boolean }) {
           ) : (
             /* Coluna de Navegação Interna do Portfólio */
             <div className="md:col-span-3 md:col-start-7 flex flex-col gap-4">
-              <h4 className="text-[11px] font-mono tracking-wider text-white/40 uppercase">Navegação</h4>
+              <h4 className="text-[11px] font-mono tracking-wider text-white/40 uppercase">{t("footer.nav.title")}</h4>
               <ul className="flex flex-col gap-2.5 text-[13px]">
-                <li><a href="#trabalho" className="text-white/70 hover:text-[#02C39A] transition-colors">Trabalho</a></li>
-                <li><a href="#sobre" className="text-white/70 hover:text-[#02C39A] transition-colors">Sobre</a></li>
-                <li><a href="#processo" className="text-white/70 hover:text-[#02C39A] transition-colors">Processo</a></li>
-                <li><a href="#blog" className="text-white/70 hover:text-[#02C39A] transition-colors">Blog</a></li>
+                <li><a href="#trabalho" className="text-white/70 hover:text-[#02C39A] transition-colors">{t("nav.work")}</a></li>
+                <li><a href="#sobre" className="text-white/70 hover:text-[#02C39A] transition-colors">{t("nav.about")}</a></li>
+                <li><a href="#processo" className="text-white/70 hover:text-[#02C39A] transition-colors">{t("nav.process")}</a></li>
+                <li><a href="#blog" className="text-white/70 hover:text-[#02C39A] transition-colors">{t("nav.blog")}</a></li>
               </ul>
             </div>
           )}
