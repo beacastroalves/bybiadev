@@ -15,7 +15,7 @@ const hero = {
   "prelaunch.hero.title.part2": " soon",
   "prelaunch.hero.title.part3": "digital",
   "prelaunch.hero.title.part4": "experiences.",
-  "prelaunch.hero.description": "Our website is currently under development. Soon, ByBia.dev will be live with high-performance web development, institutional websites, and landing pages. In the meantime, we are available for new projects and inquiries via email.",
+  "prelaunch.hero.description": "Our website is currently under development. Soon, ByBia.dev will be live with high-performance web development, institutional websites, and landing pages. In the meantime, we are available for new projects and inquiries via whatsapp.",
   "prelaunch.hero.btn.contact": "Chat on WhatsApp",
   "prelaunch.hero.btn.github": "Visit GitHub",
   "prelaunch.hero.stat.launch": "Launch Year",

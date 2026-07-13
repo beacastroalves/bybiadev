@@ -7,13 +7,15 @@ const hero = {
   "nav.lang.to_en": "Alterar região: 🇬🇧 Global (EN)",
   "nav.lang.to_br": "Alterar região: 🇧🇷 Brasil",
   "nav.cta": "Iniciar um projeto",
+  
   "whatsapp.link": "https://wa.me/351915514394?text=Tenho%20um%20projeto%20e%20quero%20entrar%20no%20digital%2C%20meu%20nome%20%C3%A9%20",
+  
   "prelaunch.nav.cta": "Falar no WhatsApp",
   "prelaunch.hero.title.part1": "Logo ",
   "prelaunch.hero.title.part2": " mais",
   "prelaunch.hero.title.part3": "novas ideias",
   "prelaunch.hero.title.part4": "para o digital.",
-  "prelaunch.hero.description": "O nosso site está em desenvolvimento. Brevemente, a ByBia.dev estará online com soluções rápidas de desenvolvimento web, websites institucionais e landing pages de alta performance. Entretanto, estamos disponíveis para novos projetos e orçamentos por email.",
+  "prelaunch.hero.description": "O nosso site está em desenvolvimento. Brevemente, a ByBia.dev estará online com soluções de desenvolvimento web, websites institucionais e landing pages de alta performance. Entretanto, estamos disponíveis para novos projetos e orçamentos por whatsapp.",
   "prelaunch.hero.btn.contact": "Falar no WhatsApp",
   "prelaunch.hero.btn.github": "Ver GitHub",
   "prelaunch.hero.stat.launch": "Lançamento",
