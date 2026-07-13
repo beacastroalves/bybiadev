@@ -5,6 +5,7 @@ export default function Navbar({ isPrelaunch }: { isPrelaunch?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [langDropdownOpen, setLangDropdownOpen] = useState(false);
+  const [mobileLangOpen, setMobileLangOpen] = useState(false);
   const { t, i18n } = useTranslation(); // Instanciação do tradutor
 
   // Mapeamento dinâmico dos links com base nas chaves de tradução
@@ -68,7 +69,7 @@ export default function Navbar({ isPrelaunch }: { isPrelaunch?: boolean }) {
           </div>
           <span className="text-[13.5px] font-semibold tracking-tight text-white">
             ByBia
-            <span className="text-white/60 font-light">/digital</span>
+            <span className="text-white/60 font-light">/dev</span>
           </span>
         </a>
 
@@ -151,20 +152,79 @@ export default function Navbar({ isPrelaunch }: { isPrelaunch?: boolean }) {
           </a>
         </div>
 
-        {/* BOTÃO DO MENU MOBILE */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden w-10 h-10 flex items-center justify-center rounded-full border border-white/25 bg-white/10 text-white transition-colors"
-          aria-label="menu"
-        >
-          <i className={`${menuOpen ? "ri-close-line" : "ri-menu-line"} text-lg`}></i>
-        </button>
+        {/* CONTROLES DE CABEÇALHO MOBILE (Pré-Lançamento vs Normal) */}
+        {isPrelaunch ? (
+          <div className="flex md:hidden items-center gap-2">
+            {/* Seletor Trilingue Compacto Directo (UX Premium) */}
+            <div className="flex items-center gap-0.5 bg-white/5 border border-white/10 rounded-full p-1">
+              {languages.map((lang) => {
+                const isSelected = currentLang.code === lang.code;
+                return (
+                  <button
+                    key={lang.code}
+                    onClick={() => i18n.changeLanguage(lang.code)}
+                    className={`px-2.5 py-1 rounded-full text-[10px] font-mono font-bold tracking-wider transition-all duration-300 ${
+                      isSelected
+                        ? "bg-[#534AB7] text-white shadow-[0_2px_8px_rgba(83,74,183,0.4)]"
+                        : "text-white/40 hover:text-white/80"
+                    }`}
+                  >
+                    {lang.code === "pt-BR" ? "BR" : lang.code === "pt-PT" ? "PT" : "EN"}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* CTA WhatsApp Direto */}
+            <a
+              href={t("whatsapp.link")}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-9 h-9 flex items-center justify-center rounded-full bg-[#02C39A] hover:bg-[#02b38e] text-white transition-all shadow-[0_2px_12px_rgba(2,195,154,0.3)] active:scale-95"
+              aria-label={t("prelaunch.nav.cta")}
+            >
+              <i className="ri-whatsapp-line text-lg"></i>
+            </a>
+          </div>
+        ) : (
+          /* SITE NORMAL - CONTROLES MOBILE */
+          <div className="flex md:hidden items-center gap-2">
+            {/* Seletor Trilingue Compacto Directo no Header para facilidade de uso global */}
+            <div className="flex items-center gap-0.5 bg-white/5 border border-white/10 rounded-full p-1">
+              {languages.map((lang) => {
+                const isSelected = currentLang.code === lang.code;
+                return (
+                  <button
+                    key={lang.code}
+                    onClick={() => i18n.changeLanguage(lang.code)}
+                    className={`px-2.5 py-1 rounded-full text-[10px] font-mono font-bold tracking-wider transition-all duration-300 ${
+                      isSelected
+                        ? "bg-[#534AB7] text-white shadow-[0_2px_8px_rgba(83,74,183,0.4)]"
+                        : "text-white/40 hover:text-white/80"
+                    }`}
+                  >
+                    {lang.code === "pt-BR" ? "BR" : lang.code === "pt-PT" ? "PT" : "EN"}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* BOTÃO DO MENU MOBILE */}
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="w-10 h-10 flex items-center justify-center rounded-full border border-white/25 bg-white/10 text-white transition-colors"
+              aria-label="menu"
+            >
+              <i className={`${menuOpen ? "ri-close-line" : "ri-menu-line"} text-lg`}></i>
+            </button>
+          </div>
+        )}
       </div>
 
-      {/* MENU MOBILE INTERATIVO */}
-      {menuOpen && (
+      {/* MENU MOBILE INTERATIVO (Apenas para Landing Page Completa) */}
+      {!isPrelaunch && menuOpen && (
         <div className="md:hidden bg-[#0F0E1A] border-t border-white/10 px-6 py-5 flex flex-col gap-4 animate-fade-in">
-          {!isPrelaunch && navLinks.map((link) => (
+          {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
@@ -175,19 +235,51 @@ export default function Navbar({ isPrelaunch }: { isPrelaunch?: boolean }) {
             </a>
           ))}
           
-          {/* Alternador de idioma Mobile */}
-          <button
-            onClick={() => {
-              toggleLanguage();
-              setMenuOpen(false);
-            }}
-            className="text-left py-2 text-xs font-mono text-white/50 hover:text-white flex items-center gap-2 border-b border-white/5"
-          >
-            <i className="ri-global-line"></i>
-            {currentLangCode.startsWith("pt-br") && t("nav.lang.to_pt")}
-            {(currentLangCode.startsWith("pt-pt") || currentLangCode === "pt") && t("nav.lang.to_en")}
-            {currentLangCode.startsWith("en") && t("nav.lang.to_br")}
-          </button>
+          {/* Alternador de idioma Mobile Expandível (Dropdown/Accordion com Bandeiras e Nomes) */}
+          <div className="border-b border-white/5 pb-2">
+            <button
+              onClick={() => setMobileLangOpen(!mobileLangOpen)}
+              className="w-full flex items-center justify-between py-2 text-xs font-mono text-white/70 hover:text-white"
+            >
+              <div className="flex items-center gap-2">
+                <i className="ri-global-line text-sm text-[#02C39A]"></i>
+                <span>Idioma / Região:</span>
+                <span className="flex items-center gap-1.5 bg-white/5 px-2 py-0.5 rounded border border-white/10 text-white font-sans text-[10px]">
+                  <img src={currentLang.flag} alt="" className="w-3.5 h-2.5 object-cover rounded-[1px]" />
+                  {currentLang.label}
+                </span>
+              </div>
+              <i className={`ri-arrow-down-s-line transition-transform duration-300 ${mobileLangOpen ? "rotate-180" : ""}`}></i>
+            </button>
+            
+            {/* Opções expandidas de idioma */}
+            <div className={`overflow-hidden transition-all duration-300 ease-in-out ${mobileLangOpen ? "max-h-28 opacity-100 mt-2" : "max-h-0 opacity-0 pointer-events-none"}`}>
+              <div className="flex flex-col gap-2.5 pl-6 pb-2">
+                {languages.map((lang) => {
+                  const isSelected = currentLang.code === lang.code;
+                  return (
+                    <button
+                      key={lang.code}
+                      onClick={() => {
+                        i18n.changeLanguage(lang.code);
+                        setMobileLangOpen(false);
+                        setMenuOpen(false);
+                      }}
+                      className={`flex items-center gap-2.5 py-1 text-left text-xs transition-colors ${
+                        isSelected ? "text-[#02C39A] font-semibold" : "text-white/60 hover:text-white"
+                      }`}
+                    >
+                      <img src={lang.flag} alt="" className="w-4 h-3 object-cover rounded-[1px] border border-white/10" />
+                      <span>
+                        {lang.code === "pt-BR" ? "Português (Brasil)" : lang.code === "pt-PT" ? "Português (Portugal)" : "English (Global)"}
+                      </span>
+                      {isSelected && <i className="ri-checkbox-circle-fill text-[11px] text-[#02C39A] ml-auto"></i>}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
 
           {/* CTA Mobile */}
           <a
@@ -197,7 +289,7 @@ export default function Navbar({ isPrelaunch }: { isPrelaunch?: boolean }) {
             className="block text-center bg-[#534AB7] text-white text-sm font-medium px-4 py-3 rounded-full mt-2"
             onClick={() => setMenuOpen(false)}
           >
-            {isPrelaunch ? t("prelaunch.nav.cta") : t("nav.cta")}
+            {t("nav.cta")}
           </a>
         </div>
       )}

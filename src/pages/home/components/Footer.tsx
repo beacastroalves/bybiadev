@@ -49,7 +49,7 @@ export default function Footer({ isPrelaunch }: { isPrelaunch?: boolean }) {
                 <i className="ri-code-box-line text-xs"></i>
               </div>
               <span className="text-[14px] font-semibold tracking-tight text-white">
-                ByBia<span className="text-white/60 font-light">/digital</span>
+                ByBia<span className="text-white/60 font-light">/dev</span>
               </span>
             </a>
             <p className="text-[13px] text-white/50 leading-relaxed max-w-xs">
