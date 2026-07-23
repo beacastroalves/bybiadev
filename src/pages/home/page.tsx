@@ -9,6 +9,9 @@ import Footer from "./components/Footer";
 // Definir modo do site: true = Em Breve (Pre-Lançamento), false = Landing Page Completa
 export const isPrelaunch = true;
 
+// Blog só entra no ar quando houver artigos reais (ver specs/05 P0#5).
+const blogReady: boolean = false;
+
 export default function Home() {
   return (
     <div className="relative min-h-screen bg-[#fafafa] text-neutral-900">
@@ -36,7 +39,8 @@ export default function Home() {
             </div>
           </div>
           <Processo />
-          <Blog />
+          {/* Blog oculto até haver artigos reais — os posts atuais são fictícios (datas futuras, imagens de stock). Ver specs/05 P0#5. */}
+          {blogReady && <Blog />}
         </>
       )}
       

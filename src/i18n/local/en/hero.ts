@@ -7,15 +7,15 @@ const hero = {
   "nav.lang.to_en": "Change region: 🇬🇧 Global (EN)",
   "nav.lang.to_br": "Change region: 🇧🇷 Brasil",
   "nav.cta": "Start a project",
-  
+
   "whatsapp.link": "https://wa.me/351915514394?text=I%20have%20a%20project%20and%20want%20to%20go%20digital%2C%20my%20name%20is%20",
-  
+
   "prelaunch.nav.cta": "Chat on WhatsApp",
   "prelaunch.hero.title.part1": "Coming ",
   "prelaunch.hero.title.part2": " soon",
   "prelaunch.hero.title.part3": "digital",
   "prelaunch.hero.title.part4": "experiences.",
-  "prelaunch.hero.description": "Our website is currently under development. Soon, ByBia.dev will be live with high-performance web development, institutional websites, and landing pages. In the meantime, we are available for new projects and inquiries via whatsapp.",
+  "prelaunch.hero.description": "Our website is currently under development. Soon, ByBia.dev will be live with high-performance web development, institutional websites, and landing pages. In the meantime, we are available for new projects and inquiries via WhatsApp.",
   "prelaunch.hero.btn.contact": "Chat on WhatsApp",
   "prelaunch.hero.btn.github": "Visit GitHub",
   "prelaunch.hero.stat.launch": "Launch Year",
@@ -23,16 +23,16 @@ const hero = {
   "prelaunch.hero.stat.code": "Methodology",
   "prelaunch.hero.status": "⚠️ Under development",
 
-  "hero.title.part1": "Code",
-  "hero.title.part2": " that",
-  "hero.title.part3": "works harder,",
-  "hero.title.part4": "for your business.",
-  "hero.description": "ByBia.dev builds fast, purposeful websites and landing pages for businesses and independent professionals who want to grow online — without the agency overhead.",
+  "hero.title.part1": "A website ",
+  "hero.title.part2": "worthy of",
+  "hero.title.part3": "your business,",
+  "hero.title.part4": "built by hand.",
+  "hero.description": "Websites, landing pages, and institutional sites for small businesses and independent professionals. Fast, well-built, with SEO done right — a professional site that earns trust and turns visits into real contacts.",
   "hero.btn.work": "View projects",
   "hero.btn.process": "My process",
-  "hero.stat.projects": "Projects shipped",
-  "hero.stat.experience": "Web dev since",
-  "hero.stat.rating": "Client rating",
+  "hero.stat.direct": "Direct collaboration",
+  "hero.stat.experience": "Coding since",
+  "hero.stat.response": "Max response time",
   "hero.status": "Open for new projects",
 
   "work.label": "• SELECTED WORK · 2024 — 2026",
@@ -51,7 +51,7 @@ const hero = {
   "about.btn.manifesto": "Read the manifesto",
   "about.profile.role": "Independent Developer",
   "about.stat.1": "Dedicated to web engineering",
-  "about.stat.2": "Robust projects shipped",
+  "about.stat.2": "Working languages",
   "about.stat.3": "Direct collaboration",
   "about.stat.4": "Maximum response time",
 

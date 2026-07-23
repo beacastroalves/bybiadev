@@ -91,7 +91,7 @@ export default function Studio() {
             <div className="grid grid-cols-2 gap-3 md:gap-4">
               {[
                 { val: "2024", suff: "", lab: t("about.stat.1") },
-                { val: "12", suff: "", lab: t("about.stat.2") },
+                { val: "3", suff: "", lab: t("about.stat.2") },
                 { val: "100", suff: "%", lab: t("about.stat.3") },
                 { val: "48", suff: "h", lab: t("about.stat.4") }
               ].map((s) => (

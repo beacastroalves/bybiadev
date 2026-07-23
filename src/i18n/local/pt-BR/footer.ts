@@ -4,7 +4,7 @@ const footer = {
   "footer.cta.title.p2": "Vamos tirá-lo do papel.",
   "footer.cta.description": "Estou disponível para novos projetos de websites institucionais, landing pages e identidades de marca.",
   "footer.cta.btn": "Iniciar projeto ↗",
-  "footer.brand.description": "Desenvolvedora web independente criando soluções sólidas e código sob medida para o ecossistema digital.",
+  "footer.brand.description": "Desenvolvedora web independente que cria sites sólidos e rápidos, com código sob medida para pequenos negócios e profissionais.",
   "footer.services.title": "Serviços",
   "footer.services.item1": "Websites Premium",
   "footer.services.item2": "Landing Pages",

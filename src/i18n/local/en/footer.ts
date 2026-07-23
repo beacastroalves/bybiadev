@@ -4,7 +4,7 @@ const footer = {
   "footer.cta.title.p2": "Let's bring it to life.",
   "footer.cta.description": "I'm available for new projects including institutional websites, landing pages, and brand identities.",
   "footer.cta.btn": "Start project ↗",
-  "footer.brand.description": "Independent web developer creating solid solutions and tailor-made code for the digital ecosystem.",
+  "footer.brand.description": "Independent web developer building solid, fast websites and tailor-made code for small businesses and independent professionals.",
   "footer.services.title": "Services",
   "footer.services.item1": "Premium Websites",
   "footer.services.item2": "Landing Pages",

@@ -136,9 +136,9 @@ export default function Hero({ isPrelaunch }: { isPrelaunch?: boolean }) {
                 ) : (
                   <>
                     <div>
-                      <div className="font-serif-display text-[28px] leading-none text-white">12</div>
+                      <div className="font-serif-display text-[28px] leading-none text-white">100%</div>
                       <div className="mt-1.5 text-[11px] font-mono-tech tracking-wider text-white/60 uppercase">
-                        {t("hero.stat.projects")}
+                        {t("hero.stat.direct")}
                       </div>
                     </div>
                     <div className="border-l border-white/20 pl-4">
@@ -148,9 +148,9 @@ export default function Hero({ isPrelaunch }: { isPrelaunch?: boolean }) {
                       </div>
                     </div>
                     <div className="border-l border-white/20 pl-4">
-                      <div className="font-serif-display text-[28px] leading-none text-white">5★</div>
+                      <div className="font-serif-display text-[28px] leading-none text-white">48h</div>
                       <div className="mt-1.5 text-[11px] font-mono-tech tracking-wider text-white/60 uppercase">
-                        {t("hero.stat.rating")}
+                        {t("hero.stat.response")}
                       </div>
                     </div>
                   </>
