@@ -112,6 +112,12 @@ Todas as cores da marca nas classes passaram de hex arbitrário para tokens do `
 - **Gotcha encontrado:** cores **nomeadas** só aceitam opacidades da escala do Tailwind — `bg-brand/12` **não gera** (ao contrário do `bg-[#hex]/12` arbitrário). Corrigido para `/10`. Ao usar opacidades, ficar pelos valores da escala (…/10, /15, /20, /30, /35, /40…).
 - Verificado no browser: cores renderizam idênticas ao anterior. `tsc` + `vite build` limpos.
 
+## 6.2 Ritmo e variantes de botão (P2) — ✅ FEITO (2026-07-24)
+
+- **Variantes de botão** em `@layer components` (`index.css`): `.btn` (base: `px-6 py-3.5 rounded-full text-small font-medium gap-2 …`) + `.btn-primary` (roxo, `bg-brand hover:bg-brand-deep`), `.btn-secondary` (outline em fundo escuro), `.btn-invert` (branco, para o hero sobre vídeo). Uso: `className="btn btn-primary"`. Aplicado em Hero (2 CTAs), Sobre e Footer — padding antes divergia (`px-5/6/7`). Navbar mantém a sua versão compacta.
+- **Ritmo:** margem do bloco-cabeçalho→conteúdo unificada em `mb-14 md:mb-20` (Sobre era `mb-16 md:mb-24`, Blog `mb-12`; Trabalho/Processo já usavam). Eyebrows já estavam todos `mb-5`.
+- Verificado no browser; `tsc` + `vite build` limpos.
+
 ## 7. O que já está bom (manter)
 
 - Direção de arte coesa (serifada + mono + roxo/menta) e uso de `text-balance`.
@@ -151,9 +157,9 @@ Verificado no browser (1536px): hero 72, h2 48, h3 30. Hierarquia limpa (72›48
 
 **Nota de verificação:** mudanças ao `tailwind.config.ts` exigem **reiniciar** o dev server (o Vite não faz HMR fiável da config) — confirmar sempre com um servidor fresco.
 
-**P2 — polish:**
-8. Ritmo de espaçamento padrão (§5).
-9. Variantes de botão + eyebrow único (§6).
+**P2 — polish — ✅ FEITO (2026-07-24):**
+8. ✅ Ritmo de espaçamento padrão — margens de cabeçalho unificadas `mb-14 md:mb-20`, eyebrows `mb-5` (§6.2).
+9. ✅ Variantes de botão (`.btn` + `.btn-primary`/`.btn-secondary`/`.btn-invert`) aplicadas em Hero/Sobre/Footer; eyebrows já unificados no P1 (§6.2).
 
 ## Changelog
 - v1 (2026-07-24) — Auditoria UX/UI: 3 bugs de fonte/legibilidade verificados, 4 pontos de a11y, escala tipográfica de 8 papéis, plano de design tokens, roadmap P0–P2.

@@ -32,7 +32,7 @@ export default function Footer({ isPrelaunch }: { isPrelaunch?: boolean }) {
               href={t("whatsapp.link")} 
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-brand hover:bg-brand-deep text-white text-small font-medium px-7 py-3.5 rounded-full transition-all shadow-lg hover:scale-[1.02]"
+              className="btn btn-primary"
             >
               {t("footer.cta.btn")}
             </a>

@@ -19,7 +19,7 @@ export default function Studio() {
 
       <div className="relative mx-auto max-w-[1200px] px-6 md:px-10 lg:px-14">
         {/* Eyebrow + headline */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 mb-16 md:mb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 mb-14 md:mb-20">
           <div className="lg:col-span-7">
             <div className="flex items-center gap-2 mb-5">
               <span className="w-2 h-2 rounded-full bg-brand shadow-[0_0_0_4px_rgba(83,74,183,0.25)]"></span>
@@ -44,7 +44,7 @@ export default function Studio() {
                 href={t("whatsapp.link")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-brand hover:bg-brand-deep text-white text-small font-medium px-5 py-3 rounded-full transition-all shadow-md"
+                className="btn btn-primary"
               >
                 {t("about.btn.talk")}
               </a>

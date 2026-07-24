@@ -73,7 +73,7 @@ export default function Hero({ isPrelaunch }: { isPrelaunch?: boolean }) {
                       href={t("whatsapp.link")}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group inline-flex items-center justify-center gap-2 bg-white hover:bg-accent text-neutral-900 hover:text-white text-sm font-medium px-6 py-3.5 rounded-full transition-all whitespace-nowrap"
+                      className="group btn btn-invert"
                     >
                       {t("prelaunch.hero.btn.contact")}
                       <i className="ri-arrow-right-up-line text-base transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
@@ -82,7 +82,7 @@ export default function Hero({ isPrelaunch }: { isPrelaunch?: boolean }) {
                       href="https://github.com/beacastroalves"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 backdrop-blur-md border border-white/25 text-white text-sm font-medium px-6 py-3.5 rounded-full transition-all whitespace-nowrap"
+                      className="group btn btn-secondary"
                     >
                       <i className="ri-github-line text-base mr-1"></i>
                       {t("prelaunch.hero.btn.github")}
@@ -92,14 +92,14 @@ export default function Hero({ isPrelaunch }: { isPrelaunch?: boolean }) {
                   <>
                     <a
                       href="#trabalho"
-                      className="group inline-flex items-center justify-center gap-2 bg-white hover:bg-accent text-neutral-900 hover:text-white text-sm font-medium px-6 py-3.5 rounded-full transition-all whitespace-nowrap"
+                      className="group btn btn-invert"
                     >
                       {t("hero.btn.work")}
                       <i className="ri-arrow-right-up-line text-base transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
                     </a>
                     <a
                       href="#processo"
-                      className="group inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 backdrop-blur-md border border-white/25 text-white text-sm font-medium px-6 py-3.5 rounded-full transition-all whitespace-nowrap"
+                      className="group btn btn-secondary"
                     >
                       <span className="flex items-center justify-center w-5 h-5 rounded-full bg-white text-neutral-900">
                         <i className="ri-play-fill text-[10px]"></i>

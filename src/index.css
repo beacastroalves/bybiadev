@@ -26,6 +26,17 @@
   }
 }
 
+/* Variantes de botão reutilizáveis — padding/raio/tamanho consistentes.
+   Uso: className="btn btn-primary" | "btn btn-secondary" | "btn btn-invert". Ver specs/07 §6. */
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-small font-medium whitespace-nowrap transition-all;
+  }
+  .btn-primary  { @apply bg-brand text-white hover:bg-brand-deep shadow-md; }
+  .btn-secondary { @apply border border-white/25 bg-white/10 text-white backdrop-blur-md hover:bg-white/15; }
+  .btn-invert   { @apply bg-white text-neutral-900 hover:bg-accent hover:text-white; }
+}
+
 @keyframes float-slow {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-12px); }
