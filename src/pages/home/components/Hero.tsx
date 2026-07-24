@@ -28,8 +28,8 @@ export default function Hero({ isPrelaunch }: { isPrelaunch?: boolean }) {
       {/* Floating annotation - Ajustada a posição (top-20 md:top-28) para não ficar sobreposta ao texto no mobile */}
       <div className="flex absolute top-20 md:top-28 right-6 lg:right-10 z-20 items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full pl-2 pr-4 py-1.5 animate-fade-up-delay-3">
         <span className="relative flex w-2 h-2">
-          <span className="absolute inline-flex h-full w-full rounded-full bg-[#02C39A] opacity-75 animate-ping"></span>
-          <span className="relative inline-flex rounded-full h-2 w-2 bg-[#02C39A]"></span>
+          <span className="absolute inline-flex h-full w-full rounded-full bg-accent opacity-75 animate-ping"></span>
+          <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
         </span>
         <span className="text-caption font-mono-tech text-white/90 uppercase">
           {isPrelaunch ? t("prelaunch.hero.status") : t("hero.status")}
@@ -73,7 +73,7 @@ export default function Hero({ isPrelaunch }: { isPrelaunch?: boolean }) {
                       href={t("whatsapp.link")}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group inline-flex items-center justify-center gap-2 bg-white hover:bg-[#02C39A] text-neutral-900 hover:text-white text-sm font-medium px-6 py-3.5 rounded-full transition-all whitespace-nowrap"
+                      className="group inline-flex items-center justify-center gap-2 bg-white hover:bg-accent text-neutral-900 hover:text-white text-sm font-medium px-6 py-3.5 rounded-full transition-all whitespace-nowrap"
                     >
                       {t("prelaunch.hero.btn.contact")}
                       <i className="ri-arrow-right-up-line text-base transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
@@ -92,7 +92,7 @@ export default function Hero({ isPrelaunch }: { isPrelaunch?: boolean }) {
                   <>
                     <a
                       href="#trabalho"
-                      className="group inline-flex items-center justify-center gap-2 bg-white hover:bg-[#02C39A] text-neutral-900 hover:text-white text-sm font-medium px-6 py-3.5 rounded-full transition-all whitespace-nowrap"
+                      className="group inline-flex items-center justify-center gap-2 bg-white hover:bg-accent text-neutral-900 hover:text-white text-sm font-medium px-6 py-3.5 rounded-full transition-all whitespace-nowrap"
                     >
                       {t("hero.btn.work")}
                       <i className="ri-arrow-right-up-line text-base transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>

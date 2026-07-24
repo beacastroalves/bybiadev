@@ -4,19 +4,19 @@ export default function Footer({ isPrelaunch }: { isPrelaunch?: boolean }) {
   const { t } = useTranslation();
 
   return (
-    <footer className="relative bg-[#0F0E1A] border-t border-white/10 text-white pt-20 pb-12 overflow-hidden">
+    <footer className="relative bg-ink border-t border-white/10 text-white pt-20 pb-12 overflow-hidden">
       {/* Efeito granulado de estúdio herdado */}
       <div className="absolute inset-0 opacity-15 bg-grain pointer-events-none"></div>
       
       {/* Blob decorativo roxo sutil no fundo */}
-      <div className="absolute -bottom-40 -left-40 w-[420px] h-[420px] rounded-full bg-[#534AB7]/10 blur-3xl pointer-events-none"></div>
+      <div className="absolute -bottom-40 -left-40 w-[420px] h-[420px] rounded-full bg-brand/10 blur-3xl pointer-events-none"></div>
 
       <div className="relative px-6 md:px-10 lg:px-14 max-w-[1200px] mx-auto">
         
         {/* PARTE SUPERIOR: Bloco de Chamada para Ação (CTA) Direto */}
         <div className="relative p-8 md:p-12 rounded-2xl border border-white/10 bg-white/[0.02] flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-16">
           <div className="max-w-xl">
-            <div className="text-caption font-mono-tech text-[#02C39A] uppercase mb-2">
+            <div className="text-caption font-mono-tech text-accent uppercase mb-2">
               {t("footer.cta.eyebrow")}
             </div>
             <h3 className="font-serif text-h3">
@@ -32,7 +32,7 @@ export default function Footer({ isPrelaunch }: { isPrelaunch?: boolean }) {
               href={t("whatsapp.link")} 
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[#534AB7] hover:bg-[#433aa1] text-white text-small font-medium px-7 py-3.5 rounded-full transition-all shadow-lg hover:scale-[1.02]"
+              className="inline-flex items-center gap-2 bg-brand hover:bg-brand-deep text-white text-small font-medium px-7 py-3.5 rounded-full transition-all shadow-lg hover:scale-[1.02]"
             >
               {t("footer.cta.btn")}
             </a>
@@ -45,7 +45,7 @@ export default function Footer({ isPrelaunch }: { isPrelaunch?: boolean }) {
           {/* Coluna de Marca */}
           <div className="md:col-span-5 flex flex-col gap-4">
             <a href="#" className="flex items-center gap-1.5 group w-max">
-              <div className="w-6 h-6 flex items-center justify-center rounded-full overflow-hidden bg-[#534AB7] text-white">
+              <div className="w-6 h-6 flex items-center justify-center rounded-full overflow-hidden bg-brand text-white">
                 <i className="ri-code-box-line text-xs"></i>
               </div>
               <span className="text-small font-semibold tracking-tight text-white">
@@ -74,10 +74,10 @@ export default function Footer({ isPrelaunch }: { isPrelaunch?: boolean }) {
             <div className="md:col-span-3 md:col-start-7 flex flex-col gap-4">
               <h4 className="text-caption font-mono-tech text-white/60 uppercase">{t("footer.nav.title")}</h4>
               <ul className="flex flex-col gap-2.5 text-small">
-                <li><a href="#trabalho" className="text-white/70 hover:text-[#02C39A] transition-colors">{t("nav.work")}</a></li>
-                <li><a href="#sobre" className="text-white/70 hover:text-[#02C39A] transition-colors">{t("nav.about")}</a></li>
-                <li><a href="#processo" className="text-white/70 hover:text-[#02C39A] transition-colors">{t("nav.process")}</a></li>
-                <li><a href="#blog" className="text-white/70 hover:text-[#02C39A] transition-colors">{t("nav.blog")}</a></li>
+                <li><a href="#trabalho" className="text-white/70 hover:text-accent transition-colors">{t("nav.work")}</a></li>
+                <li><a href="#sobre" className="text-white/70 hover:text-accent transition-colors">{t("nav.about")}</a></li>
+                <li><a href="#processo" className="text-white/70 hover:text-accent transition-colors">{t("nav.process")}</a></li>
+                <li><a href="#blog" className="text-white/70 hover:text-accent transition-colors">{t("nav.blog")}</a></li>
               </ul>
             </div>
           )}
@@ -87,12 +87,12 @@ export default function Footer({ isPrelaunch }: { isPrelaunch?: boolean }) {
             <h4 className="text-caption font-mono-tech text-white/60 uppercase">{t("footer.contact.title")}</h4>
             <ul className="flex flex-col gap-2.5 text-small">
               <li>
-                <a href="mailto:contact@bybia.dev" className="text-white/70 hover:text-[#02C39A] transition-colors flex items-center gap-2">
+                <a href="mailto:contact@bybia.dev" className="text-white/70 hover:text-accent transition-colors flex items-center gap-2">
                   <i className="ri-mail-line text-neutral-500"></i> contact@bybia.dev
                 </a>
               </li>
               <li>
-                <a href="https://github.com/beacastroalves" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-[#02C39A] transition-colors flex items-center gap-2">
+                <a href="https://github.com/beacastroalves" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-accent transition-colors flex items-center gap-2">
                   <i className="ri-github-line text-neutral-500"></i> GitHub
                 </a>
               </li>
@@ -111,7 +111,7 @@ export default function Footer({ isPrelaunch }: { isPrelaunch?: boolean }) {
             © {new Date().getFullYear()} ByBia.dev. {t("footer.copyright")}
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#02C39A]"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
             <span>{t("footer.made_with")}</span>
           </div>
         </div>

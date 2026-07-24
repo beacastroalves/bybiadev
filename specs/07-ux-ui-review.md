@@ -103,6 +103,15 @@ Ganhos: trocar a paleta/fonte num sítio; base pronta para **dark/light mode**; 
 
 ---
 
+## 6.1 Migração de cores → tokens — ✅ FEITA (2026-07-24)
+
+Todas as cores da marca nas classes passaram de hex arbitrário para tokens do `tailwind.config`:
+`[#534AB7]`→`brand`, `[#433aa1]`→`brand-deep`, `[#7F77DD]`→`brand-soft`, `[#9D8EFF]`→`brand-light`, `[#02C39A]`→`accent`, `[#0F0E1A]`→`ink`, `[#f3ede4]`→`cream`, `[#fafafa]`→`paper`. Aplica-se a `bg-`, `text-`, `border-`, `from-/via-`, `hover:` e variantes de opacidade (`bg-brand/15` etc.).
+
+- **Deixados como arbitrário** (sem token): `#0a0a0a` (fundo near-black do hero) e `#02b38e` (1 hover). Os `rgba(...)` em shadows e o `style` inline do Sobre também ficam.
+- **Gotcha encontrado:** cores **nomeadas** só aceitam opacidades da escala do Tailwind — `bg-brand/12` **não gera** (ao contrário do `bg-[#hex]/12` arbitrário). Corrigido para `/10`. Ao usar opacidades, ficar pelos valores da escala (…/10, /15, /20, /30, /35, /40…).
+- Verificado no browser: cores renderizam idênticas ao anterior. `tsc` + `vite build` limpos.
+
 ## 7. O que já está bom (manter)
 
 - Direção de arte coesa (serifada + mono + roxo/menta) e uso de `text-balance`.
@@ -125,7 +134,20 @@ Ganhos: trocar a paleta/fonte num sítio; base pronta para **dark/light mode**; 
 6. ✅ Tokens de cor da marca definidos no config (`brand`/`accent`/`ink`/`cream`/`paper`) para adoção gradual (migração hex→token fica como follow-up incremental).
 7. ✅ `prefers-reduced-motion` (desliga shimmer/marquee/font-cycle/float e encurta transições) + `:focus-visible` (anel roxo) no `index.css`.
 
-**Afinação pós-feedback (2026-07-24):** títulos estavam pequenos no desktop e labels/navbar demasiado espaçados → `h2` 72→**80px** máx, `h3` 32→**36px**, `display` 104→**108px**; `caption` letter-spacing 0.18→**0.1em** (mais minimal); `small` 14→**13px** (navbar/rodapé). Verificado no browser.
+**Afinação pós-feedback (2026-07-24):** títulos estavam pequenos no desktop e labels/navbar demasiado espaçados → `h2` 72→80px máx, `h3` 32→36px, `display` 104→108px; `caption` letter-spacing 0.18→**0.1em** (mais minimal); `small` 14→**13px** (navbar/rodapé).
+
+**Recalibração best-practice (2026-07-24):** 108/80px era escala editorial, grande demais para landing page (prejudica leitura e conversão). Ancorada numa escala modular restrained, valores desktop dentro da norma de sites bem desenhados (hero 56–72, secções 36–48, h3 24–30):
+
+| Papel | Mobile → Desktop | clamp |
+|---|---|---|
+| `display` (hero) | 40 → **72px** | `clamp(2.5rem, 1.5rem + 4.4vw, 4.5rem)` |
+| `h2` (secções) | 32 → **48px** | `clamp(2rem, 1.45rem + 2.4vw, 3rem)` |
+| `h3` (cartões) | 24 → **30px** | `clamp(1.5rem, 1.25rem + 1.1vw, 1.875rem)` |
+| `h4` | 19 → 22px | `clamp(1.1875rem, 1.05rem + 0.55vw, 1.375rem)` |
+| `body-lg` / `body` | 18 / 16px | — |
+| `small` / `caption` | 13 / 11px | — |
+
+Verificado no browser (1536px): hero 72, h2 48, h3 30. Hierarquia limpa (72›48›30›16), hero cabe no ecrã, headlines longas do funil em 2 linhas.
 
 **Nota de verificação:** mudanças ao `tailwind.config.ts` exigem **reiniciar** o dev server (o Vite não faz HMR fiável da config) — confirmar sempre com um servidor fresco.
 

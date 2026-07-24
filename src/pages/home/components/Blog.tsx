@@ -59,14 +59,14 @@ export default function Journal() {
   };
 
   return (
-    <section id="blog" className="relative bg-[#0F0E1A] text-white py-24 md:py-32 overflow-hidden">
-      <div className="absolute -top-40 right-0 w-[520px] h-[520px] rounded-full bg-[#534AB7]/10 blur-3xl pointer-events-none"></div>
+    <section id="blog" className="relative bg-ink text-white py-24 md:py-32 overflow-hidden">
+      <div className="absolute -top-40 right-0 w-[520px] h-[520px] rounded-full bg-brand/10 blur-3xl pointer-events-none"></div>
 
       <div className="relative mx-auto max-w-[1200px] px-6 md:px-10 lg:px-14">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
           <div>
             <div className="flex items-center gap-2 mb-5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#02C39A]"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
               <span className="text-caption font-mono-tech text-white/60 uppercase">
                 • O BLOG · NOTAS DO DIGITAL
               </span>
@@ -102,13 +102,13 @@ export default function Journal() {
             <a href={`#${feature.id}`} className="lg:col-span-7 group block rounded-2xl overflow-hidden border border-white/10 bg-white/[0.02]">
               <div className="relative aspect-[16/10] w-full overflow-hidden">
                 <img src={feature.image} alt={feature.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102" />
-                <div className="absolute top-4 left-4 bg-black/50 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 text-caption uppercase text-[#02C39A]">
+                <div className="absolute top-4 left-4 bg-black/50 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 text-caption uppercase text-accent">
                   Destaque · {feature.category}
                 </div>
               </div>
               <div className="p-6">
                 <div className="text-caption font-mono-tech text-white/65 uppercase">{feature.date} · {feature.read} de leitura</div>
-                <h3 className="mt-2 font-serif text-h3 group-hover:text-[#02C39A] transition-colors">{feature.title}</h3>
+                <h3 className="mt-2 font-serif text-h3 group-hover:text-accent transition-colors">{feature.title}</h3>
                 <p className="mt-2 text-small text-white/65">{feature.excerpt}</p>
               </div>
             </a>
@@ -120,8 +120,8 @@ export default function Journal() {
                     <img src={e.image} alt={e.title} className="w-full h-full object-cover" />
                   </div>
                   <div className="flex flex-col justify-center min-w-0">
-                    <div className="text-caption font-mono-tech text-[#02C39A] uppercase">{e.category} · {e.read}</div>
-                    <h4 className="mt-1 font-serif text-h4 group-hover:text-[#02C39A] transition-colors line-clamp-2">{e.title}</h4>
+                    <div className="text-caption font-mono-tech text-accent uppercase">{e.category} · {e.read}</div>
+                    <h4 className="mt-1 font-serif text-h4 group-hover:text-accent transition-colors line-clamp-2">{e.title}</h4>
                     <span className="text-[11px] text-white/60 mt-1">{e.date}</span>
                   </div>
                 </a>

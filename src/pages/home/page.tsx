@@ -18,7 +18,7 @@ const blogReady: boolean = false;
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen bg-[#fafafa] text-neutral-900">
+    <div className="relative min-h-screen bg-paper text-neutral-900">
       <Navbar isPrelaunch={isPrelaunch} />
       <Hero isPrelaunch={isPrelaunch} />
       
@@ -39,7 +39,7 @@ export default function Home() {
               
               {/* Detalhe ou Badge central */}
               <div className="flex items-center gap-2 px-4 py-1 rounded-full bg-neutral-900/10 border border-white/95 text-[10px] font-mono-tech tracking-[0.2em] text-neutral-400 uppercase select-none">
-                <span className="w-1 h-1 rounded-full bg-[#02C39A]"></span>
+                <span className="w-1 h-1 rounded-full bg-accent"></span>
                 <span>ByBia.Dev</span>
               </div>
               

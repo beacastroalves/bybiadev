@@ -52,7 +52,7 @@ export default function Navbar({ isPrelaunch }: { isPrelaunch?: boolean }) {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-[#0F0E1A]/80 backdrop-blur-xl border-b border-white/10"
+          ? "bg-ink/80 backdrop-blur-xl border-b border-white/10"
           : "bg-transparent"
       }`}
     >
@@ -62,7 +62,7 @@ export default function Navbar({ isPrelaunch }: { isPrelaunch?: boolean }) {
         <a href="#" className="flex items-center gap-1.5 group">
           <div
             className={`w-6 h-6 flex items-center justify-center rounded-full overflow-hidden transition-colors ${
-              scrolled ? "bg-[#534AB7] text-white" : "bg-white text-neutral-900"
+              scrolled ? "bg-brand text-white" : "bg-white text-neutral-900"
             }`}
           >
             <i className="ri-code-box-line text-xs"></i>
@@ -86,7 +86,7 @@ export default function Navbar({ isPrelaunch }: { isPrelaunch?: boolean }) {
               <a
                 key={link.label}
                 href={link.href}
-                className="px-4 py-1.5 text-small font-medium rounded-full text-white/90 hover:text-[#02C39A] hover:bg-white/5 transition-colors whitespace-nowrap"
+                className="px-4 py-1.5 text-small font-medium rounded-full text-white/90 hover:text-accent hover:bg-white/5 transition-colors whitespace-nowrap"
               >
                 {link.label}
               </a>
@@ -113,7 +113,7 @@ export default function Navbar({ isPrelaunch }: { isPrelaunch?: boolean }) {
                 {/* Backdrop invisível para fechar ao clicar fora */}
                 <div className="fixed inset-0 z-40" onClick={() => setLangDropdownOpen(false)}></div>
                 
-                <div className="absolute right-0 mt-2 w-28 bg-[#0F0E1A]/95 backdrop-blur-xl border border-white/10 rounded-xl py-1 shadow-[0_8px_32px_0_rgba(0,0,0,0.5)] z-50 overflow-hidden">
+                <div className="absolute right-0 mt-2 w-28 bg-ink/95 backdrop-blur-xl border border-white/10 rounded-xl py-1 shadow-[0_8px_32px_0_rgba(0,0,0,0.5)] z-50 overflow-hidden">
                   {languages.map((lang) => (
                     <button
                       key={lang.code}
@@ -123,7 +123,7 @@ export default function Navbar({ isPrelaunch }: { isPrelaunch?: boolean }) {
                       }}
                       className={`w-full flex items-center gap-2 px-3 py-2 text-left text-caption font-mono-tech transition-colors ${
                         currentLang.code === lang.code
-                          ? "text-[#02C39A] bg-white/5"
+                          ? "text-accent bg-white/5"
                           : "text-white/80 hover:bg-white/5 hover:text-white"
                       }`}
                     >
@@ -143,8 +143,8 @@ export default function Navbar({ isPrelaunch }: { isPrelaunch?: boolean }) {
             rel="noopener noreferrer"
             className={`group inline-flex items-center gap-2 text-small font-medium px-4 py-2 rounded-full transition-all whitespace-nowrap ${
               scrolled
-                ? "bg-[#534AB7] hover:bg-[#433aa1] text-white"
-                : "bg-white hover:bg-[#02C39A] hover:text-white text-neutral-900"
+                ? "bg-brand hover:bg-brand-deep text-white"
+                : "bg-white hover:bg-accent hover:text-white text-neutral-900"
             }`}
           >
             {isPrelaunch ? t("prelaunch.nav.cta") : t("nav.cta")}
@@ -165,7 +165,7 @@ export default function Navbar({ isPrelaunch }: { isPrelaunch?: boolean }) {
                     onClick={() => i18n.changeLanguage(lang.code)}
                     className={`px-2.5 py-1 rounded-full text-caption font-mono-tech font-bold transition-all duration-300 ${
                       isSelected
-                        ? "bg-[#534AB7] text-white shadow-[0_2px_8px_rgba(83,74,183,0.4)]"
+                        ? "bg-brand text-white shadow-[0_2px_8px_rgba(83,74,183,0.4)]"
                         : "text-white/40 hover:text-white/80"
                     }`}
                   >
@@ -180,7 +180,7 @@ export default function Navbar({ isPrelaunch }: { isPrelaunch?: boolean }) {
               href={t("whatsapp.link")}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-9 h-9 flex items-center justify-center rounded-full bg-[#02C39A] hover:bg-[#02b38e] text-white transition-all shadow-[0_2px_12px_rgba(2,195,154,0.3)] active:scale-95"
+              className="w-9 h-9 flex items-center justify-center rounded-full bg-accent hover:bg-[#02b38e] text-white transition-all shadow-[0_2px_12px_rgba(2,195,154,0.3)] active:scale-95"
               aria-label={t("prelaunch.nav.cta")}
             >
               <i className="ri-whatsapp-line text-lg"></i>
@@ -199,7 +199,7 @@ export default function Navbar({ isPrelaunch }: { isPrelaunch?: boolean }) {
                     onClick={() => i18n.changeLanguage(lang.code)}
                     className={`px-2.5 py-1 rounded-full text-caption font-mono-tech font-bold transition-all duration-300 ${
                       isSelected
-                        ? "bg-[#534AB7] text-white shadow-[0_2px_8px_rgba(83,74,183,0.4)]"
+                        ? "bg-brand text-white shadow-[0_2px_8px_rgba(83,74,183,0.4)]"
                         : "text-white/40 hover:text-white/80"
                     }`}
                   >
@@ -223,12 +223,12 @@ export default function Navbar({ isPrelaunch }: { isPrelaunch?: boolean }) {
 
       {/* MENU MOBILE INTERATIVO (Apenas para Landing Page Completa) */}
       {!isPrelaunch && menuOpen && (
-        <div className="md:hidden bg-[#0F0E1A] border-t border-white/10 px-6 py-5 flex flex-col gap-4 animate-fade-in">
+        <div className="md:hidden bg-ink border-t border-white/10 px-6 py-5 flex flex-col gap-4 animate-fade-in">
           {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
-              className="block py-2 text-sm font-medium text-white/80 hover:text-[#02C39A] border-b border-white/5 last:border-0"
+              className="block py-2 text-sm font-medium text-white/80 hover:text-accent border-b border-white/5 last:border-0"
               onClick={() => setMenuOpen(false)}
             >
               {link.label}
@@ -242,7 +242,7 @@ export default function Navbar({ isPrelaunch }: { isPrelaunch?: boolean }) {
               className="w-full flex items-center justify-between py-2 text-xs font-mono text-white/70 hover:text-white"
             >
               <div className="flex items-center gap-2">
-                <i className="ri-global-line text-sm text-[#02C39A]"></i>
+                <i className="ri-global-line text-sm text-accent"></i>
                 <span>Idioma / Região:</span>
                 <span className="flex items-center gap-1.5 bg-white/5 px-2 py-0.5 rounded border border-white/10 text-white font-sans text-[10px]">
                   <img src={currentLang.flag} alt="" className="w-3.5 h-2.5 object-cover rounded-[1px]" />
@@ -266,14 +266,14 @@ export default function Navbar({ isPrelaunch }: { isPrelaunch?: boolean }) {
                         setMenuOpen(false);
                       }}
                       className={`flex items-center gap-2.5 py-1 text-left text-xs transition-colors ${
-                        isSelected ? "text-[#02C39A] font-semibold" : "text-white/60 hover:text-white"
+                        isSelected ? "text-accent font-semibold" : "text-white/60 hover:text-white"
                       }`}
                     >
                       <img src={lang.flag} alt="" className="w-4 h-3 object-cover rounded-[1px] border border-white/10" />
                       <span>
                         {lang.code === "pt-BR" ? "Português (Brasil)" : lang.code === "pt-PT" ? "Português (Portugal)" : "English (Global)"}
                       </span>
-                      {isSelected && <i className="ri-checkbox-circle-fill text-[11px] text-[#02C39A] ml-auto"></i>}
+                      {isSelected && <i className="ri-checkbox-circle-fill text-[11px] text-accent ml-auto"></i>}
                     </button>
                   );
                 })}
@@ -286,7 +286,7 @@ export default function Navbar({ isPrelaunch }: { isPrelaunch?: boolean }) {
             href={t("whatsapp.link")}
             target="_blank"
             rel="noopener noreferrer"
-            className="block text-center bg-[#534AB7] text-white text-sm font-medium px-4 py-3 rounded-full mt-2"
+            className="block text-center bg-brand text-white text-sm font-medium px-4 py-3 rounded-full mt-2"
             onClick={() => setMenuOpen(false)}
           >
             {t("nav.cta")}

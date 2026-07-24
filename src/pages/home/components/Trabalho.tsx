@@ -174,14 +174,14 @@ export default function Work() {
   const doubledTicker = [...tickerItems, ...tickerItems];
 
   return (
-    <section id="trabalho" className="relative bg-[#0F0E1A] text-white py-24 md:py-32">
+    <section id="trabalho" className="relative bg-ink text-white py-24 md:py-32">
       <div className="mx-auto max-w-[1200px] px-6 md:px-10 lg:px-14">
 
         {/* Section header — Alinhado com tipografia original da Versão 0 */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14 md:mb-20">
           <div>
             <div className="flex items-center gap-2 mb-5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#02C39A] animate-pulse"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse"></span>
               <span className="text-caption font-mono-tech text-white/60 uppercase">
                 {t("work.label")}
               </span>
@@ -198,7 +198,7 @@ export default function Work() {
             </p>
             <a
               href="#archive"
-              className="mt-5 inline-flex items-center gap-2 text-small font-medium text-white/90 hover:text-[#02C39A] border-b border-white/30 hover:border-[#02C39A] pb-0.5 transition-colors whitespace-nowrap"
+              className="mt-5 inline-flex items-center gap-2 text-small font-medium text-white/90 hover:text-accent border-b border-white/30 hover:border-accent pb-0.5 transition-colors whitespace-nowrap"
             >
               {t("work.archive")}
             </a>
@@ -212,13 +212,14 @@ export default function Work() {
           ))}
         </div>
 
-        {/* Ticker / Marquee Horizontal — Integrado trilingue com fontes da Versão 0 */}
+        {/* Ticker / Marquee Horizontal — Integrado trilingue com fontes da Versão 0
+        deixar essa linha de ponta a ponta ignorando o maxwidth de 1200px. Precisa pegar 100% do width da tela.*/}
         <div className="mt-24 md:mt-32 overflow-hidden border-y border-white/10 py-5">
           <div className="flex gap-12 animate-marquee whitespace-nowrap text-white/40 font-serif-display text-[28px] md:text-[36px] italic">
             {doubledTicker.map((label, i) => (
               <span key={i} className="flex items-center gap-12">
                 <span>{label}</span>
-                <span className="w-2 h-2 rounded-full bg-[#534AB7]"></span>
+                <span className="w-2 h-2 rounded-full bg-brand"></span>
               </span>
             ))}
           </div>
