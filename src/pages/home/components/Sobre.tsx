@@ -17,7 +17,7 @@ export default function Studio() {
       <div className="absolute bottom-10 right-1/4 w-[420px] h-[420px] rounded-full bg-[#02C39A]/30 blur-3xl pointer-events-none"></div>
       <div className="absolute -bottom-24 -left-10 w-[380px] h-[380px] rounded-full bg-[#534AB7]/35 blur-3xl pointer-events-none"></div>
 
-      <div className="relative px-6 md:px-10 lg:px-14">
+      <div className="relative mx-auto max-w-[1200px] px-6 md:px-10 lg:px-14">
         {/* Eyebrow + headline */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 mb-16 md:mb-24">
           <div className="lg:col-span-7">

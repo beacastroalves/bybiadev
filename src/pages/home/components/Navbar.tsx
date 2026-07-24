@@ -56,7 +56,7 @@ export default function Navbar({ isPrelaunch }: { isPrelaunch?: boolean }) {
           : "bg-transparent"
       }`}
     >
-      <div className="px-6 md:px-10 lg:px-14 h-16 md:h-20 flex items-center justify-between">
+      <div className="mx-auto max-w-[1200px] px-6 md:px-10 lg:px-14 h-16 md:h-20 flex items-center justify-between">
         
         {/* LOGO / ASSINATURA */}
         <a href="#" className="flex items-center gap-1.5 group">

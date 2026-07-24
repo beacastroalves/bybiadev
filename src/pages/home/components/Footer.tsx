@@ -11,7 +11,7 @@ export default function Footer({ isPrelaunch }: { isPrelaunch?: boolean }) {
       {/* Blob decorativo roxo sutil no fundo */}
       <div className="absolute -bottom-40 -left-40 w-[420px] h-[420px] rounded-full bg-[#534AB7]/10 blur-3xl pointer-events-none"></div>
 
-      <div className="relative px-6 md:px-10 lg:px-14 max-w-7xl mx-auto">
+      <div className="relative px-6 md:px-10 lg:px-14 max-w-[1200px] mx-auto">
         
         {/* PARTE SUPERIOR: Bloco de Chamada para Ação (CTA) Direto */}
         <div className="relative p-8 md:p-12 rounded-2xl border border-white/10 bg-white/[0.02] flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-16">

@@ -1,13 +1,17 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import Problema from "./components/Problema";
+import PorqueSite from "./components/PorqueSite";
+import Friccao from "./components/Friccao";
 import Trabalho from "./components/Trabalho";
 import Sobre from "./components/Sobre";
 import Processo from "./components/Processo";
+import Faq from "./components/Faq";
 import Blog from "./components/Blog";
 import Footer from "./components/Footer";
 
 // Definir modo do site: true = Em Breve (Pre-Lançamento), false = Landing Page Completa
-export const isPrelaunch = true;
+export const isPrelaunch = false;
 
 // Blog só entra no ar quando houver artigos reais (ver specs/05 P0#5).
 const blogReady: boolean = false;
@@ -20,7 +24,10 @@ export default function Home() {
       
       {!isPrelaunch && (
         <>
-          <Trabalho />
+          {/* Funil de confiança: dor → necessidade → alívio → quem → como → prova → dúvidas → conversa. Ver specs/06. */}
+          <Problema />
+          <PorqueSite />
+          <Friccao />
           <Sobre />
           {/* Separador Estilo Glass - Barra com Badge */}
           <div className="relative w-full h-12 flex items-center justify-center z-30 -my-6 pointer-events-none">
@@ -39,6 +46,8 @@ export default function Home() {
             </div>
           </div>
           <Processo />
+          <Trabalho />
+          <Faq />
           {/* Blog oculto até haver artigos reais — os posts atuais são fictícios (datas futuras, imagens de stock). Ver specs/05 P0#5. */}
           {blogReady && <Blog />}
         </>

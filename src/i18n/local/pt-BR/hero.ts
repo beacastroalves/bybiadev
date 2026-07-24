@@ -57,7 +57,7 @@ const hero = {
   "process.label": "• O PROCESSO · EM 4 ETAPAS",
   "process.headline.p1": "Resultado rápido,",
   "process.headline.p2": "sem atalhos.",
-  "process.description": "Cada projeto segue o mesmo ritmo — próximo o suficiente para ser honesto, estruturado o suficiente para cumprir prazos. Clique em uma etapa para ver o que acontece por dentro.",
+  "process.description": "Sem caixa-preta nem semanas de silêncio. A cada 3 a 5 dias você vê o site crescendo num link só seu, e sabe sempre onde o seu projeto está. Clique em uma etapa para ver o que acontece por dentro.",
   "process.step1.title": "Ouvir",
   "process.step1.week": "Semana 1",
   "process.step1.summary": "Começamos no seu mundo. Conversamos com calma para entender o seu negócio, quem são os seus clientes e o que você precisa. Nada de questionários mecânicos ou burocracia por e-mail.",

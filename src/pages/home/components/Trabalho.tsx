@@ -175,8 +175,8 @@ export default function Work() {
 
   return (
     <section id="trabalho" className="relative bg-[#0F0E1A] text-white py-24 md:py-32">
-      <div className="px-6 md:px-10 lg:px-14">
-        
+      <div className="mx-auto max-w-[1200px] px-6 md:px-10 lg:px-14">
+
         {/* Section header — Alinhado com tipografia original da Versão 0 */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14 md:mb-20">
           <div>

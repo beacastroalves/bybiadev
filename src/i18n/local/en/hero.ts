@@ -58,7 +58,7 @@ const hero = {
   "process.label": "• THE PROCESS · IN 4 STEPS",
   "process.headline.p1": "Fast results,",
   "process.headline.p2": "zero shortcuts.",
-  "process.description": "Every project follows the same rhythm — close enough to be honest, structured enough to meet deadlines. Click on a step to see what happens inside.",
+  "process.description": "No black boxes, no weeks of silence. Every 3–5 days you watch the site take shape on a link that's just yours, so you always know where your project stands. Click a step to see what happens inside.",
   "process.step1.title": "Listen",
   "process.step1.week": "Week 1",
   "process.step1.summary": "We start in your world. A relaxed, deep conversation to understand your business, your clients, and your exact needs. No robotic surveys or endless email loops.",

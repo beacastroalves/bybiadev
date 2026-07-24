@@ -39,7 +39,7 @@ export default function Hero({ isPrelaunch }: { isPrelaunch?: boolean }) {
       {/* CONTENT OVERLAY */}
       <div className="relative z-20 min-h-screen flex flex-col">
         <div className="flex-1 flex items-center">
-          <div className="w-full px-6 md:px-10 lg:px-14 pt-32 md:pt-36 pb-24">
+          <div className="w-full mx-auto max-w-[1200px] px-6 md:px-10 lg:px-14 pt-32 md:pt-36 pb-24">
             <div className="max-w-2xl">
               
               {isPrelaunch ? (

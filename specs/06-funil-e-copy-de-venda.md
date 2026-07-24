@@ -166,11 +166,17 @@ Mesmo esqueleto, glossário trocado (ver `05 §3`). Exemplos dos títulos-chave:
 
 ---
 
-## Implementação (próximo passo, quando aprovares a copy)
+## Implementação — ✅ feita (2026-07-23)
 
-- Novas chaves i18n nos 3 locales: `problem.*`, `instagram.*`, `friction.*`, `faq.*`, e reescrita de `process.description` + `footer.cta.*`.
-- 3 componentes novos (`Problema.tsx`, `PorqueSite.tsx`, `Faq.tsx`) + inserção na ordem acima em `page.tsx` (dentro do bloco `!isPrelaunch`).
-- Sem preço até fechar valores; a secção Pacotes entra depois.
+- **i18n modular:** `src/i18n/local/{pt-PT,pt-BR,en}/funil.ts` com chaves agrupadas (`problema.*`, `porqueSite.*`, `friccao.*`, `faq.*`) — fáceis de editar, um ficheiro de copy de venda por idioma. Carregam automaticamente pelo glob em `local/index.ts`.
+- **Voz nativa por idioma** (não tradução literal): PT-PT formal europeu (ênclise, "telemóvel", "consigo"); PT-BR próximo e natural ("empaca", "pra", "some", "arquivos"); EN nativo com contrações ("that part's on me", "eating up your day").
+- **4 componentes novos:** `Problema.tsx` (creme), `PorqueSite.tsx` (escuro), `Friccao.tsx` (claro, com callout roxo), `Faq.tsx` (creme, acordeão). Reutilizam o sistema visual (eyebrow com bolinha, `font-serif`, roxo `#534AB7` / menta `#02C39A`).
+- **Reescrita:** `process.description` (transparência) + `footer.cta.*` (fecho consultivo) nos 3 idiomas.
+- **Ordem do funil** ligada em `page.tsx`: Hero → Problema → PorqueSite → Friccao → Sobre → Processo → Trabalho → Faq → Footer. O `Trabalho` (prova) passou para depois do `Processo`.
+- `tsc` + `vite build` limpos.
+- **Sem preço** até fechar valores; a secção Pacotes entra depois (P1 do `05`).
+
+> **Como pré-visualizar:** as secções vivem dentro do bloco `!isPrelaunch`. Como `isPrelaunch = true` em `page.tsx`, o site continua a mostrar só o "Em breve". Para ver o funil completo em `localhost`, mudar temporariamente `isPrelaunch` para `false`.
 
 ## Changelog
 - v1 (2026-07-23) — Funil de 8 estágios (dor → necessidade → alívio → prova → objeções → ação), copy consultiva PT-PT + ganchos BR/EN, mapa de implementação.

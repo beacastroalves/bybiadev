@@ -62,7 +62,7 @@ export default function Journal() {
     <section id="blog" className="relative bg-[#0F0E1A] text-white py-24 md:py-32 overflow-hidden">
       <div className="absolute -top-40 right-0 w-[520px] h-[520px] rounded-full bg-[#534AB7]/10 blur-3xl pointer-events-none"></div>
 
-      <div className="relative px-6 md:px-10 lg:px-14">
+      <div className="relative mx-auto max-w-[1200px] px-6 md:px-10 lg:px-14">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
           <div>
             <div className="flex items-center gap-2 mb-5">
