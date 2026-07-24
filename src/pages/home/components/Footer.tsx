@@ -20,7 +20,7 @@ export default function Footer({ isPrelaunch }: { isPrelaunch?: boolean }) {
               {t("footer.cta.eyebrow")}
             </div>
             <h3 className="font-serif text-[28px] md:text-[36px] leading-tight">
-              {t("footer.cta.title.p1")}<span className="italic text-white/50">{t("footer.cta.title.p2")}</span>
+              {t("footer.cta.title.p1")}<span className="italic text-white/65">{t("footer.cta.title.p2")}</span>
             </h3>
             <p className="mt-2 text-[14px] text-white/60">
               {t("footer.cta.description")}
@@ -52,7 +52,7 @@ export default function Footer({ isPrelaunch }: { isPrelaunch?: boolean }) {
                 ByBia<span className="text-white/60 font-light">/dev</span>
               </span>
             </a>
-            <p className="text-[13px] text-white/50 leading-relaxed max-w-xs">
+            <p className="text-[13px] text-white/65 leading-relaxed max-w-xs">
               {t("footer.brand.description")}
             </p>
           </div>
@@ -61,8 +61,8 @@ export default function Footer({ isPrelaunch }: { isPrelaunch?: boolean }) {
           {isPrelaunch ? (
             /* Coluna de Serviços em Pre-Lançamento */
             <div className="md:col-span-3 md:col-start-7 flex flex-col gap-4">
-              <h4 className="text-[11px] font-mono tracking-wider text-white/40 uppercase">{t("footer.services.title")}</h4>
-              <ul className="flex flex-col gap-2.5 text-[13px] text-white/50 select-none">
+              <h4 className="text-[11px] font-mono tracking-wider text-white/60 uppercase">{t("footer.services.title")}</h4>
+              <ul className="flex flex-col gap-2.5 text-[13px] text-white/65 select-none">
                 <li>{t("footer.services.item1")}</li>
                 <li>{t("footer.services.item2")}</li>
                 <li>{t("footer.services.item3")}</li>
@@ -72,7 +72,7 @@ export default function Footer({ isPrelaunch }: { isPrelaunch?: boolean }) {
           ) : (
             /* Coluna de Navegação Interna do Portfólio */
             <div className="md:col-span-3 md:col-start-7 flex flex-col gap-4">
-              <h4 className="text-[11px] font-mono tracking-wider text-white/40 uppercase">{t("footer.nav.title")}</h4>
+              <h4 className="text-[11px] font-mono tracking-wider text-white/60 uppercase">{t("footer.nav.title")}</h4>
               <ul className="flex flex-col gap-2.5 text-[13px]">
                 <li><a href="#trabalho" className="text-white/70 hover:text-[#02C39A] transition-colors">{t("nav.work")}</a></li>
                 <li><a href="#sobre" className="text-white/70 hover:text-[#02C39A] transition-colors">{t("nav.about")}</a></li>
@@ -84,7 +84,7 @@ export default function Footer({ isPrelaunch }: { isPrelaunch?: boolean }) {
 
           {/* Coluna de Canais e Contacto Direto */}
           <div className="md:col-span-3 flex flex-col gap-4">
-            <h4 className="text-[11px] font-mono tracking-wider text-white/40 uppercase">{t("footer.contact.title")}</h4>
+            <h4 className="text-[11px] font-mono tracking-wider text-white/60 uppercase">{t("footer.contact.title")}</h4>
             <ul className="flex flex-col gap-2.5 text-[13px]">
               <li>
                 <a href="mailto:contact@bybia.dev" className="text-white/70 hover:text-[#02C39A] transition-colors flex items-center gap-2">
@@ -106,7 +106,7 @@ export default function Footer({ isPrelaunch }: { isPrelaunch?: boolean }) {
         </div>
 
         {/* PARTE INFERIOR: Direitos Autorais */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-mono text-white/40">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-mono text-white/60">
           <div>
             © {new Date().getFullYear()} ByBia.dev. {t("footer.copyright")}
           </div>

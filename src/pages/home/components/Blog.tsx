@@ -107,7 +107,7 @@ export default function Journal() {
                 </div>
               </div>
               <div className="p-6">
-                <div className="text-[11px] font-mono text-white/50 uppercase">{feature.date} · {feature.read} de leitura</div>
+                <div className="text-[11px] font-mono text-white/65 uppercase">{feature.date} · {feature.read} de leitura</div>
                 <h3 className="mt-2 font-serif text-[26px] md:text-[32px] leading-tight group-hover:text-[#02C39A] transition-colors">{feature.title}</h3>
                 <p className="mt-2 text-[14px] text-white/65 leading-relaxed">{feature.excerpt}</p>
               </div>
@@ -122,14 +122,14 @@ export default function Journal() {
                   <div className="flex flex-col justify-center min-w-0">
                     <div className="text-[10px] font-mono text-[#02C39A] uppercase">{e.category} · {e.read}</div>
                     <h4 className="mt-1 font-serif text-[16px] sm:text-[18px] leading-snug group-hover:text-[#02C39A] transition-colors line-clamp-2">{e.title}</h4>
-                    <span className="text-[11px] text-white/40 mt-1">{e.date}</span>
+                    <span className="text-[11px] text-white/60 mt-1">{e.date}</span>
                   </div>
                 </a>
               ))}
             </div>
           </div>
         ) : (
-          <div className="text-center text-white/40 py-12 border border-dashed border-white/10 rounded-2xl">Sem notas publicadas nesta categoria.</div>
+          <div className="text-center text-white/60 py-12 border border-dashed border-white/10 rounded-2xl">Sem notas publicadas nesta categoria.</div>
         )}
       </div>
     </section>
