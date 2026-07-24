@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import Counter from "./Counter";
 
 export default function Studio() {
   const { t } = useTranslation();
@@ -21,13 +22,13 @@ export default function Studio() {
         {/* Eyebrow + headline */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 mb-14 md:mb-20">
           <div className="lg:col-span-7">
-            <div className="flex items-center gap-2 mb-5">
+            <div data-reveal className="flex items-center gap-2 mb-5">
               <span className="w-2 h-2 rounded-full bg-brand shadow-[0_0_0_4px_rgba(83,74,183,0.25)]"></span>
               <span className="text-caption font-mono-tech text-brand uppercase font-semibold">
                 {t("about.label")}
               </span>
             </div>
-            <h2 className="font-serif text-h2 text-balance">
+            <h2 data-reveal-title className="font-serif text-h2 text-balance">
               {t("about.headline.p1")}
               <br />
               {t("about.headline.p2")}
@@ -36,10 +37,10 @@ export default function Studio() {
             </h2>
           </div>
           <div className="lg:col-span-5 lg:pt-8">
-            <p className="text-body text-neutral-800 max-w-md font-medium">
+            <p data-reveal className="text-body text-neutral-800 max-w-md font-medium">
               {t("about.text")}
             </p>
-            <div className="mt-6 flex items-center gap-3">
+            <div data-reveal className="mt-6 flex items-center gap-3">
               <a
                 href={t("whatsapp.link")}
                 target="_blank"
@@ -61,7 +62,7 @@ export default function Studio() {
         {/* Studio scene image + team panel */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 md:gap-7">
           {/* Imagem do espaço de trabalho */}
-          <div className="lg:col-span-7 relative rounded-2xl overflow-hidden aspect-[5/4] lg:aspect-auto lg:h-[560px] group border border-neutral-300/40 shadow-sm">
+          <div data-reveal className="lg:col-span-7 relative rounded-2xl overflow-hidden aspect-[5/4] lg:aspect-auto lg:h-[560px] group border border-neutral-300/40 shadow-sm">
             <img
               src="https://images.pexels.com/photos/1957478/pexels-photo-1957478.jpeg?auto=compress&cs=tinysrgb&w=1400"
               alt="Espaço de trabalho ByBia"
@@ -88,12 +89,12 @@ export default function Studio() {
 
           {/* Stats Grid restaurado em layout vertical com preenchimento de cor da Versão 0 */}
           <div className="lg:col-span-5 flex flex-col gap-4">
-            <div className="grid grid-cols-2 gap-3 md:gap-4">
+            <div data-reveal className="grid grid-cols-2 gap-3 md:gap-4">
               {[
-                { val: "2024", suff: "", lab: t("about.stat.1") },
-                { val: "3", suff: "", lab: t("about.stat.2") },
-                { val: "100", suff: "%", lab: t("about.stat.3") },
-                { val: "48", suff: "h", lab: t("about.stat.4") }
+                { val: "2024", suff: "", lab: t("about.stat.1"), count: false },
+                { val: "3", suff: "", lab: t("about.stat.2"), count: true },
+                { val: "100", suff: "%", lab: t("about.stat.3"), count: true },
+                { val: "48", suff: "h", lab: t("about.stat.4"), count: true }
               ].map((s) => (
                 <div
                   key={s.lab}
@@ -101,7 +102,7 @@ export default function Studio() {
                 >
                   {/* Classe font-serif-display pura com leading-none para colar o sufixo roxo idêntico ao original */}
                   <div className="font-serif-display text-[40px] md:text-[44px] leading-none text-neutral-900">
-                    {s.val}
+                    {s.count ? <Counter to={Number(s.val)} /> : s.val}
                     <span className="text-brand">{s.suff}</span>
                   </div>
                   <div className="mt-2 text-[12px] text-neutral-600 leading-snug">

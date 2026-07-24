@@ -23,13 +23,13 @@ export default function Faq() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
           {/* Título */}
           <div className="lg:col-span-5">
-            <div className="flex items-center gap-2 mb-5">
+            <div data-reveal className="flex items-center gap-2 mb-5">
               <span className="w-2 h-2 rounded-full bg-brand shadow-[0_0_0_4px_rgba(83,74,183,0.25)]"></span>
               <span className="text-caption font-mono-tech text-brand uppercase font-semibold">
                 {t("faq.label")}
               </span>
             </div>
-            <h2 className="font-serif text-h2 text-balance">
+            <h2 data-reveal-title className="font-serif text-h2 text-balance">
               {t("faq.title.p1")}
               <span className="italic text-brand">{t("faq.title.p2")}</span>
             </h2>
@@ -45,7 +45,7 @@ export default function Faq() {
           </div>
 
           {/* Acordeão */}
-          <div className="lg:col-span-7 lg:pt-1">
+          <div data-reveal className="lg:col-span-7 lg:pt-1">
             <div className="border-t border-neutral-300/60">
               {items.map((it, i) => {
                 const isOpen = open === i;

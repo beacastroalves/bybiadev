@@ -14,13 +14,13 @@ export default function PorqueSite() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
           {/* Título */}
           <div className="lg:col-span-6">
-            <div className="flex items-center gap-2 mb-5">
+            <div data-reveal className="flex items-center gap-2 mb-5">
               <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
               <span className="text-caption font-mono-tech text-white/60 uppercase">
                 {t("porqueSite.label")}
               </span>
             </div>
-            <h2 className="font-serif text-h2 text-balance">
+            <h2 data-reveal-title className="font-serif text-h2 text-balance">
               {t("porqueSite.title.p1")}
               <span className="italic text-white/55">{t("porqueSite.title.p2")}</span>
             </h2>
@@ -28,7 +28,7 @@ export default function PorqueSite() {
 
           {/* Corpo */}
           <div className="lg:col-span-6 lg:pt-2">
-            <div className="space-y-5 text-body-lg text-white/75">
+            <div data-reveal className="space-y-5 text-body-lg text-white/75">
               <p>{t("porqueSite.p1")}</p>
               <p>{t("porqueSite.p2")}</p>
               <p className="font-medium text-white border-l-2 border-accent pl-5">

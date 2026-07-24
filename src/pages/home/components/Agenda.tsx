@@ -38,19 +38,19 @@ export default function Agenda() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
           {/* Copy */}
           <div className="lg:col-span-5">
-            <div className="flex items-center gap-2 mb-5">
+            <div data-reveal className="flex items-center gap-2 mb-5">
               <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
               <span className="text-caption font-mono-tech text-white/60 uppercase">
                 {t("agenda.label")}
               </span>
             </div>
 
-            <h2 className="font-serif text-h2 text-balance">
+            <h2 data-reveal-title className="font-serif text-h2 text-balance">
               {t("agenda.title.p1")}
               <span className="italic text-white/55">{t("agenda.title.p2")}</span>
             </h2>
 
-            <div className="mt-8 space-y-5 text-body-lg text-white/75">
+            <div data-reveal className="mt-8 space-y-5 text-body-lg text-white/75">
               <p>{t("agenda.p1")}</p>
               <p>{t("agenda.p2")}</p>
             </div>

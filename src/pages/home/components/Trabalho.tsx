@@ -180,20 +180,20 @@ export default function Work() {
         {/* Section header — Alinhado com tipografia original da Versão 0 */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14 md:mb-20">
           <div>
-            <div className="flex items-center gap-2 mb-5">
+            <div data-reveal className="flex items-center gap-2 mb-5">
               <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse"></span>
               <span className="text-caption font-mono-tech text-white/60 uppercase">
                 {t("work.label")}
               </span>
             </div>
-            <h2 className="font-serif-display text-h2 text-balance">
+            <h2 data-reveal-title className="font-serif-display text-h2 text-balance">
               {t("work.headline.p1")}
               <br />
               <span className="italic text-white/60">{t("work.headline.p2")}</span>
             </h2>
           </div>
           <div className="max-w-sm">
-            <p className="text-body text-white/65">
+            <p data-reveal className="text-body text-white/65">
               {t("work.description")}
             </p>
             <a
@@ -206,7 +206,7 @@ export default function Work() {
         </div>
 
         {/* Projects grid — Restaurada a matemática exata de assimetria da Versão 0 */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-7">
+        <div data-reveal className="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-7">
           {projects.map((p, idx) => (
             <ProjectCard key={p.id} project={p} index={idx} />
           ))}

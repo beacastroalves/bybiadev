@@ -59,20 +59,20 @@ export default function Process() {
         {/* Eyebrow + headline - Versão 0 Pura */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14 md:mb-20">
           <div>
-            <div className="flex items-center gap-2 mb-5">
+            <div data-reveal className="flex items-center gap-2 mb-5">
               <span className="w-1.5 h-1.5 rounded-full bg-neutral-900"></span>
               <span className="text-caption font-mono-tech text-neutral-500 uppercase">
                 {t("process.label")}
               </span>
             </div>
-            <h2 className="font-serif-display text-h2 text-balance">
+            <h2 data-reveal-title className="font-serif-display text-h2 text-balance">
               {t("process.headline.p1")}
               <br />
               <span className="italic text-neutral-400">{t("process.headline.p2")}</span>
             </h2>
           </div>
           <div className="max-w-sm">
-            <p className="text-body text-neutral-600">
+            <p data-reveal className="text-body text-neutral-600">
               {t("process.description")}
             </p>
           </div>
@@ -81,7 +81,7 @@ export default function Process() {
         {/* Process layout - Versão 0 Pura */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 md:gap-7">
           {/* Step list */}
-          <div className="lg:col-span-7 flex flex-col gap-3">
+          <div data-reveal className="lg:col-span-7 flex flex-col gap-3">
             {steps.map((s, i) => {
               const isActive = i === active;
               return (

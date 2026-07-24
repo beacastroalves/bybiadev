@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import Counter from "./Counter";
 
 const heroVideo =
   "https://public.readdy.ai/ai/video_res/019ef297-7978-7fa0-a63c-8c798b51c36e.mp4";
@@ -136,7 +137,7 @@ export default function Hero({ isPrelaunch }: { isPrelaunch?: boolean }) {
                 ) : (
                   <>
                     <div>
-                      <div className="font-serif-display text-[28px] leading-none text-white">100%</div>
+                      <div className="font-serif-display text-[28px] leading-none text-white"><Counter to={100} suffix="%" /></div>
                       <div className="mt-1.5 text-caption font-mono-tech text-white/60 uppercase">
                         {t("hero.stat.direct")}
                       </div>
@@ -148,7 +149,7 @@ export default function Hero({ isPrelaunch }: { isPrelaunch?: boolean }) {
                       </div>
                     </div>
                     <div className="border-l border-white/20 pl-4">
-                      <div className="font-serif-display text-[28px] leading-none text-white">48h</div>
+                      <div className="font-serif-display text-[28px] leading-none text-white"><Counter to={48} suffix="h" /></div>
                       <div className="mt-1.5 text-caption font-mono-tech text-white/60 uppercase">
                         {t("hero.stat.response")}
                       </div>

@@ -14,13 +14,13 @@ export default function Friccao() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
           {/* Título */}
           <div className="lg:col-span-6">
-            <div className="flex items-center gap-2 mb-5">
+            <div data-reveal className="flex items-center gap-2 mb-5">
               <span className="w-2 h-2 rounded-full bg-brand shadow-[0_0_0_4px_rgba(83,74,183,0.25)]"></span>
               <span className="text-caption font-mono-tech text-brand uppercase font-semibold">
                 {t("friccao.label")}
               </span>
             </div>
-            <h2 className="font-serif text-h2 text-balance">
+            <h2 data-reveal-title className="font-serif text-h2 text-balance">
               {t("friccao.title.p1")}
               <span className="italic text-brand">{t("friccao.title.p2")}</span>
             </h2>
@@ -28,12 +28,12 @@ export default function Friccao() {
 
           {/* Corpo */}
           <div className="lg:col-span-6 lg:pt-2">
-            <div className="space-y-5 text-body-lg text-neutral-800">
+            <div data-reveal className="space-y-5 text-body-lg text-neutral-800">
               <p>{t("friccao.p1")}</p>
               <p>{t("friccao.p2")}</p>
             </div>
 
-            <div className="mt-8 flex items-start gap-3 bg-brand text-white rounded-2xl px-6 py-5 shadow-md">
+            <div data-reveal className="mt-8 flex items-start gap-3 bg-brand text-white rounded-2xl px-6 py-5 shadow-md">
               <i className="ri-time-line text-xl mt-0.5 text-accent"></i>
               <p className="text-body-lg font-medium leading-snug">
                 {t("friccao.highlight")}

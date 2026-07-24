@@ -1,4 +1,5 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+import { useSiteReveals } from "../../hooks/useSiteReveals";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Problema from "./components/Problema";
@@ -19,6 +20,9 @@ export const isPrelaunch = false;
 const blogReady: boolean = false;
 
 export default function Home() {
+  const root = useRef<HTMLDivElement>(null);
+  useSiteReveals(root);
+
   // Deep-link para âncoras (ex.: abrir /#agenda direto): num SPA o alvo pode não
   // existir no 1.º paint. Espera o layout estabilizar e SALTA para a secção
   // (instantâneo — o esperado num link direto). Os cliques na nav rolam suave via
@@ -52,7 +56,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-paper text-neutral-900">
+    <div ref={root} className="relative min-h-screen bg-paper text-neutral-900">
       <Navbar isPrelaunch={isPrelaunch} blogReady={blogReady} />
       <Hero isPrelaunch={isPrelaunch} />
       
