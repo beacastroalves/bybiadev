@@ -113,7 +113,7 @@ export default function Studio() {
 
             {/* Caixa inferior escura de fecho técnico da secção */}
             <div className="bg-ink text-white rounded-2xl p-6 flex-1 flex flex-col justify-between border border-white/5 shadow-lg min-h-[160px]">
-              <div className="text-[10px] font-mono tracking-wider text-white/50 uppercase">
+              <div className="text-[10px] font-mono tracking-wider text-white/70 uppercase">
                 // Tech Stack & Workflow
               </div>
               <div className="font-serif text-[22px] leading-tight text-white/90 my-3">

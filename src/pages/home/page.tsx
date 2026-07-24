@@ -41,7 +41,8 @@ export default function Home() {
       if (top === lastTop) stable++;
       else { stable = 0; lastTop = top; }
       if (stable >= 2 || tries > 40) {
-        window.scrollTo({ top, behavior: "instant" });
+        // -80px = mesma compensação da navbar sticky que o scroll-margin-top no CSS.
+        window.scrollTo({ top: Math.max(0, top - 80), behavior: "instant" });
       } else {
         timer = window.setTimeout(settleThenScroll, 100);
       }

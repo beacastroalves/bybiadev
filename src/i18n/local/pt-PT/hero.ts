@@ -39,7 +39,7 @@ const hero = {
   "work.headline.p1": "Websites que recusam",
   "work.headline.p2": "parecer todos iguais.",
   "work.description": "Uma seleção de projetos recentes — sites institucionais, landing pages e e-commerces — desenvolvidos com atenção milimétrica ao detalhe, velocidade e pensados para converter.",
-  "work.archive": "Ver o arquivo completo ↗",
+  "work.archive": "Ver o portefólio completo ↗",
   "work.ticker": ["Websites Institucionais", "Landing Pages de Alta Conversão", "Desenvolvimento Web", "Portfólios Digitais", "Arquitetura Web", "Código Limpo", "Otimização SEO"],
 
   "about.label": "• SOBRE · DEV INDEPENDENTE",

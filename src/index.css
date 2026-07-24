@@ -11,6 +11,13 @@
     -moz-osx-font-smoothing: grayscale;
     scroll-behavior: smooth; /* âncoras (nav/CTA) rolam de forma fluida; reduced-motion força auto abaixo */
   }
+
+  /* Ao saltar para uma âncora, deixa espaço para a navbar sticky (~80px) — o topo
+     da secção não fica escondido debaixo da barra.
+  section[id] {
+    scroll-margin-top: 1rem;
+  }
+  */
 }
 
 @layer utilities {

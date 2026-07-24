@@ -166,7 +166,7 @@ export default function Navbar({ isPrelaunch, blogReady }: { isPrelaunch?: boole
                     className={`px-2.5 py-1 rounded-full text-caption font-mono-tech font-bold transition-all duration-300 ${
                       isSelected
                         ? "bg-brand text-white shadow-[0_2px_8px_rgba(83,74,183,0.4)]"
-                        : "text-white/40 hover:text-white/80"
+                        : "text-white/70 hover:text-white"
                     }`}
                   >
                     {lang.code === "pt-BR" ? "BR" : lang.code === "pt-PT" ? "PT" : "EN"}
@@ -200,7 +200,7 @@ export default function Navbar({ isPrelaunch, blogReady }: { isPrelaunch?: boole
                     className={`px-2.5 py-1 rounded-full text-caption font-mono-tech font-bold transition-all duration-300 ${
                       isSelected
                         ? "bg-brand text-white shadow-[0_2px_8px_rgba(83,74,183,0.4)]"
-                        : "text-white/40 hover:text-white/80"
+                        : "text-white/70 hover:text-white"
                     }`}
                   >
                     {lang.code === "pt-BR" ? "BR" : lang.code === "pt-PT" ? "PT" : "EN"}
