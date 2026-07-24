@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 
-export default function Footer({ isPrelaunch }: { isPrelaunch?: boolean }) {
+export default function Footer({ isPrelaunch, blogReady }: { isPrelaunch?: boolean; blogReady?: boolean }) {
   const { t } = useTranslation();
 
   return (
@@ -13,31 +13,7 @@ export default function Footer({ isPrelaunch }: { isPrelaunch?: boolean }) {
 
       <div className="relative px-6 md:px-10 lg:px-14 max-w-[1200px] mx-auto">
         
-        {/* PARTE SUPERIOR: Bloco de Chamada para Ação (CTA) Direto */}
-        <div className="relative p-8 md:p-12 rounded-2xl border border-white/10 bg-white/[0.02] flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-16">
-          <div className="max-w-xl">
-            <div className="text-caption font-mono-tech text-accent uppercase mb-2">
-              {t("footer.cta.eyebrow")}
-            </div>
-            <h3 className="font-serif text-h3">
-              {t("footer.cta.title.p1")}<span className="italic text-white/65">{t("footer.cta.title.p2")}</span>
-            </h3>
-            <p className="mt-2 text-small text-white/60">
-              {t("footer.cta.description")}
-            </p>
-          </div>
-
-          <div>
-            <a 
-              href={t("whatsapp.link")} 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-primary"
-            >
-              {t("footer.cta.btn")}
-            </a>
-          </div>
-        </div>
+        {/* CTA de fecho vive agora na secção Agenda (#agenda), logo acima. O footer fica funcional. */}
 
         {/* PARTE CENTRAL: Grelha de Links Úteis */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 border-b border-white/10 pb-16">
@@ -77,7 +53,7 @@ export default function Footer({ isPrelaunch }: { isPrelaunch?: boolean }) {
                 <li><a href="#trabalho" className="text-white/70 hover:text-accent transition-colors">{t("nav.work")}</a></li>
                 <li><a href="#sobre" className="text-white/70 hover:text-accent transition-colors">{t("nav.about")}</a></li>
                 <li><a href="#processo" className="text-white/70 hover:text-accent transition-colors">{t("nav.process")}</a></li>
-                <li><a href="#blog" className="text-white/70 hover:text-accent transition-colors">{t("nav.blog")}</a></li>
+                {blogReady && <li><a href="#blog" className="text-white/70 hover:text-accent transition-colors">{t("nav.blog")}</a></li>}
               </ul>
             </div>
           )}

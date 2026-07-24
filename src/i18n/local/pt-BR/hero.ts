@@ -6,7 +6,7 @@ const hero = {
   "nav.lang.to_pt": "Mudar região: 🇵🇹 Portugal",
   "nav.lang.to_en": "Mudar região: 🇬🇧 Global (EN)",
   "nav.lang.to_br": "Mudar região: 🇧🇷 Brasil",
-  "nav.cta": "Iniciar um projeto",
+  "nav.cta": "Agendar conversa",
 
   "whatsapp.link": "https://wa.me/351915514394?text=Tenho%20um%20projeto%20e%20quero%20entrar%20no%20digital%2C%20meu%20nome%20%C3%A9%20",
   "prelaunch.nav.cta": "Falar no WhatsApp",

@@ -52,7 +52,7 @@ export default function Process() {
 
   return (
     <section
-      id="process"
+      id="processo"
       className="relative bg-paper text-neutral-900 py-24 md:py-32 overflow-hidden"
     >
       <div className="mx-auto max-w-[1200px] px-6 md:px-10 lg:px-14">

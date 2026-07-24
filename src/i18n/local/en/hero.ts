@@ -6,7 +6,7 @@ const hero = {
   "nav.lang.to_pt": "Change region: 🇵🇹 Portugal",
   "nav.lang.to_en": "Change region: 🇬🇧 Global (EN)",
   "nav.lang.to_br": "Change region: 🇧🇷 Brasil",
-  "nav.cta": "Start a project",
+  "nav.cta": "Book a call",
 
   "whatsapp.link": "https://wa.me/351915514394?text=I%20have%20a%20project%20and%20want%20to%20go%20digital%2C%20my%20name%20is%20",
 

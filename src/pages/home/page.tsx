@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Problema from "./components/Problema";
@@ -7,6 +8,7 @@ import Trabalho from "./components/Trabalho";
 import Sobre from "./components/Sobre";
 import Processo from "./components/Processo";
 import Faq from "./components/Faq";
+import Agenda from "./components/Agenda";
 import Blog from "./components/Blog";
 import Footer from "./components/Footer";
 
@@ -17,9 +19,40 @@ export const isPrelaunch = false;
 const blogReady: boolean = false;
 
 export default function Home() {
+  // Deep-link para âncoras (ex.: abrir /#agenda direto): num SPA o alvo pode não
+  // existir no 1.º paint. Espera o layout estabilizar e SALTA para a secção
+  // (instantâneo — o esperado num link direto). Os cliques na nav rolam suave via
+  // `scroll-behavior: smooth` no CSS (âncoras nativas), sem precisar de JS.
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (!hash || hash === "#") return;
+    let timer: number;
+    let tries = 0;
+    let lastTop = -1;
+    let stable = 0;
+    const settleThenScroll = () => {
+      const el = document.querySelector(hash) as HTMLElement | null;
+      tries++;
+      if (!el) {
+        if (tries < 40) timer = window.setTimeout(settleThenScroll, 100);
+        return;
+      }
+      const top = Math.round(el.getBoundingClientRect().top + window.scrollY);
+      if (top === lastTop) stable++;
+      else { stable = 0; lastTop = top; }
+      if (stable >= 2 || tries > 40) {
+        window.scrollTo({ top, behavior: "instant" });
+      } else {
+        timer = window.setTimeout(settleThenScroll, 100);
+      }
+    };
+    timer = window.setTimeout(settleThenScroll, 100);
+    return () => window.clearTimeout(timer);
+  }, []);
+
   return (
     <div className="relative min-h-screen bg-paper text-neutral-900">
-      <Navbar isPrelaunch={isPrelaunch} />
+      <Navbar isPrelaunch={isPrelaunch} blogReady={blogReady} />
       <Hero isPrelaunch={isPrelaunch} />
       
       {!isPrelaunch && (
@@ -48,12 +81,13 @@ export default function Home() {
           <Processo />
           <Trabalho />
           <Faq />
+          <Agenda />
           {/* Blog oculto até haver artigos reais — os posts atuais são fictícios (datas futuras, imagens de stock). Ver specs/05 P0#5. */}
           {blogReady && <Blog />}
         </>
       )}
       
-      <Footer isPrelaunch={isPrelaunch} />
+      <Footer isPrelaunch={isPrelaunch} blogReady={blogReady} />
     </div>
   );
 }

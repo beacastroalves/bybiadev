@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next"; // Importação do hook de tradução
 
-export default function Navbar({ isPrelaunch }: { isPrelaunch?: boolean }) {
+export default function Navbar({ isPrelaunch, blogReady }: { isPrelaunch?: boolean; blogReady?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [langDropdownOpen, setLangDropdownOpen] = useState(false);
@@ -13,7 +13,8 @@ export default function Navbar({ isPrelaunch }: { isPrelaunch?: boolean }) {
     { label: t("nav.work"), href: "#trabalho" },
     { label: t("nav.about"), href: "#sobre" },
     { label: t("nav.process"), href: "#processo" },
-    { label: t("nav.blog"), href: "#blog" },
+    // Blog só aparece na nav quando houver artigos reais (evita âncora morta).
+    ...(blogReady ? [{ label: t("nav.blog"), href: "#blog" }] : []),
   ];
 
   const languages = [
@@ -138,9 +139,8 @@ export default function Navbar({ isPrelaunch }: { isPrelaunch?: boolean }) {
 
           {/* Botão de Ação Principal Traduzido (Leva para WhatsApp) */}
           <a
-            href={t("whatsapp.link")}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={isPrelaunch ? t("whatsapp.link") : "#agenda"}
+            {...(isPrelaunch ? { target: "_blank", rel: "noopener noreferrer" } : {})}
             className={`group inline-flex items-center gap-2 text-small font-medium px-4 py-2 rounded-full transition-all whitespace-nowrap ${
               scrolled
                 ? "bg-brand hover:bg-brand-deep text-white"
@@ -283,13 +283,12 @@ export default function Navbar({ isPrelaunch }: { isPrelaunch?: boolean }) {
 
           {/* CTA Mobile */}
           <a
-            href={t("whatsapp.link")}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={isPrelaunch ? t("whatsapp.link") : "#agenda"}
+            {...(isPrelaunch ? { target: "_blank", rel: "noopener noreferrer" } : {})}
             className="block text-center bg-brand text-white text-sm font-medium px-4 py-3 rounded-full mt-2"
             onClick={() => setMenuOpen(false)}
           >
-            {t("nav.cta")}
+            {isPrelaunch ? t("prelaunch.nav.cta") : t("nav.cta")}
           </a>
         </div>
       )}
