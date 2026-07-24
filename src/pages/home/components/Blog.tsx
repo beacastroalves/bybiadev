@@ -67,17 +67,17 @@ export default function Journal() {
           <div>
             <div className="flex items-center gap-2 mb-5">
               <span className="w-1.5 h-1.5 rounded-full bg-[#02C39A]"></span>
-              <span className="text-[11px] font-mono tracking-[0.18em] text-white/60 uppercase">
+              <span className="text-caption font-mono-tech text-white/60 uppercase">
                 • O BLOG · NOTAS DO DIGITAL
               </span>
             </div>
-            <h2 className="font-serif text-[44px] md:text-[64px] lg:text-[76px] leading-[0.98] tracking-[-0.03em] text-balance">
+            <h2 className="font-serif text-h2 text-balance">
               Notas diretas<br />
               <span className="italic text-white/55">do trabalho real.</span>
             </h2>
           </div>
           <div className="max-w-sm">
-            <p className="text-[14px] md:text-[15px] leading-[1.65] text-white/65">
+            <p className="text-body text-white/65">
               Reflexões, tutoriais e diários de projeto — escritos por quem faz o trabalho, não por quem escreve sobre ele.
             </p>
           </div>
@@ -88,7 +88,7 @@ export default function Journal() {
             <button
               key={f}
               onClick={() => setFilter(f)}
-              className={`px-4 py-2 text-[12px] font-medium rounded-full transition-all border ${
+              className={`px-4 py-2 text-small font-medium rounded-full transition-all border ${
                 filter === f ? "bg-white text-neutral-900 border-white" : "bg-white/5 text-white/80 border-white/10 hover:bg-white/10"
               }`}
             >
@@ -102,14 +102,14 @@ export default function Journal() {
             <a href={`#${feature.id}`} className="lg:col-span-7 group block rounded-2xl overflow-hidden border border-white/10 bg-white/[0.02]">
               <div className="relative aspect-[16/10] w-full overflow-hidden">
                 <img src={feature.image} alt={feature.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102" />
-                <div className="absolute top-4 left-4 bg-black/50 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 text-[10px] uppercase text-[#02C39A]">
+                <div className="absolute top-4 left-4 bg-black/50 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 text-caption uppercase text-[#02C39A]">
                   Destaque · {feature.category}
                 </div>
               </div>
               <div className="p-6">
-                <div className="text-[11px] font-mono text-white/65 uppercase">{feature.date} · {feature.read} de leitura</div>
-                <h3 className="mt-2 font-serif text-[26px] md:text-[32px] leading-tight group-hover:text-[#02C39A] transition-colors">{feature.title}</h3>
-                <p className="mt-2 text-[14px] text-white/65 leading-relaxed">{feature.excerpt}</p>
+                <div className="text-caption font-mono-tech text-white/65 uppercase">{feature.date} · {feature.read} de leitura</div>
+                <h3 className="mt-2 font-serif text-h3 group-hover:text-[#02C39A] transition-colors">{feature.title}</h3>
+                <p className="mt-2 text-small text-white/65">{feature.excerpt}</p>
               </div>
             </a>
 
@@ -120,8 +120,8 @@ export default function Journal() {
                     <img src={e.image} alt={e.title} className="w-full h-full object-cover" />
                   </div>
                   <div className="flex flex-col justify-center min-w-0">
-                    <div className="text-[10px] font-mono text-[#02C39A] uppercase">{e.category} · {e.read}</div>
-                    <h4 className="mt-1 font-serif text-[16px] sm:text-[18px] leading-snug group-hover:text-[#02C39A] transition-colors line-clamp-2">{e.title}</h4>
+                    <div className="text-caption font-mono-tech text-[#02C39A] uppercase">{e.category} · {e.read}</div>
+                    <h4 className="mt-1 font-serif text-h4 group-hover:text-[#02C39A] transition-colors line-clamp-2">{e.title}</h4>
                     <span className="text-[11px] text-white/60 mt-1">{e.date}</span>
                   </div>
                 </a>

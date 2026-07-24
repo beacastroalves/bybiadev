@@ -23,11 +23,11 @@ export default function Studio() {
           <div className="lg:col-span-7">
             <div className="flex items-center gap-2 mb-5">
               <span className="w-2 h-2 rounded-full bg-[#534AB7] shadow-[0_0_0_4px_rgba(83,74,183,0.25)]"></span>
-              <span className="text-[11px] font-mono tracking-[0.18em] text-[#534AB7] uppercase font-semibold">
+              <span className="text-caption font-mono-tech text-[#534AB7] uppercase font-semibold">
                 {t("about.label")}
               </span>
             </div>
-            <h2 className="font-serif text-[44px] md:text-[64px] lg:text-[80px] leading-[0.98] tracking-[-0.03em] text-balance">
+            <h2 className="font-serif text-h2 text-balance">
               {t("about.headline.p1")}
               <br />
               {t("about.headline.p2")}
@@ -36,7 +36,7 @@ export default function Studio() {
             </h2>
           </div>
           <div className="lg:col-span-5 lg:pt-8">
-            <p className="text-[15px] md:text-[16px] leading-[1.7] text-neutral-800 max-w-md font-medium">
+            <p className="text-body text-neutral-800 max-w-md font-medium">
               {t("about.text")}
             </p>
             <div className="mt-6 flex items-center gap-3">
@@ -44,13 +44,13 @@ export default function Studio() {
                 href={t("whatsapp.link")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-[#534AB7] hover:bg-[#433aa1] text-white text-[13px] font-medium px-5 py-3 rounded-full transition-all shadow-md"
+                className="inline-flex items-center gap-2 bg-[#534AB7] hover:bg-[#433aa1] text-white text-small font-medium px-5 py-3 rounded-full transition-all shadow-md"
               >
                 {t("about.btn.talk")}
               </a>
               <a
                 href="#manifesto"
-                className="inline-flex items-center gap-2 text-[13px] font-medium text-neutral-700 hover:text-neutral-900 border-b border-neutral-400 hover:border-neutral-900 pb-0.5 transition-colors whitespace-nowrap"
+                className="inline-flex items-center gap-2 text-small font-medium text-neutral-700 hover:text-neutral-900 border-b border-neutral-400 hover:border-neutral-900 pb-0.5 transition-colors whitespace-nowrap"
               >
                 {t("about.btn.manifesto")}
               </a>
@@ -119,7 +119,7 @@ export default function Studio() {
               <div className="font-serif text-[22px] leading-tight text-white/90 my-3">
                 Garantia de código limpo, arquitetura sem traves e autonomia total para o seu negócio.
               </div>
-              <div className="flex gap-4 text-[11px] font-mono text-[#02C39A] uppercase tracking-wider">
+              <div className="flex gap-4 text-caption font-mono-tech text-[#02C39A] uppercase">
                 <span className="flex items-center gap-1.5"><i className="ri-instance-line"></i> React</span>
                 <span className="flex items-center gap-1.5"><i className="ri-palette-line"></i> Tailwind</span>
                 <span className="flex items-center gap-1.5"><i className="ri-seo-line"></i> SEO</span>

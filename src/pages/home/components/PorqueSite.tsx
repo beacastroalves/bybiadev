@@ -16,11 +16,11 @@ export default function PorqueSite() {
           <div className="lg:col-span-6">
             <div className="flex items-center gap-2 mb-5">
               <span className="w-1.5 h-1.5 rounded-full bg-[#02C39A]"></span>
-              <span className="text-[11px] font-mono tracking-[0.18em] text-white/60 uppercase">
+              <span className="text-caption font-mono-tech text-white/60 uppercase">
                 {t("porqueSite.label")}
               </span>
             </div>
-            <h2 className="font-serif text-[38px] md:text-[54px] lg:text-[60px] leading-[1.03] tracking-[-0.03em] text-balance">
+            <h2 className="font-serif text-h2 text-balance">
               {t("porqueSite.title.p1")}
               <span className="italic text-white/55">{t("porqueSite.title.p2")}</span>
             </h2>
@@ -28,7 +28,7 @@ export default function PorqueSite() {
 
           {/* Corpo */}
           <div className="lg:col-span-6 lg:pt-2">
-            <div className="space-y-5 text-[16px] md:text-[17px] leading-[1.75] text-white/75">
+            <div className="space-y-5 text-body-lg text-white/75">
               <p>{t("porqueSite.p1")}</p>
               <p>{t("porqueSite.p2")}</p>
               <p className="font-medium text-white border-l-2 border-[#02C39A] pl-5">

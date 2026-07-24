@@ -150,7 +150,7 @@ function ProjectCard({ project: p, index: idx }: ProjectCardProps) {
             <div className="text-[10.5px] font-mono-tech tracking-wider text-white/60 uppercase">
               Case · {p.id} / {p.client}
             </div>
-            <h3 className="mt-1 font-serif-display text-[22px] md:text-[26px] leading-tight text-white">
+            <h3 className="mt-1 font-serif-display text-h3 text-white">
               {p.title}
             </h3>
           </div>
@@ -182,23 +182,23 @@ export default function Work() {
           <div>
             <div className="flex items-center gap-2 mb-5">
               <span className="w-1.5 h-1.5 rounded-full bg-[#02C39A] animate-pulse"></span>
-              <span className="text-[11px] font-mono-tech tracking-[0.18em] text-white/60 uppercase">
+              <span className="text-caption font-mono-tech text-white/60 uppercase">
                 {t("work.label")}
               </span>
             </div>
-            <h2 className="font-serif-display text-[44px] md:text-[64px] lg:text-[76px] leading-[0.98] tracking-[-0.03em] text-balance">
+            <h2 className="font-serif-display text-h2 text-balance">
               {t("work.headline.p1")}
               <br />
               <span className="italic text-white/60">{t("work.headline.p2")}</span>
             </h2>
           </div>
           <div className="max-w-sm">
-            <p className="text-[14px] md:text-[15px] leading-[1.65] text-white/65">
+            <p className="text-body text-white/65">
               {t("work.description")}
             </p>
             <a
               href="#archive"
-              className="mt-5 inline-flex items-center gap-2 text-[13px] font-medium text-white/90 hover:text-[#02C39A] border-b border-white/30 hover:border-[#02C39A] pb-0.5 transition-colors whitespace-nowrap"
+              className="mt-5 inline-flex items-center gap-2 text-small font-medium text-white/90 hover:text-[#02C39A] border-b border-white/30 hover:border-[#02C39A] pb-0.5 transition-colors whitespace-nowrap"
             >
               {t("work.archive")}
             </a>

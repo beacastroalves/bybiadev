@@ -71,6 +71,34 @@ button, a, [role="button"] {
   cursor: pointer;
 }
 
+/* Acessibilidade: foco de teclado visível (specs/07 §2.3) */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #534AB7;
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Acessibilidade: respeitar quem prefere menos movimento (specs/07 §2.2) */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .animate-marquee,
+  .animate-float-slow,
+  .animate-font-cycle,
+  .text-shimmer {
+    animation: none !important;
+  }
+}
+
 @keyframes font-cycle {
   /* Font 1 (0% to 20%) - Instrument Serif */
   0.00% {

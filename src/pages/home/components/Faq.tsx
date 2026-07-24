@@ -25,11 +25,11 @@ export default function Faq() {
           <div className="lg:col-span-5">
             <div className="flex items-center gap-2 mb-5">
               <span className="w-2 h-2 rounded-full bg-[#534AB7] shadow-[0_0_0_4px_rgba(83,74,183,0.25)]"></span>
-              <span className="text-[11px] font-mono tracking-[0.18em] text-[#534AB7] uppercase font-semibold">
+              <span className="text-caption font-mono-tech text-[#534AB7] uppercase font-semibold">
                 {t("faq.label")}
               </span>
             </div>
-            <h2 className="font-serif text-[38px] md:text-[54px] lg:text-[60px] leading-[1.03] tracking-[-0.03em] text-balance">
+            <h2 className="font-serif text-h2 text-balance">
               {t("faq.title.p1")}
               <span className="italic text-[#534AB7]">{t("faq.title.p2")}</span>
             </h2>
@@ -38,7 +38,7 @@ export default function Faq() {
               href={t("whatsapp.link")}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-8 inline-flex items-center gap-2 text-[14px] font-medium text-[#534AB7] hover:text-[#433aa1] border-b border-[#534AB7]/40 hover:border-[#433aa1] pb-0.5 transition-colors"
+              className="mt-8 inline-flex items-center gap-2 text-small font-medium text-[#534AB7] hover:text-[#433aa1] border-b border-[#534AB7]/40 hover:border-[#433aa1] pb-0.5 transition-colors"
             >
               {t("faq.cta")}
             </a>
@@ -56,7 +56,7 @@ export default function Faq() {
                       aria-expanded={isOpen}
                       className="w-full flex items-center justify-between gap-4 py-5 text-left group"
                     >
-                      <span className="font-serif text-[19px] md:text-[22px] leading-snug group-hover:text-[#534AB7] transition-colors">
+                      <span className="font-serif text-h4 group-hover:text-[#534AB7] transition-colors">
                         {it.q}
                       </span>
                       <i
@@ -71,7 +71,7 @@ export default function Faq() {
                       }`}
                     >
                       <div className="overflow-hidden">
-                        <p className="text-[15px] md:text-[16px] leading-[1.7] text-neutral-700">
+                        <p className="text-body text-neutral-700">
                           {it.a}
                         </p>
                       </div>

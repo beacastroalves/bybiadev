@@ -16,11 +16,11 @@ export default function Problema() {
           <div className="lg:col-span-6">
             <div className="flex items-center gap-2 mb-5">
               <span className="w-2 h-2 rounded-full bg-[#534AB7] shadow-[0_0_0_4px_rgba(83,74,183,0.25)]"></span>
-              <span className="text-[11px] font-mono tracking-[0.18em] text-[#534AB7] uppercase font-semibold">
+              <span className="text-caption font-mono-tech text-[#534AB7] uppercase font-semibold">
                 {t("problema.label")}
               </span>
             </div>
-            <h2 className="font-serif text-[38px] md:text-[54px] lg:text-[60px] leading-[1.03] tracking-[-0.03em] text-balance">
+            <h2 className="font-serif text-h2 text-balance">
               {t("problema.title.p1")}
               <span className="italic text-[#534AB7]">{t("problema.title.p2")}</span>
             </h2>
@@ -28,7 +28,7 @@ export default function Problema() {
 
           {/* Corpo */}
           <div className="lg:col-span-6 lg:pt-2">
-            <div className="space-y-5 text-[16px] md:text-[17px] leading-[1.75] text-neutral-800">
+            <div className="space-y-5 text-body-lg text-neutral-800">
               <p>{t("problema.p1")}</p>
               <p>{t("problema.p2")}</p>
               <p className="font-medium text-neutral-900 border-l-2 border-[#534AB7] pl-5">

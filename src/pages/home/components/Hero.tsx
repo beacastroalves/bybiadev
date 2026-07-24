@@ -31,7 +31,7 @@ export default function Hero({ isPrelaunch }: { isPrelaunch?: boolean }) {
           <span className="absolute inline-flex h-full w-full rounded-full bg-[#02C39A] opacity-75 animate-ping"></span>
           <span className="relative inline-flex rounded-full h-2 w-2 bg-[#02C39A]"></span>
         </span>
-        <span className="text-[11px] font-mono-tech tracking-wider text-white/90 uppercase">
+        <span className="text-caption font-mono-tech text-white/90 uppercase">
           {isPrelaunch ? t("prelaunch.hero.status") : t("hero.status")}
         </span>
       </div>
@@ -43,7 +43,7 @@ export default function Hero({ isPrelaunch }: { isPrelaunch?: boolean }) {
             <div className="max-w-2xl">
               
               {isPrelaunch ? (
-                <h1 className="animate-fade-up-delay-1 font-serif-display text-[56px] leading-[0.95] sm:text-[68px] md:text-[78px] lg:text-[88px] xl:text-[104px] text-white tracking-[-0.03em] text-balance drop-shadow-[0_2px_30px_rgba(0,0,0,0.35)]">
+                <h1 className="animate-fade-up-delay-1 font-serif-display text-display text-white text-balance drop-shadow-[0_2px_30px_rgba(0,0,0,0.35)]">
                   {t("prelaunch.hero.title.part1")}
                   <span className="italic text-white/60 animate-font-cycle">{t("prelaunch.hero.title.part2")}</span>
                   <br />
@@ -52,7 +52,7 @@ export default function Hero({ isPrelaunch }: { isPrelaunch?: boolean }) {
                   <span className="text-shimmer bg-gradient-to-r from-white via-white to-white/70 bg-clip-text text-transparent">{t("prelaunch.hero.title.part4")}</span>
                 </h1>
               ) : (
-                <h1 className="animate-fade-up-delay-1 font-serif-display text-[56px] leading-[0.95] sm:text-[68px] md:text-[78px] lg:text-[88px] xl:text-[104px] text-white tracking-[-0.03em] text-balance drop-shadow-[0_2px_30px_rgba(0,0,0,0.35)]">
+                <h1 className="animate-fade-up-delay-1 font-serif-display text-display text-white text-balance drop-shadow-[0_2px_30px_rgba(0,0,0,0.35)]">
                   {t("hero.title.part1")}
                   <span className="italic text-white/60">{t("hero.title.part2")}</span>
                   <br />
@@ -62,7 +62,7 @@ export default function Hero({ isPrelaunch }: { isPrelaunch?: boolean }) {
                 </h1>
               )}
 
-              <p className="animate-fade-up-delay-2 mt-7 max-w-md text-[15px] md:text-[16px] leading-[1.65] text-white/80 drop-shadow-[0_2px_10px_rgba(0,0,0,0.2)]">
+              <p className="animate-fade-up-delay-2 mt-7 max-w-md text-body text-white/80 drop-shadow-[0_2px_10px_rgba(0,0,0,0.2)]">
                 {isPrelaunch ? t("prelaunch.hero.description") : t("hero.description")}
               </p>
 
@@ -116,19 +116,19 @@ export default function Hero({ isPrelaunch }: { isPrelaunch?: boolean }) {
                   <>
                     <div>
                       <div className="font-serif-display text-[28px] leading-none text-white">2026</div>
-                      <div className="mt-1.5 text-[11px] font-mono-tech tracking-wider text-white/60 uppercase">
+                      <div className="mt-1.5 text-caption font-mono-tech text-white/60 uppercase">
                         {t("prelaunch.hero.stat.launch")}
                       </div>
                     </div>
                     <div className="border-l border-white/20 pl-4">
                       <div className="font-serif-display text-[28px] leading-none text-white">100%</div>
-                      <div className="mt-1.5 text-[11px] font-mono-tech tracking-wider text-white/60 uppercase">
+                      <div className="mt-1.5 text-caption font-mono-tech text-white/60 uppercase">
                         {t("prelaunch.hero.stat.focus")}
                       </div>
                     </div>
                     <div className="border-l border-white/20 pl-4">
                       <div className="font-serif-display text-[28px] leading-none text-white">Clean</div>
-                      <div className="mt-1.5 text-[11px] font-mono-tech tracking-wider text-white/60 uppercase">
+                      <div className="mt-1.5 text-caption font-mono-tech text-white/60 uppercase">
                         {t("prelaunch.hero.stat.code")}
                       </div>
                     </div>
@@ -137,19 +137,19 @@ export default function Hero({ isPrelaunch }: { isPrelaunch?: boolean }) {
                   <>
                     <div>
                       <div className="font-serif-display text-[28px] leading-none text-white">100%</div>
-                      <div className="mt-1.5 text-[11px] font-mono-tech tracking-wider text-white/60 uppercase">
+                      <div className="mt-1.5 text-caption font-mono-tech text-white/60 uppercase">
                         {t("hero.stat.direct")}
                       </div>
                     </div>
                     <div className="border-l border-white/20 pl-4">
                       <div className="font-serif-display text-[28px] leading-none text-white">2024</div>
-                      <div className="mt-1.5 text-[11px] font-mono-tech tracking-wider text-white/60 uppercase">
+                      <div className="mt-1.5 text-caption font-mono-tech text-white/60 uppercase">
                         {t("hero.stat.experience")}
                       </div>
                     </div>
                     <div className="border-l border-white/20 pl-4">
                       <div className="font-serif-display text-[28px] leading-none text-white">48h</div>
-                      <div className="mt-1.5 text-[11px] font-mono-tech tracking-wider text-white/60 uppercase">
+                      <div className="mt-1.5 text-caption font-mono-tech text-white/60 uppercase">
                         {t("hero.stat.response")}
                       </div>
                     </div>

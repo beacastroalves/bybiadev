@@ -120,10 +120,14 @@ Ganhos: trocar a paleta/fonte num sítio; base pronta para **dark/light mode**; 
 3. ✅ `.text-shimmer` (index.css) com base branca + brilho lilás (#c9c2ff) para fundo escuro. "built by hand" agora legível.
 4. ✅ Contraste subido no Footer (`white/40→60`, `white/50→65`) e Blog (meta `white/40→60`, `white/50→65`). Marquee decorativo grande do Trabalho mantido. `tsc` + `vite build` limpos.
 
-**P1 — sistema:**
-5. Escala tipográfica única via tokens no Tailwind (§3, §4).
-6. Cores e fontes como tokens (§4).
-7. `prefers-reduced-motion` + `focus-visible` (§2.2/2.3).
+**P1 — sistema — ✅ FEITO (2026-07-24):**
+5. ✅ Escala tipográfica única de 8 papéis no `tailwind.config.ts › fontSize`, títulos **fluidos com `clamp()`**. Aplicada a todas as secções (`text-display`/`text-h2`/`text-h3`/`text-h4`/`text-body-lg`/`text-body`/`text-small`/`text-caption`), substituindo ~30 tamanhos avulsos. Numéricos (stats), ícones e o marquee decorativo mantidos.
+6. ✅ Tokens de cor da marca definidos no config (`brand`/`accent`/`ink`/`cream`/`paper`) para adoção gradual (migração hex→token fica como follow-up incremental).
+7. ✅ `prefers-reduced-motion` (desliga shimmer/marquee/font-cycle/float e encurta transições) + `:focus-visible` (anel roxo) no `index.css`.
+
+**Afinação pós-feedback (2026-07-24):** títulos estavam pequenos no desktop e labels/navbar demasiado espaçados → `h2` 72→**80px** máx, `h3` 32→**36px**, `display` 104→**108px**; `caption` letter-spacing 0.18→**0.1em** (mais minimal); `small` 14→**13px** (navbar/rodapé). Verificado no browser.
+
+**Nota de verificação:** mudanças ao `tailwind.config.ts` exigem **reiniciar** o dev server (o Vite não faz HMR fiável da config) — confirmar sempre com um servidor fresco.
 
 **P2 — polish:**
 8. Ritmo de espaçamento padrão (§5).

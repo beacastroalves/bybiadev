@@ -61,18 +61,18 @@ export default function Process() {
           <div>
             <div className="flex items-center gap-2 mb-5">
               <span className="w-1.5 h-1.5 rounded-full bg-neutral-900"></span>
-              <span className="text-[11px] font-mono-tech tracking-[0.18em] text-neutral-500 uppercase">
+              <span className="text-caption font-mono-tech text-neutral-500 uppercase">
                 {t("process.label")}
               </span>
             </div>
-            <h2 className="font-serif-display text-[44px] md:text-[64px] lg:text-[76px] leading-[0.98] tracking-[-0.03em] text-balance">
+            <h2 className="font-serif-display text-h2 text-balance">
               {t("process.headline.p1")}
               <br />
               <span className="italic text-neutral-400">{t("process.headline.p2")}</span>
             </h2>
           </div>
           <div className="max-w-sm">
-            <p className="text-[14px] md:text-[15px] leading-[1.65] text-neutral-600">
+            <p className="text-body text-neutral-600">
               {t("process.description")}
             </p>
           </div>
@@ -112,11 +112,11 @@ export default function Process() {
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-baseline gap-3">
-                        <h3 className="font-serif-display text-[24px] md:text-[28px] leading-none">
+                        <h3 className="font-serif-display text-h3">
                           {s.title}
                         </h3>
                         <span
-                          className={`text-[11px] font-mono-tech tracking-wider uppercase whitespace-nowrap ${
+                          className={`text-caption font-mono-tech uppercase whitespace-nowrap${
                             isActive ? "text-white/60" : "text-neutral-400"
                           }`}
                         >
@@ -139,14 +139,14 @@ export default function Process() {
                   >
                     <div className="overflow-hidden">
                       <div className="px-5 md:px-7 pb-6 -mt-1">
-                        <p className="text-[14px] md:text-[15px] leading-[1.65] text-white/75 max-w-xl">
+                        <p className="text-body text-white/75 max-w-xl">
                           {s.summary}
                         </p>
                         <div className="mt-4 flex flex-wrap gap-2">
                           {s.deliverables.map((d) => (
                             <span
                               key={d}
-                              className="inline-flex items-center gap-1.5 text-[11px] font-mono-tech tracking-wider uppercase bg-white/10 border border-white/15 text-white/85 px-3 py-1 rounded-full"
+                              className="inline-flex items-center gap-1.5 text-caption font-mono-tech uppercase bg-white/10 border border-white/15 text-white/85 px-3 py-1 rounded-full"
                             >
                               <span
                                 className="w-1.5 h-1.5 rounded-full"
@@ -182,10 +182,10 @@ export default function Process() {
               <div className="absolute inset-x-0 bottom-0 p-5 md:p-6 bg-gradient-to-t from-black/75 via-black/30 to-transparent">
                 <div className="flex items-end justify-between gap-4">
                   <div>
-                    <div className="text-[11px] font-mono-tech tracking-wider text-white/65 uppercase">
+                    <div className="text-caption font-mono-tech text-white/65 uppercase">
                       Step · {steps[active].no} / 04
                     </div>
-                    <div className="mt-1 font-serif-display text-[26px] md:text-[30px] text-white leading-tight">
+                    <div className="mt-1 font-serif-display text-h3 text-white">
                       {steps[active].title}
                     </div>
                   </div>

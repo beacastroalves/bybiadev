@@ -86,7 +86,7 @@ export default function Navbar({ isPrelaunch }: { isPrelaunch?: boolean }) {
               <a
                 key={link.label}
                 href={link.href}
-                className="px-4 py-1.5 text-[13px] font-medium rounded-full text-white/90 hover:text-[#02C39A] hover:bg-white/5 transition-colors whitespace-nowrap"
+                className="px-4 py-1.5 text-small font-medium rounded-full text-white/90 hover:text-[#02C39A] hover:bg-white/5 transition-colors whitespace-nowrap"
               >
                 {link.label}
               </a>
@@ -101,7 +101,7 @@ export default function Navbar({ isPrelaunch }: { isPrelaunch?: boolean }) {
           <div className="relative">
             <button
               onClick={() => setLangDropdownOpen(!langDropdownOpen)}
-              className="flex items-center gap-1.5 text-[11px] font-mono tracking-wider uppercase border border-white/25 bg-white/5 hover:bg-white/10 rounded-full px-3 py-1.5 text-white/80 hover:text-white transition-all select-none"
+              className="flex items-center gap-1.5 text-caption font-mono-tech uppercase border border-white/25 bg-white/5 hover:bg-white/10 rounded-full px-3 py-1.5 text-white/80 hover:text-white transition-all select-none"
             >
               <img src={currentLang.flag} alt={currentLang.label} className="w-4 h-3 object-cover rounded-[1px] border border-white/10" />
               <span>{currentLang.label}</span>
@@ -121,7 +121,7 @@ export default function Navbar({ isPrelaunch }: { isPrelaunch?: boolean }) {
                         i18n.changeLanguage(lang.code);
                         setLangDropdownOpen(false);
                       }}
-                      className={`w-full flex items-center gap-2 px-3 py-2 text-left text-[11px] font-mono tracking-wider transition-colors ${
+                      className={`w-full flex items-center gap-2 px-3 py-2 text-left text-caption font-mono-tech transition-colors ${
                         currentLang.code === lang.code
                           ? "text-[#02C39A] bg-white/5"
                           : "text-white/80 hover:bg-white/5 hover:text-white"
@@ -141,7 +141,7 @@ export default function Navbar({ isPrelaunch }: { isPrelaunch?: boolean }) {
             href={t("whatsapp.link")}
             target="_blank"
             rel="noopener noreferrer"
-            className={`group inline-flex items-center gap-2 text-[13px] font-medium px-4 py-2 rounded-full transition-all whitespace-nowrap ${
+            className={`group inline-flex items-center gap-2 text-small font-medium px-4 py-2 rounded-full transition-all whitespace-nowrap ${
               scrolled
                 ? "bg-[#534AB7] hover:bg-[#433aa1] text-white"
                 : "bg-white hover:bg-[#02C39A] hover:text-white text-neutral-900"
@@ -163,7 +163,7 @@ export default function Navbar({ isPrelaunch }: { isPrelaunch?: boolean }) {
                   <button
                     key={lang.code}
                     onClick={() => i18n.changeLanguage(lang.code)}
-                    className={`px-2.5 py-1 rounded-full text-[10px] font-mono font-bold tracking-wider transition-all duration-300 ${
+                    className={`px-2.5 py-1 rounded-full text-caption font-mono-tech font-bold transition-all duration-300 ${
                       isSelected
                         ? "bg-[#534AB7] text-white shadow-[0_2px_8px_rgba(83,74,183,0.4)]"
                         : "text-white/40 hover:text-white/80"
@@ -197,7 +197,7 @@ export default function Navbar({ isPrelaunch }: { isPrelaunch?: boolean }) {
                   <button
                     key={lang.code}
                     onClick={() => i18n.changeLanguage(lang.code)}
-                    className={`px-2.5 py-1 rounded-full text-[10px] font-mono font-bold tracking-wider transition-all duration-300 ${
+                    className={`px-2.5 py-1 rounded-full text-caption font-mono-tech font-bold transition-all duration-300 ${
                       isSelected
                         ? "bg-[#534AB7] text-white shadow-[0_2px_8px_rgba(83,74,183,0.4)]"
                         : "text-white/40 hover:text-white/80"
