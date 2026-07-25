@@ -1,5 +1,15 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useMemo } from "react";
 import { useTranslation } from "react-i18next";
+
+// Baralha uma cópia do array (Fisher-Yates) — ordem diferente a cada carregamento.
+function shuffle<T>(arr: T[]): T[] {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
 
 type Project = {
   id: string;
@@ -167,11 +177,15 @@ function ProjectCard({ project: p, index: idx }: ProjectCardProps) {
 }
 
 export default function Work() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
-  // Carrega a array do ticker traduzida e duplica para criar o loop contínuo perfeito
-  const tickerItems = t("work.ticker", { returnObjects: true }) as string[];
-  const doubledTicker = [...tickerItems, ...tickerItems];
+  // Ordem baralhada uma vez por carregamento/idioma (não re-baralha em cada render → sem flicker).
+  const shuffledTicker = useMemo(
+    () => shuffle(t("work.ticker", { returnObjects: true }) as string[]),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [i18n.language]
+  );
+  const doubledTicker = [...shuffledTicker, ...shuffledTicker];
 
   return (
     <section id="trabalho" className="relative rounded-t-[2rem] md:rounded-t-[3rem] -mt-8 md:-mt-12 bg-ink text-white py-24 md:py-32 overflow-hidden">
@@ -212,19 +226,19 @@ export default function Work() {
           ))}
         </div>
 
-        {/* Ticker / Marquee Horizontal — Integrado trilingue com fontes da Versão 0
-        deixar essa linha de ponta a ponta ignorando o maxwidth de 1200px. Precisa pegar 100% do width da tela.*/}
-        <div className="mt-24 md:mt-32 overflow-hidden border-y border-white/10 py-5">
-          <div className="flex gap-12 animate-marquee whitespace-nowrap text-white/40 font-serif-display text-[28px] md:text-[36px] italic">
-            {doubledTicker.map((label, i) => (
-              <span key={i} className="flex items-center gap-12">
-                <span>{label}</span>
-                <span className="w-2 h-2 rounded-full bg-brand"></span>
-              </span>
-            ))}
-          </div>
-        </div>
+      </div>
 
+      {/* Ticker / Marquee — FULL-BLEED: fora do contentor de 1200px, de ponta a ponta.
+          Velocidade responsiva: mais rápido no mobile (16s), 30s no desktop. */}
+      <div className="mt-16 md:mt-24 overflow-hidden border-y border-white/10 py-5">
+        <div className="flex w-max gap-12 animate-[marquee_16s_linear_infinite] md:animate-[marquee_30s_linear_infinite] whitespace-nowrap text-white/40 font-serif-display text-[28px] md:text-[36px] italic">
+          {doubledTicker.map((label, i) => (
+            <span key={i} className="flex items-center gap-12">
+              <span>{label}</span>
+              <span className="w-2 h-2 rounded-full bg-brand"></span>
+            </span>
+          ))}
+        </div>
       </div>
     </section>
   );
