@@ -108,6 +108,15 @@ Instalado `gsap@3.15` + `@gsap/react`. Base de motion criada e verificada no bro
 
 > **Nota:** o "text-reveal por máscara" (clip-wipe do título) foi trocado por **fade+rise** por robustez — o `fromTo` com `clip-path` ficava preso em alguns casos. O clip-wipe fica como polish **P1** (a fazer com wrapper `overflow-hidden` ou SplitText, testado com cuidado).
 
+## 6.2 P1 — parcial (2026-07-25)
+
+- ✅ **Separadores / transições — painéis arredondados sobrepostos** (opção A). Removido o glass badge (era inconsistente); cada secção ganhou `rounded-t-[2rem] md:rounded-t-[3rem] -mt-8 md:-mt-12` → os painéis "encavalitam-se" ao scroll (light↔dark). Look premium, verificado no browser. **É o item central que o utilizador pediu (divisores/separadores).**
+- ⏸️ **Parallax dos blobs** — implementado mas **revertido**: os `ScrollTrigger` de `scrub` do parallax, no mesmo contexto do hook de reveals, **partiam os reveals** (ficavam presos no from-state, opacity 0). Isolado empiricamente (remover o parallax repôs os reveals). Os `data-parallax` ficam nos blobs, prontos para uma re-tentativa **isolada** (useGSAP/contexto separado ou CSS scroll-driven).
+- ⏸️ **Marquee com velocidade** — implementado mas **revertido**: o loop GSAP não aplicava transform (marquee parado). Voltou ao CSS `animate-marquee` (constante, funciona). Re-tentar com abordagem GSAP diferente.
+- ⏸️ **Clip-wipe dos títulos** — continua diferido (do P0); os títulos usam fade+rise robusto.
+
+**Lição:** misturar muitos `ScrollTrigger` (reveals `once` + parallax `scrub`) no mesmo contexto do hook causou interferência. Re-tentativas de parallax/marquee devem ficar em **contextos `useGSAP` isolados** por componente, testados um a um.
+
 ## 7. Roadmap sugerido
 
 1. **P0** — instalar `gsap` + `@gsap/react`; util de reveal; aplicar reveal-on-scroll + count-up + text-reveal dos títulos. *(maior salto de perceção, risco baixo)*

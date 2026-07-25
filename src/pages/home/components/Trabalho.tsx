@@ -174,7 +174,7 @@ export default function Work() {
   const doubledTicker = [...tickerItems, ...tickerItems];
 
   return (
-    <section id="trabalho" className="relative bg-ink text-white py-24 md:py-32">
+    <section id="trabalho" className="relative rounded-t-[2rem] md:rounded-t-[3rem] -mt-8 md:-mt-12 bg-ink text-white py-24 md:py-32 overflow-hidden">
       <div className="mx-auto max-w-[1200px] px-6 md:px-10 lg:px-14">
 
         {/* Section header — Alinhado com tipografia original da Versão 0 */}

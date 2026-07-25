@@ -53,7 +53,7 @@ export default function Process() {
   return (
     <section
       id="processo"
-      className="relative bg-paper text-neutral-900 py-24 md:py-32 overflow-hidden"
+      className="relative rounded-t-[2rem] md:rounded-t-[3rem] -mt-8 md:-mt-12 bg-paper text-neutral-900 py-24 md:py-32 overflow-hidden"
     >
       <div className="mx-auto max-w-[1200px] px-6 md:px-10 lg:px-14">
         {/* Eyebrow + headline - Versão 0 Pura */}

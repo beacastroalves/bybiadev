@@ -6,9 +6,9 @@ export default function Friccao() {
   return (
     <section
       id="friccao"
-      className="relative bg-paper text-neutral-900 py-24 md:py-32 overflow-hidden"
+      className="relative rounded-t-[2rem] md:rounded-t-[3rem] -mt-8 md:-mt-12 bg-paper text-neutral-900 py-24 md:py-32 overflow-hidden"
     >
-      <div className="absolute bottom-0 right-1/4 w-[420px] h-[420px] rounded-full bg-accent/15 blur-3xl pointer-events-none"></div>
+      <div data-parallax className="absolute bottom-0 right-1/4 w-[420px] h-[420px] rounded-full bg-accent/15 blur-3xl pointer-events-none"></div>
 
       <div className="relative mx-auto max-w-[1200px] px-6 md:px-10 lg:px-14">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">

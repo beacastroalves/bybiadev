@@ -6,9 +6,9 @@ export default function PorqueSite() {
   return (
     <section
       id="porque-site"
-      className="relative bg-ink text-white py-24 md:py-32 overflow-hidden"
+      className="relative rounded-t-[2rem] md:rounded-t-[3rem] -mt-8 md:-mt-12 bg-ink text-white py-24 md:py-32 overflow-hidden"
     >
-      <div className="absolute -top-40 left-0 w-[520px] h-[520px] rounded-full bg-brand/15 blur-3xl pointer-events-none"></div>
+      <div data-parallax className="absolute -top-40 left-0 w-[520px] h-[520px] rounded-full bg-brand/15 blur-3xl pointer-events-none"></div>
 
       <div className="relative mx-auto max-w-[1200px] px-6 md:px-10 lg:px-14">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">

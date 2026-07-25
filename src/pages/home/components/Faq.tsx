@@ -15,9 +15,9 @@ export default function Faq() {
   return (
     <section
       id="faq"
-      className="relative bg-cream text-neutral-900 py-24 md:py-32 overflow-hidden"
+      className="relative rounded-t-[2rem] md:rounded-t-[3rem] -mt-8 md:-mt-12 bg-cream text-neutral-900 py-24 md:py-32 overflow-hidden"
     >
-      <div className="absolute -top-24 -left-24 w-[420px] h-[420px] rounded-full bg-brand/10 blur-3xl pointer-events-none"></div>
+      <div data-parallax className="absolute -top-24 -left-24 w-[420px] h-[420px] rounded-full bg-brand/10 blur-3xl pointer-events-none"></div>
 
       <div className="relative mx-auto max-w-[1200px] px-6 md:px-10 lg:px-14">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">

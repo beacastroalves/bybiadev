@@ -7,7 +7,7 @@ export default function Studio() {
   return (
     <section
       id="sobre"
-      className="relative bg-cream text-neutral-900 py-24 md:py-32 overflow-hidden"
+      className="relative rounded-t-[2rem] md:rounded-t-[3rem] -mt-8 md:-mt-12 bg-cream text-neutral-900 py-24 md:py-32 overflow-hidden"
     >
       {/* BLOBS DE ALTA OPACIDADE RESGATADOS DA VERSÃO 0 — Adaptados para a paleta roxa e menta */}
       <div 
