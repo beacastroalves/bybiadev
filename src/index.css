@@ -65,6 +65,12 @@
   100% { transform: translateX(-50%); }
 }
 
+/* Barra de progresso do slideshow de projetos (indicador ativo a preencher). */
+@keyframes fill-progress {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
 .animate-float-slow { animation: float-slow 6s ease-in-out infinite; }
 .animate-fade-up { animation: fade-up 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
 .animate-fade-up-delay-1 { animation: fade-up 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.15s both; }
