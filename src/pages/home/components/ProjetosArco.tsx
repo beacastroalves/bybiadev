@@ -20,7 +20,11 @@ const cards = [
   { name: "Estúdio Criativo", image: "https://images.pexels.com/photos/196645/pexels-photo-196645.jpeg?auto=compress&cs=tinysrgb&w=600" },
 ];
 
-const STEP_DEG = 10; // N = (índice - ativo) * STEP_DEG — maior = cards mais afastados
+// Ângulo entre cards (rotate = (índice - ativo) * STEP). Responsivo: no mobile o
+// ecrã é estreito, então um passo menor junta os cards (leque) e deixa mais à vista;
+// no desktop um passo maior dá folga limpa entre os cards já maiores.
+const STEP_MOBILE = 6.5;
+const STEP_DESKTOP = 11;
 const INTERVAL = 3000; // avança a cada 3s
 const EASE = "cubic-bezier(.22,.61,.36,1)";
 const N = cards.length;
@@ -34,6 +38,7 @@ function wrap(d: number) {
 export default function ProjetosArco() {
   const { t } = useTranslation();
   const sectionRef = useRef<HTMLElement>(null);
+  const arcRef = useRef<HTMLDivElement>(null);
   const touchX = useRef(0);
   const prevActive = useRef(0);
   const [active, setActive] = useState(0);
@@ -47,6 +52,21 @@ export default function ProjetosArco() {
       typeof window !== "undefined" &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches
   );
+  const [step, setStep] = useState(() =>
+    typeof window !== "undefined" &&
+    window.matchMedia("(min-width: 768px)").matches
+      ? STEP_DESKTOP
+      : STEP_MOBILE
+  );
+
+  // Passo do arco muda com o breakpoint (mobile mais junto, desktop mais aberto).
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 768px)");
+    const onChange = () => setStep(mq.matches ? STEP_DESKTOP : STEP_MOBILE);
+    onChange();
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
 
   // Marca interação manual (seta/swipe/clique) → o autoplay reinicia a contagem e triplica o tempo.
   const markManual = () => {
@@ -57,6 +77,38 @@ export default function ProjetosArco() {
     setActive((a) => (a + dir + N) % N);
     markManual();
   };
+  // Referência sempre atualizada para o listener nativo de wheel (anexado uma vez).
+  const goRef = useRef(go);
+  goRef.current = go;
+
+  // Desktop: com o rato sobre a zona dos cards, a roda do rato roda os cards em
+  // vez de rolar a página. Usa listener NATIVO com { passive: false } porque o
+  // onWheel do React é passivo e não deixa fazer preventDefault.
+  useEffect(() => {
+    const el = arcRef.current;
+    if (!el) return;
+    let accum = 0;
+    let last = 0;
+    const STEP = 50; // px de scroll acumulado por cada card rodado
+    const onWheel = (e: WheelEvent) => {
+      // Só no desktop; no mobile/tablet deixa a página rolar normalmente.
+      if (!window.matchMedia("(min-width: 768px)").matches) return;
+      e.preventDefault();
+      const now = performance.now();
+      if (now - last > 200) accum = 0; // scrolls separados não se somam
+      last = now;
+      accum += e.deltaMode === 1 ? e.deltaY * 16 : e.deltaY; // normaliza linhas→px
+      if (accum >= STEP) {
+        goRef.current(1);
+        accum = 0;
+      } else if (accum <= -STEP) {
+        goRef.current(-1);
+        accum = 0;
+      }
+    };
+    el.addEventListener("wheel", onWheel, { passive: false });
+    return () => el.removeEventListener("wheel", onWheel);
+  }, []);
 
   // Pausar autoplay quando a secção sai do viewport
   useEffect(() => {
@@ -85,8 +137,12 @@ export default function ProjetosArco() {
     };
   }, [reduced, inView, paused, manualNonce]);
 
-  // Deteta os cards que dão a volta e teletransporta-os SEM animação (nas pontas
-  // invisíveis) — antes do paint (useLayoutEffect) para não se ver o "salto".
+  // Deteta os cards que dão a volta. Em vez de os "colar" já na posição final,
+  // marcamo-los como `instant`: nesse frame são desenhados UM passo ALÉM da borda
+  // (fora do ecrã, invisíveis) sem animação — e no frame seguinte, ao limpar
+  // `instant`, deslizam suavemente para o lugar (entra com movimento, não salta).
+  // Duplo requestAnimationFrame garante que o frame "fora do ecrã" chega a pintar
+  // antes de ligar a transição, senão o browser saltava direto para o destino.
   useLayoutEffect(() => {
     const wrapping: number[] = [];
     for (let i = 0; i < N; i++) {
@@ -97,8 +153,14 @@ export default function ProjetosArco() {
     prevActive.current = active;
     if (!wrapping.length) return;
     setInstant(wrapping);
-    const raf = requestAnimationFrame(() => setInstant([]));
-    return () => cancelAnimationFrame(raf);
+    let raf2 = 0;
+    const raf1 = requestAnimationFrame(() => {
+      raf2 = requestAnimationFrame(() => setInstant([]));
+    });
+    return () => {
+      cancelAnimationFrame(raf1);
+      cancelAnimationFrame(raf2);
+    };
   }, [active]);
 
   const onTouchStart = (e: TouchEvent) => {
@@ -115,7 +177,7 @@ export default function ProjetosArco() {
     <section
       ref={sectionRef}
       id="projetos-arco"
-      className="relative rounded-t-[2rem] md:rounded-t-[3rem] -mt-8 md:-mt-12 bg-ink text-white py-24 md:py-32 overflow-hidden"
+      className="relative isolate rounded-t-[2rem] md:rounded-t-[3rem] -mt-8 md:-mt-12 bg-ink text-white py-24 md:py-32 overflow-hidden"
     >
       {/* Texto centralizado */}
       <div className="mx-auto max-w-[1200px] px-6 md:px-10 lg:px-14 text-center">
@@ -136,6 +198,7 @@ export default function ProjetosArco() {
 
       {/* Leque curvo infinito de cards quadrados */}
       <div
+        ref={arcRef}
         className="relative mt-16 h-[240px] md:h-[360px]"
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
@@ -143,16 +206,19 @@ export default function ProjetosArco() {
         {cards.map((card, i) => {
           const d = wrap(i - active);
           const dist = Math.abs(d);
-          const rotate = d * STEP_DEG;
+          const teleporting = instant.includes(i);
+          // No frame do salto, o card que dá a volta fica UM passo além da borda
+          // (fora do ecrã) e invisível; a seguir desliza+aparece para a posição real.
+          const rotate = (teleporting ? d + Math.sign(d) : d) * step;
           // Card central (ativo) cresce ~22% para ganhar destaque; cresce de forma
           // animada porque o transform tem transition de 0.75s.
           const scale = dist === 0 ? 1.22 : Math.max(0, 1 - 0.04 * dist);
-          const opacity = Math.max(0, 1 - 0.2 * dist);
-          const noAnim = reduced || instant.includes(i);
+          const opacity = teleporting ? 0 : Math.max(0, 1 - 0.2 * dist);
+          const noAnim = reduced || teleporting;
           return (
             <div
               key={i}
-              className="absolute left-1/2 top-4 ml-[-54px] md:ml-[-80px]"
+              className="absolute left-1/2 top-4 ml-[-64px] md:ml-[-88px]"
               style={{
                 transformOrigin: "50% 1000px",
                 transform: `rotate(${rotate}deg)`,
@@ -168,7 +234,7 @@ export default function ProjetosArco() {
                 onMouseEnter={dist === 0 ? () => setPaused(true) : undefined}
                 onMouseLeave={dist === 0 ? () => setPaused(false) : undefined}
                 aria-label={card.name}
-                className="block w-[108px] h-[108px] md:w-[160px] md:h-[160px] rounded-[10px] overflow-hidden ring-1 ring-white/10 shadow-sm"
+                className="block w-[128px] h-[128px] md:w-[176px] md:h-[176px] rounded-[12px] overflow-hidden ring-1 ring-white/10 shadow-sm"
                 style={{
                   transform: `scale(${scale})`,
                   opacity,
