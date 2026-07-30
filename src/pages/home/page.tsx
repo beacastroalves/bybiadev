@@ -14,7 +14,7 @@ import Blog from "./components/Blog";
 import Footer from "./components/Footer";
 
 // Definir modo do site: true = Em Breve (Pre-Lançamento), false = Landing Page Completa
-export const isPrelaunch = false;
+export const isPrelaunch = true;
 
 // Blog só entra no ar quando houver artigos reais (ver specs/05 P0#5).
 const blogReady: boolean = false;
