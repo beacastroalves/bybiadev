@@ -8,7 +8,10 @@ import {
 import { useTranslation } from "react-i18next";
 
 // 9 cards (ímpar → arco simétrico). Adicionar mais projetos aqui estende o arco.
-const cards = [
+// tall?: true  → a imagem é um screenshot COMPRIDO (página inteira). Nesse caso, quando
+// o card está em destaque (central), a imagem "rola" do topo ao fundo em loop, como um
+// mini-walkthrough do site. Sem tall, o card é um quadrado estático normal.
+const cards: { name: string; image: string; tall?: boolean }[] = [
   { name: "Benedi — Clube de Psicologia", image: "https://benediclube.com.br/assets/images/logo/meta-benedi.jpg" },
   { name: "Natural Talking — Inglês", image: "https://i.postimg.cc/cHmhWN6j/NYT-20260119-203332-0000.png" },
   { name: "E-commerce", image: "https://images.pexels.com/photos/1366630/pexels-photo-1366630.jpeg?auto=compress&cs=tinysrgb&w=600" },
@@ -176,23 +179,23 @@ export default function ProjetosArco() {
   return (
     <section
       ref={sectionRef}
-      id="projetos-arco"
+      id="trabalho"
       className="relative isolate rounded-t-[2rem] md:rounded-t-[3rem] -mt-8 md:-mt-12 bg-ink text-white py-24 md:py-32 overflow-hidden"
     >
-      {/* Texto centralizado */}
+      {/* Texto centralizado — usa a copy da secção Trabalho (chaves work.*). */}
       <div className="mx-auto max-w-[1200px] px-6 md:px-10 lg:px-14 text-center">
         <div
           data-reveal
           className="text-caption font-mono-tech uppercase tracking-[0.25em] text-white/60"
         >
-          {t("projetos.label")}
+          {t("work.label")}
         </div>
         <h2 data-reveal-title className="mt-4 font-serif text-h2 text-balance">
-          {t("projetos.title.p1")}
-          <span className="italic text-white/55">{t("projetos.title.p2")}</span>
+          {t("work.headline.p1")}{" "}
+          <span className="italic text-white/55">{t("work.headline.p2")}</span>
         </h2>
         <p data-reveal className="mt-4 mx-auto max-w-xl text-body-lg text-white/70">
-          {t("projetos.subtitle")}
+          {t("work.description")}
         </p>
       </div>
 
@@ -244,7 +247,12 @@ export default function ProjetosArco() {
                 <img
                   src={card.image}
                   alt={card.name}
-                  className="w-full h-full object-cover"
+                  className={`w-full h-full object-cover${
+                    card.tall && dist === 0 && !reduced ? " animate-scroll-shot" : ""
+                  }`}
+                  // Screenshot comprido: em repouso mostra o TOPO da página; ao ficar
+                  // em destaque, a classe acima anima o object-position até ao fundo.
+                  style={card.tall ? { objectPosition: "50% 0%" } : undefined}
                   draggable={false}
                 />
               </button>

@@ -71,6 +71,17 @@
   to { width: 100%; }
 }
 
+/* Screenshot comprido (página inteira) do card em destaque a "rolar" topo→fundo.
+   Pausa curta no topo (0–12%) e no fundo (88–100%). Usa-se com `alternate` para
+   descer e voltar a subir suavemente. Só é aplicada no card central (ver componente). */
+@keyframes scroll-shot {
+  0%, 12%   { object-position: 50% 0%; }
+  88%, 100% { object-position: 50% 100%; }
+}
+.animate-scroll-shot {
+  animation: scroll-shot 7s ease-in-out infinite alternate;
+}
+
 .animate-float-slow { animation: float-slow 6s ease-in-out infinite; }
 .animate-fade-up { animation: fade-up 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
 .animate-fade-up-delay-1 { animation: fade-up 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.15s both; }
@@ -119,6 +130,7 @@ textarea:focus-visible {
   .animate-marquee,
   .animate-float-slow,
   .animate-font-cycle,
+  .animate-scroll-shot,
   .text-shimmer {
     animation: none !important;
   }

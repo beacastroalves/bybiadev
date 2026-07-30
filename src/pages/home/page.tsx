@@ -5,10 +5,8 @@ import Hero from "./components/Hero";
 import Problema from "./components/Problema";
 import PorqueSite from "./components/PorqueSite";
 import Friccao from "./components/Friccao";
-import Trabalho from "./components/Trabalho";
 import Sobre from "./components/Sobre";
 import Processo from "./components/Processo";
-import Projetos from "./components/Projetos";
 import ProjetosArco from "./components/ProjetosArco";
 import Faq from "./components/Faq";
 import Agenda from "./components/Agenda";
@@ -71,10 +69,8 @@ export default function Home() {
           <Sobre />
           {/* Separadores agora são os painéis arredondados sobrepostos (rounded-t + -mt nas secções). Ver specs/09 §5. */}
           <Processo />
-          <Trabalho />
-          {/* Variantes de portfólio em teste (para comparar com o Trabalho acima): */}
-          <Projetos />      {/* A) slideshow crossfade */}
-          <ProjetosArco />  {/* B) leque curvo em arco */}
+          {/* Portfólio: leque curvo em arco (id="trabalho") com o copy da secção Trabalho. */}
+          <ProjetosArco />
           <Faq />
           <Agenda />
           {/* Blog oculto até haver artigos reais — os posts atuais são fictícios (datas futuras, imagens de stock). Ver specs/05 P0#5. */}
