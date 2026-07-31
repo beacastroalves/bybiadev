@@ -70,6 +70,11 @@ export default defineConfig({
     }),
   ],
   base,
+  // SSG: gerar /br/index.html em vez de /br.html — assim qualquer servidor estático
+  // serve /br/ e /en/ como índice de diretório (sem precisar de rewrite de "clean URLs").
+  ssgOptions: {
+    dirStyle: 'nested',
+  },
   build: {
     sourcemap: true,
     outDir: 'out',

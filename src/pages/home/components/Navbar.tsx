@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next"; // Importação do hook de tradução
 
 export default function Navbar({ isPrelaunch, blogReady }: { isPrelaunch?: boolean; blogReady?: boolean }) {
@@ -23,20 +24,13 @@ export default function Navbar({ isPrelaunch, blogReady }: { isPrelaunch?: boole
     { code: "en", label: "EN", flag: "https://flagcdn.com/us.svg" },
   ];
 
-  // Função cíclica de idiomas: BR ➔ PT ➔ EN ➔ BR
-  const toggleLanguage = () => {
-    const currentLang = i18n.language || "pt-BR";
-    let nextLang = "pt-BR";
-
-    if (currentLang.startsWith("pt-BR")) {
-      nextLang = "pt-pt";
-    } else if (currentLang.startsWith("pt-PT") || currentLang.startsWith("pt-pt")) {
-      nextLang = "en";
-    } else {
-      nextLang = "pt-BR";
-    }
-
-    i18n.changeLanguage(nextLang);
+  const navigate = useNavigate();
+  // Troca de idioma = navegar para a rota do locale (URLs por locale: /, /br, /en).
+  const LOCALE_PATH: Record<string, string> = { "pt-BR": "/br/", "pt-PT": "/", en: "/en/" };
+  const goToLocale = (code: string) => {
+    // Guarda a escolha manual para a auto-deteção de idioma (no index.html) a respeitar.
+    try { localStorage.setItem("bybia_lang", code); } catch { /* ignora modo privado */ }
+    navigate(LOCALE_PATH[code] ?? "/");
   };
 
   useEffect(() => {
@@ -119,7 +113,7 @@ export default function Navbar({ isPrelaunch, blogReady }: { isPrelaunch?: boole
                     <button
                       key={lang.code}
                       onClick={() => {
-                        i18n.changeLanguage(lang.code);
+                        goToLocale(lang.code);
                         setLangDropdownOpen(false);
                       }}
                       className={`w-full flex items-center gap-2 px-3 py-2 text-left text-caption font-mono-tech transition-colors ${
@@ -162,7 +156,7 @@ export default function Navbar({ isPrelaunch, blogReady }: { isPrelaunch?: boole
                 return (
                   <button
                     key={lang.code}
-                    onClick={() => i18n.changeLanguage(lang.code)}
+                    onClick={() => goToLocale(lang.code)}
                     className={`px-2.5 py-1 rounded-full text-caption font-mono-tech font-bold transition-all duration-300 ${
                       isSelected
                         ? "bg-brand text-white shadow-[0_2px_8px_rgba(83,74,183,0.4)]"
@@ -196,7 +190,7 @@ export default function Navbar({ isPrelaunch, blogReady }: { isPrelaunch?: boole
                 return (
                   <button
                     key={lang.code}
-                    onClick={() => i18n.changeLanguage(lang.code)}
+                    onClick={() => goToLocale(lang.code)}
                     className={`px-2.5 py-1 rounded-full text-caption font-mono-tech font-bold transition-all duration-300 ${
                       isSelected
                         ? "bg-brand text-white shadow-[0_2px_8px_rgba(83,74,183,0.4)]"
@@ -261,7 +255,7 @@ export default function Navbar({ isPrelaunch, blogReady }: { isPrelaunch?: boole
                     <button
                       key={lang.code}
                       onClick={() => {
-                        i18n.changeLanguage(lang.code);
+                        goToLocale(lang.code);
                         setMobileLangOpen(false);
                         setMenuOpen(false);
                       }}

@@ -3,28 +3,124 @@
 <head>
     <meta charset="UTF-8" />
 
-    <!-- Title & SEO Tags -->
-    <title>Criar sites profissionais | ByBia.dev — Beatriz Castro</title>
-    <meta name="description" content="Quer criar ou comprar um site profissional? A Beatriz Castro (ByBia.dev) cria sites e landing pages para pequenos negócios e profissionais — rápidos, bonitos e feitos à mão." />
+    <!-- Auto-deteção de idioma (SÓ na raiz "/"). Redireciona o visitante real para o
+         seu locale antes do React montar. Ignora bots (o Google indexa o x-default PT-PT)
+         e respeita a escolha manual guardada em localStorage. /br e /en nunca redirecionam. -->
+    <script>
+      (function () {
+        try {
+          if (location.pathname !== "/") return;
+          var ua = navigator.userAgent || "";
+          if (/bot|crawl|spider|slurp|mediapartners|bingpreview|google|bing|yandex|duckduck|baidu/i.test(ua)) return;
+          var pref = null;
+          try { pref = localStorage.getItem("bybia_lang"); } catch (e) {}
+          if (pref === "pt-PT") return;
+          if (pref === "pt-BR") { location.replace("/br/"); return; }
+          if (pref === "en") { location.replace("/en/"); return; }
+          var l = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase();
+          if (l.indexOf("pt") === 0) {
+            if (l.indexOf("br") !== -1) location.replace("/br/");
+            // pt-pt ou "pt" genérico → fica em "/"
+          } else {
+            location.replace("/en/");
+          }
+        } catch (e) {}
+      })();
+    </script>
+
+    <!-- Título, description, canonical, hreflang e OG/Twitter localizados são geridos
+         POR ROTA pelo <Head> (React) em src/pages/Layout.tsx — um por locale (/, /br, /en).
+         Aqui ficam só as tags comuns a todos os locales. -->
     <meta name="keywords" content="criar site, fazer site, comprar site, criar sites, fazer sites, criação de sites, site profissional, Beatriz Castro, ByBia.dev, landing pages, websites institucionais, dev independente, Portugal" />
     <meta name="author" content="ByBia.dev" />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://bybia.dev/" />
 
-    <!-- Open Graph / Facebook / WhatsApp -->
+    <!-- Open Graph / Twitter — partes comuns (imagem, tipo, card) -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://bybia.dev/" />
-    <meta property="og:title" content="Criar sites profissionais | ByBia.dev — Beatriz Castro" />
-    <meta property="og:description" content="Quer criar ou comprar um site profissional? A Beatriz Castro (ByBia.dev) cria sites e landing pages para pequenos negócios e profissionais — rápidos, bonitos e feitos à mão." />
-    <!-- <meta property="og:image" content="https://bybia.dev/og-image.png" /> -->
+    <meta property="og:image" content="https://bybia.dev/og-image.png" />
+    <meta property="og:image:width" content="974" />
+    <meta property="og:image:height" content="509" />
+    <meta property="og:image:alt" content="ByBia.dev — Criar sites profissionais, por Beatriz Castro" />
     <meta property="og:site_name" content="ByBia.dev" />
-
-    <!-- Twitter / X -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://bybia.dev/" />
-    <meta property="twitter:title" content="Criar sites profissionais | ByBia.dev — Beatriz Castro" />
-    <meta property="twitter:description" content="Quer criar ou comprar um site profissional? A Beatriz Castro (ByBia.dev) cria sites e landing pages para pequenos negócios e profissionais — rápidos, bonitos e feitos à mão." />
     <meta property="twitter:image" content="https://bybia.dev/og-image.png" />
+
+    <!-- Dados estruturados (Schema.org) — negócio, pessoa e FAQ. Em PT-PT, a corresponder ao HTML pré-renderizado. -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://bybia.dev/#website",
+          "url": "https://bybia.dev/",
+          "name": "ByBia.dev",
+          "inLanguage": "pt-PT",
+          "publisher": { "@id": "https://bybia.dev/#bybia" }
+        },
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://bybia.dev/#bybia",
+          "name": "ByBia.dev",
+          "alternateName": "ByBia.dev — Criação de Sites",
+          "description": "Criação de sites profissionais, landing pages e sites institucionais para pequenos negócios e profissionais. Rápidos, bem construídos e com SEO tratado ao detalhe.",
+          "url": "https://bybia.dev/",
+          "image": "https://bybia.dev/og-image.png",
+          "email": "contact@bybia.dev",
+          "telephone": "+351915514394",
+          "priceRange": "€€",
+          "areaServed": { "@type": "Country", "name": "Portugal" },
+          "availableLanguage": ["pt-PT", "pt-BR", "en"],
+          "founder": { "@id": "https://bybia.dev/#beatriz" },
+          "sameAs": ["https://github.com/beacastroalves"],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Serviços",
+            "itemListElement": [
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Criação de sites" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Landing pages" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sites institucionais" } }
+            ]
+          }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://bybia.dev/#beatriz",
+          "name": "Beatriz Castro",
+          "jobTitle": "Desenvolvedora Web",
+          "url": "https://bybia.dev/",
+          "worksFor": { "@id": "https://bybia.dev/#bybia" },
+          "sameAs": ["https://github.com/beacastroalves"]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://bybia.dev/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Isto é para mim? Sou um negócio pequeno.",
+              "acceptedAnswer": { "@type": "Answer", "text": "É sobretudo para negócios pequenos. São os que mais ganham em ser encontrados — e os que as agências grandes tratam como projeto menor." }
+            },
+            {
+              "@type": "Question",
+              "name": "E se eu não perceber nada de tecnologia?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Não precisa de perceber. Essa é a minha parte. A si cabe falar do seu negócio, que é o que ninguém sabe melhor do que você." }
+            },
+            {
+              "@type": "Question",
+              "name": "Já me fizeram um site e não deu em nada.",
+              "acceptedAnswer": { "@type": "Answer", "text": "Um site sozinho não traz ninguém. Tem de ser rápido, aparecer nas pesquisas e manter-se atualizado. É essa a diferença — e é por isso que continuo a tratar dele depois de estar no ar." }
+            },
+            {
+              "@type": "Question",
+              "name": "E se um dia eu quiser mudar de pessoa?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Leva o site consigo. Os ficheiros e o domínio ficam em seu nome. Fica comigo porque quer, não porque está preso." }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
 
     <!-- Favicon & Device Icons -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />

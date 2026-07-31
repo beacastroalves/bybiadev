@@ -1,31 +1,35 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import LanguageDetector from 'i18next-browser-languagedetector';
 import messages from './local/index';
 
-// No servidor (build SSG) não há navigator: fixamos PT-PT para o HTML pré-renderizado
-// ser em português de Portugal (mercado primário). No cliente, o detetor decide a região.
-const isServer = typeof window === 'undefined';
-
-if (!isServer) {
-  i18n.use(LanguageDetector); // Detetor automático do navegador (só no cliente)
+// A partir das rotas por locale (/, /br, /en) é a URL que decide o idioma. Já NÃO
+// usamos o detetor de navegador (evita conflito com o URL e mismatch de hidratação).
+// O idioma inicial vem do pathname (no cliente) para a hidratação bater certo com o
+// HTML pré-renderizado; no servidor arranca em PT-PT e o Layout fixa o locale de cada
+// rota durante o render SSR. Fallback: PT-PT (Portugal).
+function initialLng(): string {
+  if (typeof window === 'undefined') return 'pt-PT';
+  const p = window.location.pathname;
+  if (p.startsWith('/br')) return 'pt-BR';
+  if (p.startsWith('/en')) return 'en';
+  return 'pt-PT';
 }
 
 i18n
   .use(initReactI18next)
   .init({
     fallbackLng: 'pt-PT',
-    lng: isServer ? 'pt-PT' : undefined,
+    lng: initialLng(),
     debug: false,
     resources: messages,
 
-    detection: {
-      order: ['navigator', 'querystring', 'cookie', 'localStorage'],
-      caches: ['localStorage', 'cookie'],
-    },
-
     interpolation: {
       escapeValue: false,
+    },
+
+    react: {
+      // Sem Suspense: troca de língua síncrona no SSG e na hidratação.
+      useSuspense: false,
     },
   });
 

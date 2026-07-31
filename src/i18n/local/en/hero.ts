@@ -1,4 +1,7 @@
 const hero = {
+  "seo.title": "Professional website design | ByBia.dev — Beatriz Castro",
+  "seo.description": "Need a professional website? Beatriz Castro (ByBia.dev) builds websites and landing pages for small businesses and independent professionals — fast, beautiful, handcrafted.",
+
   "nav.work": "Work",
   "nav.about": "About",
   "nav.process": "Process",
@@ -27,7 +30,7 @@ const hero = {
   "hero.title.part2": "worthy of",
   "hero.title.part3": "your business,",
   "hero.title.part4": "built by hand.",
-  "hero.description": "Websites, landing pages, and institutional sites for small businesses and independent professionals. Fast, well-built, with SEO done right — a professional site that earns trust and turns visits into real contacts.",
+  "hero.description": "I build websites, landing pages, and institutional sites for small businesses and independent professionals. Fast, well-built, with SEO done right — a professional site that earns trust and turns visits into real contacts.",
   "hero.btn.work": "View projects",
   "hero.btn.process": "My process",
   "hero.stat.direct": "Direct collaboration",
@@ -40,7 +43,7 @@ const hero = {
   "work.headline.p2": "to look like templates.",
   "work.description": "A focused selection of recent projects — institutional sites, landing pages, and web apps — built with clean code, real performance, and one goal: results.",
   "work.archive": "View full archive ↗",
-  "work.ticker": ["Institutional Websites", "High-Converting Landing Pages", "Web Development", "Digital Portfolios", "Web Architecture", "Clean Code", "SEO Optimization"],
+  "work.ticker": ["Website Creation", "Institutional Websites", "High-Converting Landing Pages", "Web Development", "Digital Portfolios", "Web Architecture", "Clean Code", "SEO Optimization"],
 
   "about.label": "• ABOUT · INDEPENDENT DEV",
   "about.headline.p1": "A solo developer,",

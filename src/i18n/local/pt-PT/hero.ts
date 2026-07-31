@@ -1,4 +1,7 @@
 const hero = {
+  "seo.title": "Criar sites profissionais | ByBia.dev — Beatriz Castro",
+  "seo.description": "Quer criar ou comprar um site profissional? A Beatriz Castro (ByBia.dev) cria sites e landing pages para pequenos negócios e profissionais — rápidos, bonitos e feitos à mão.",
+
   "nav.work": "Trabalho",
   "nav.about": "Sobre",
   "nav.process": "Processo",
@@ -27,7 +30,7 @@ const hero = {
   "hero.title.part2": "à altura",
   "hero.title.part3": "do seu negócio,",
   "hero.title.part4": "feito à mão.",
-  "hero.description": "Websites, landing pages e sites institucionais para pequenos negócios e profissionais. Rápidos, bem construídos e com SEO tratado ao detalhe — um site profissional que passa confiança e transforma visitas em contactos.",
+  "hero.description": "Crio websites, landing pages e sites institucionais para pequenos negócios e profissionais. Rápidos, bem construídos e com SEO tratado ao detalhe — um site profissional que passa confiança e transforma visitas em contactos.",
   "hero.btn.work": "Ver projetos",
   "hero.btn.process": "O meu método",
   "hero.stat.direct": "Colaboração direta",
@@ -40,7 +43,7 @@ const hero = {
   "work.headline.p2": "parecer todos iguais.",
   "work.description": "Uma seleção de projetos recentes — sites institucionais, landing pages e e-commerces — desenvolvidos com atenção milimétrica ao detalhe, velocidade e pensados para converter.",
   "work.archive": "Ver o portefólio completo ↗",
-  "work.ticker": ["Websites Institucionais", "Landing Pages de Alta Conversão", "Desenvolvimento Web", "Portfólios Digitais", "Arquitetura Web", "Código Limpo", "Otimização SEO"],
+  "work.ticker": ["Criação de Sites", "Websites Institucionais", "Landing Pages de Alta Conversão", "Desenvolvimento Web", "Portfólios Digitais", "Arquitetura Web", "Código Limpo", "Otimização SEO"],
 
   "about.label": "• SOBRE · DEV INDEPENDENTE",
   "about.headline.p1": "Uma dev sozinha,",
