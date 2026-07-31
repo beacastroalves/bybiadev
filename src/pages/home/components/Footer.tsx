@@ -84,7 +84,7 @@ export default function Footer({ isPrelaunch, blogReady }: { isPrelaunch?: boole
         {/* PARTE INFERIOR: Direitos Autorais */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-caption font-mono-tech text-white/60">
           <div>
-            © {new Date().getFullYear()} ByBia.dev. {t("footer.copyright")}
+            © {new Date().getFullYear()} ByBia.dev · Beatriz Castro. {t("footer.copyright")}
           </div>
           <div className="flex items-center gap-1.5">
             <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>

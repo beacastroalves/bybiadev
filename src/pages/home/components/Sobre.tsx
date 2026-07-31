@@ -77,7 +77,7 @@ export default function Studio() {
                 </div>
                 <div>
                   <div className="text-[13px] font-medium text-neutral-900">
-                    Bia · {t("about.profile.role")}
+                    Beatriz Castro · {t("about.profile.role")}
                   </div>
                   <div className="text-[11px] text-neutral-500 font-mono">
                     📍 Portugal
