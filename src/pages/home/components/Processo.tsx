@@ -175,6 +175,8 @@ export default function Process() {
                   className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-700 ${
                     i === active ? "opacity-100 scale-100" : "opacity-0 scale-105"
                   }`}
+                  loading="lazy"
+                  decoding="async"
                   draggable={false}
                 />
               ))}

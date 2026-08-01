@@ -2,6 +2,40 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next"; // Importação do hook de tradução
 
+// Bandeiras em SVG inline — renderizam em TODOS os sistemas (incluindo Windows, onde
+// os emoji de bandeira caem para códigos "PT"/"BR"/"GB"). Versões simplificadas, legíveis a ~18px.
+function FlagIcon({ code, className = "w-[18px] h-[13px]" }: { code: string; className?: string }) {
+  const cls = `${className} rounded-[2px] block shrink-0`;
+  if (code === "pt-PT") {
+    return (
+      <svg viewBox="0 0 30 20" className={cls} aria-hidden="true">
+        <rect width="30" height="20" fill="#da291c" />
+        <rect width="12" height="20" fill="#046a38" />
+        <circle cx="12" cy="10" r="3.1" fill="#ffe08a" stroke="#f9d616" strokeWidth="0.7" />
+      </svg>
+    );
+  }
+  if (code === "pt-BR") {
+    return (
+      <svg viewBox="0 0 30 20" className={cls} aria-hidden="true">
+        <rect width="30" height="20" fill="#009c3b" />
+        <polygon points="15,2.5 27.5,10 15,17.5 2.5,10" fill="#ffdf00" />
+        <circle cx="15" cy="10" r="3.4" fill="#002776" />
+      </svg>
+    );
+  }
+  // en → Union Jack (GB), simplificado
+  return (
+    <svg viewBox="0 0 30 20" className={cls} aria-hidden="true">
+      <rect width="30" height="20" fill="#012169" />
+      <path d="M0,0 30,20 M30,0 0,20" stroke="#fff" strokeWidth="4" />
+      <path d="M0,0 30,20 M30,0 0,20" stroke="#c8102e" strokeWidth="2" />
+      <path d="M15,0 V20 M0,10 H30" stroke="#fff" strokeWidth="6" />
+      <path d="M15,0 V20 M0,10 H30" stroke="#c8102e" strokeWidth="3.4" />
+    </svg>
+  );
+}
+
 export default function Navbar({ isPrelaunch, blogReady }: { isPrelaunch?: boolean; blogReady?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -19,9 +53,9 @@ export default function Navbar({ isPrelaunch, blogReady }: { isPrelaunch?: boole
   ];
 
   const languages = [
-    { code: "pt-BR", label: "PT-BR", flag: "https://flagcdn.com/br.svg" },
-    { code: "pt-PT", label: "PT-PT", flag: "https://flagcdn.com/pt.svg" },
-    { code: "en", label: "EN", flag: "https://flagcdn.com/us.svg" },
+    { code: "pt-BR", label: "PT-BR" },
+    { code: "pt-PT", label: "PT-PT" },
+    { code: "en", label: "EN" },
   ];
 
   const navigate = useNavigate();
@@ -98,7 +132,7 @@ export default function Navbar({ isPrelaunch, blogReady }: { isPrelaunch?: boole
               onClick={() => setLangDropdownOpen(!langDropdownOpen)}
               className="flex items-center gap-1.5 text-caption font-mono-tech uppercase border border-white/25 bg-white/5 hover:bg-white/10 rounded-full px-3 py-1.5 text-white/80 hover:text-white transition-all select-none"
             >
-              <img src={currentLang.flag} alt={currentLang.label} className="w-4 h-3 object-cover rounded-[1px] border border-white/10" />
+              <FlagIcon code={currentLang.code} />
               <span>{currentLang.label}</span>
               <i className={`ri-arrow-down-s-line text-[10px] transition-transform duration-300 ${langDropdownOpen ? "rotate-180" : ""}`}></i>
             </button>
@@ -122,7 +156,7 @@ export default function Navbar({ isPrelaunch, blogReady }: { isPrelaunch?: boole
                           : "text-white/80 hover:bg-white/5 hover:text-white"
                       }`}
                     >
-                      <img src={lang.flag} alt={lang.label} className="w-4 h-3 object-cover rounded-[1px] border border-white/10" />
+                      <FlagIcon code={lang.code} />
                       <span>{lang.label}</span>
                     </button>
                   ))}
@@ -239,7 +273,7 @@ export default function Navbar({ isPrelaunch, blogReady }: { isPrelaunch?: boole
                 <i className="ri-global-line text-sm text-accent"></i>
                 <span>Idioma / Região:</span>
                 <span className="flex items-center gap-1.5 bg-white/5 px-2 py-0.5 rounded border border-white/10 text-white font-sans text-[10px]">
-                  <img src={currentLang.flag} alt="" className="w-3.5 h-2.5 object-cover rounded-[1px]" />
+                  <FlagIcon code={currentLang.code} className="w-4 h-[11px]" />
                   {currentLang.label}
                 </span>
               </div>
@@ -263,7 +297,7 @@ export default function Navbar({ isPrelaunch, blogReady }: { isPrelaunch?: boole
                         isSelected ? "text-accent font-semibold" : "text-white/60 hover:text-white"
                       }`}
                     >
-                      <img src={lang.flag} alt="" className="w-4 h-3 object-cover rounded-[1px] border border-white/10" />
+                      <FlagIcon code={lang.code} />
                       <span>
                         {lang.code === "pt-BR" ? "Português (Brasil)" : lang.code === "pt-PT" ? "Português (Portugal)" : "English (Global)"}
                       </span>

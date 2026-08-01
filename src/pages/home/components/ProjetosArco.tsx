@@ -250,6 +250,8 @@ export default function ProjetosArco() {
                   className={`w-full h-full object-cover${
                     card.tall && dist === 0 && !reduced ? " animate-scroll-shot" : ""
                   }`}
+                  loading="lazy"
+                  decoding="async"
                   // Screenshot comprido: em repouso mostra o TOPO da página; ao ficar
                   // em destaque, a classe acima anima o object-position até ao fundo.
                   style={card.tall ? { objectPosition: "50% 0%" } : undefined}

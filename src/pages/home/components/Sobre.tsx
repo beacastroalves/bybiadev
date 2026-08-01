@@ -67,6 +67,8 @@ export default function Studio() {
               src="https://images.pexels.com/photos/1957478/pexels-photo-1957478.jpeg?auto=compress&cs=tinysrgb&w=1400"
               alt="Espaço de trabalho ByBia"
               className="w-full h-full object-cover object-center transition-transform duration-[1500ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] group-hover:scale-103"
+              loading="lazy"
+              decoding="async"
               draggable={false}
             />
             {/* Float card */}

@@ -1,6 +1,6 @@
 const hero = {
   "seo.title": "Criação de sites profissionais | ByBia.dev — Beatriz Castro",
-  "seo.description": "Quer criar um site profissional? A Beatriz Castro (ByBia.dev) cria sites e landing pages para pequenos negócios e profissionais — rápidos, bonitos e feitos à mão.",
+  "seo.description": "A Beatriz Castro (ByBia.dev) cria sites profissionais e landing pages para pequenos negócios — rápidos, bonitos e feitos à mão. Solicite um orçamento.",
 
   "nav.work": "Trabalho",
   "nav.about": "Sobre",

@@ -1,6 +1,6 @@
 const hero = {
   "seo.title": "Professional website design | ByBia.dev — Beatriz Castro",
-  "seo.description": "Need a professional website? Beatriz Castro (ByBia.dev) builds websites and landing pages for small businesses and independent professionals — fast, beautiful, handcrafted.",
+  "seo.description": "Beatriz Castro (ByBia.dev) builds professional websites and landing pages for small businesses — fast, beautiful, handcrafted. Get a quote.",
 
   "nav.work": "Work",
   "nav.about": "About",
