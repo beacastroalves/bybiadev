@@ -132,11 +132,15 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- Preload da capa do Hero (elemento LCP) para carregar o mais cedo possível. -->
+    <link rel="preload" as="image" href="/hero-image.webp" fetchpriority="high" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Syne:wght@400..800&family=Bebas+Neue&family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Só as fontes usadas no site live: Inter (corpo), Instrument Serif (display), JetBrains Mono (técnico).
+         Pacifico (sem uso) e Bebas Neue/Syne/Cinzel (só a animação font-cycle do modo prelaunch) foram removidas. -->
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Font Awesome removido (0 usos). Remix Icon mantido (ícones ri-* usados na UI). -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.5.0/remixicon.min.css">
   </head>
   <body>

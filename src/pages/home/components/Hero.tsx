@@ -1,26 +1,55 @@
+import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import Counter from "./Counter";
 
-const heroVideo =
-  "https://public.readdy.ai/ai/video_res/019ef297-7978-7fa0-a63c-8c798b51c36e.mp4";
+// Assets do Hero na TUA base (public/), não em terceiros como o readdy.
+const HERO_POSTER = "/hero-image.webp"; // capa leve — carrega já (é o LCP)
+const HERO_VIDEO = "/hero-video.mp4"; // vídeo — só carrega na 1.ª interação
 
 export default function Hero({ isPrelaunch }: { isPrelaunch?: boolean }) {
   const { t } = useTranslation();
 
+  // Performance: mostramos só a capa (leve). O vídeo (mais pesado) entra apenas
+  // quando o utilizador interage com a página — o carregamento inicial fica leve.
+  const [showVideo, setShowVideo] = useState(false);
+  useEffect(() => {
+    if (showVideo) return;
+    const load = () => setShowVideo(true);
+    const events = ["click", "touchstart", "keydown", "mousedown", "mousemove", "scroll", "pointerdown"];
+    events.forEach((e) => window.addEventListener(e, load, { passive: true, once: true }));
+    return () => events.forEach((e) => window.removeEventListener(e, load));
+  }, [showVideo]);
+
   return (
     <section className="relative min-h-screen w-full overflow-hidden bg-[#0a0a0a]">
-      {/* FULL-SCREEN BACKGROUND VIDEO */}
+      {/* FUNDO: capa leve sempre visível (LCP); o vídeo entra por cima só após interação. */}
       <div className="absolute inset-0 z-0">
-        <video
-          src={heroVideo}
+        <img
+          src={HERO_POSTER}
+          alt="Figura escultural preta com chama prismática — inteligência criativa"
           className="w-full h-full object-cover object-center select-none pointer-events-none"
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          aria-label="Glossy black sculptural figure with vivid prismatic flame, symbolizing creative intelligence"
+          fetchPriority="high"
+          draggable={false}
+          onError={(e) => { e.currentTarget.style.display = "none"; }}
         />
+        {showVideo && (
+          <video
+            src={HERO_VIDEO}
+            className="absolute inset-0 w-full h-full object-cover object-center select-none pointer-events-none animate-fade-in"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            aria-label="Figura escultural preta com chama prismática, símbolo de inteligência criativa"
+            onCanPlay={(e) => {
+              // Garante o arranque: o autoPlay de um <video muted> inserido via React
+              // nem sempre dispara (o atributo muted pode não estar refletido a tempo).
+              e.currentTarget.muted = true;
+              void e.currentTarget.play().catch(() => {});
+            }}
+          />
+        )}
       </div>
 
       {/* GRADIENT OVERLAY */}
